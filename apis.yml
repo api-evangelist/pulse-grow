@@ -1,8 +1,8 @@
 aid: pulse-grow
 name: Pulse Grow
 description: >-
-  The Pulse API is an HTTP API that is designed to interact with your pulse
-  account and devices. 
+  The Pulse API is an HTTP API that is designed to interact with your pulse account
+  and devices.
 type: Index
 position: Consumer
 access: 3rd-Party
@@ -18,8 +18,8 @@ apis:
   - aid: pulse-grow:pulse-grow
     name: Pulse Grow
     description: >-
-      The Pulse API is an HTTP API that is designed to interact with your pulse
-      account and devices. 
+      The Pulse API is an HTTP API that is designed to interact with your pulse account
+      and devices.
     humanURL: https://api.pulsegrow.com/docs/index.html
     tags:
       - API
