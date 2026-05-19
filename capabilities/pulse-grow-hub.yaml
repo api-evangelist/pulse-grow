@@ -1,0 +1,107 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Pulse Api — Hub
+  description: 'Pulse Api — Hub. 2 operations. Lead operation: All Hub Ids. Self-contained Naftiko capability covering one
+    Pulse Grow business surface.'
+  tags:
+  - Pulse Grow
+  - Hub
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    PULSE_GROW_API_KEY: PULSE_GROW_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: pulse-grow-hub
+    baseUri: ''
+    description: Pulse Api — Hub business capability. Self-contained, no shared references.
+    resources:
+    - name: hubs-ids
+      path: /hubs/ids
+      operations:
+      - name: get
+        method: GET
+        description: All Hub Ids
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: hubs-hubId
+      path: /hubs/{hubId}
+      operations:
+      - name: get
+        method: GET
+        description: Gets details for hub
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: hubId
+          in: path
+          type: integer
+          required: true
+  exposes:
+  - type: rest
+    namespace: pulse-grow-hub-rest
+    port: 8080
+    description: REST adapter for Pulse Api — Hub. One Spectral-compliant resource per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/hubs/ids
+      name: hubs-ids
+      description: REST surface for hubs-ids.
+      operations:
+      - method: GET
+        name: get
+        description: All Hub Ids
+        call: pulse-grow-hub.get
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/hubs/{hubid}
+      name: hubs-hubid
+      description: REST surface for hubs-hubId.
+      operations:
+      - method: GET
+        name: get
+        description: Gets details for hub
+        call: pulse-grow-hub.get
+        with:
+          hubId: rest.hubId
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: pulse-grow-hub-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Pulse Api — Hub. One tool per consumed operation, routed inline through this capability's
+      consumes block.
+    tools:
+    - name: all-hub-ids
+      description: All Hub Ids
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: pulse-grow-hub.get
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: gets-details-hub
+      description: Gets details for hub
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: pulse-grow-hub.get
+      with:
+        hubId: tools.hubId
+      outputParameters:
+      - type: object
+        mapping: $.

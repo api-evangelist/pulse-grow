@@ -1,0 +1,67 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Pulse Api — TriggeredThreshold
+  description: 'Pulse Api — TriggeredThreshold. 1 operations. Lead operation: Retrieves triggered thresholds for a grow. Self-contained
+    Naftiko capability covering one Pulse Grow business surface.'
+  tags:
+  - Pulse Grow
+  - TriggeredThreshold
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    PULSE_GROW_API_KEY: PULSE_GROW_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: pulse-grow-triggeredthreshold
+    baseUri: ''
+    description: Pulse Api — TriggeredThreshold business capability. Self-contained, no shared references.
+    resources:
+    - name: api-triggered-thresholds
+      path: /api/triggered-thresholds
+      operations:
+      - name: get
+        method: GET
+        description: Retrieves triggered thresholds for a grow
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: pulse-grow-triggeredthreshold-rest
+    port: 8080
+    description: REST adapter for Pulse Api — TriggeredThreshold. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/api/triggered-thresholds
+      name: api-triggered-thresholds
+      description: REST surface for api-triggered-thresholds.
+      operations:
+      - method: GET
+        name: get
+        description: Retrieves triggered thresholds for a grow
+        call: pulse-grow-triggeredthreshold.get
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: pulse-grow-triggeredthreshold-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Pulse Api — TriggeredThreshold. One tool per consumed operation, routed inline through this
+      capability's consumes block.
+    tools:
+    - name: retrieves-triggered-thresholds-grow
+      description: Retrieves triggered thresholds for a grow
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: pulse-grow-triggeredthreshold.get
+      outputParameters:
+      - type: object
+        mapping: $.

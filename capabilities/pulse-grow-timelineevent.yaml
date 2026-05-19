@@ -1,0 +1,101 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Pulse Api — TimeLineEvent
+  description: "Pulse Api — TimeLineEvent. 1 operations. Lead operation: Retrieves timeline events for grow. \nSupports pagination\
+    \ by page and number of retrieved events.\nSupports filtering by range and event types.. Self-contained Naftiko capability\
+    \ covering one Pulse Grow business surface."
+  tags:
+  - Pulse Grow
+  - TimeLineEvent
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    PULSE_GROW_API_KEY: PULSE_GROW_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: pulse-grow-timelineevent
+    baseUri: ''
+    description: Pulse Api — TimeLineEvent business capability. Self-contained, no shared references.
+    resources:
+    - name: api-timeline
+      path: /api/timeline
+      operations:
+      - name: get
+        method: GET
+        description: 'Retrieves timeline events for grow. '
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: eventTypes
+          in: query
+          type: array
+          description: Types of events to include
+        - name: startDate
+          in: query
+          type: string
+          description: Starting day of event selection. 30 days prior will be used as starting date if not provided
+        - name: endDate
+          in: query
+          type: string
+          description: Last day day of event selection. 30 days after today will be used as starting date if not provided
+        - name: count
+          in: query
+          type: integer
+          description: Number of events to include
+        - name: page
+          in: query
+          type: integer
+          description: pagination
+  exposes:
+  - type: rest
+    namespace: pulse-grow-timelineevent-rest
+    port: 8080
+    description: REST adapter for Pulse Api — TimeLineEvent. One Spectral-compliant resource per consumed operation, prefixed
+      with /v1.
+    resources:
+    - path: /v1/api/timeline
+      name: api-timeline
+      description: REST surface for api-timeline.
+      operations:
+      - method: GET
+        name: get
+        description: 'Retrieves timeline events for grow. '
+        call: pulse-grow-timelineevent.get
+        with:
+          eventTypes: rest.eventTypes
+          startDate: rest.startDate
+          endDate: rest.endDate
+          count: rest.count
+          page: rest.page
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: pulse-grow-timelineevent-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Pulse Api — TimeLineEvent. One tool per consumed operation, routed inline through this capability's
+      consumes block.
+    tools:
+    - name: retrieves-timeline-events-grow
+      description: 'Retrieves timeline events for grow. '
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: pulse-grow-timelineevent.get
+      with:
+        eventTypes: tools.eventTypes
+        startDate: tools.startDate
+        endDate: tools.endDate
+        count: tools.count
+        page: tools.page
+      outputParameters:
+      - type: object
+        mapping: $.

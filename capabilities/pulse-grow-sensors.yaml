@@ -1,0 +1,247 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Pulse Api — Sensors
+  description: 'Pulse Api — Sensors. 5 operations. Lead operation: All Sensor Ids. Self-contained Naftiko capability covering
+    one Pulse Grow business surface.'
+  tags:
+  - Pulse Grow
+  - Sensors
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    PULSE_GROW_API_KEY: PULSE_GROW_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: pulse-grow-sensors
+    baseUri: ''
+    description: Pulse Api — Sensors business capability. Self-contained, no shared references.
+    resources:
+    - name: sensors-ids
+      path: /sensors/ids
+      operations:
+      - name: get
+        method: GET
+        description: All Sensor Ids
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: sensors-sensorId-data-range
+      path: /sensors/{sensorId}/data-range
+      operations:
+      - name: get
+        method: GET
+        description: Data Range for Sensor. Each Datapoint in range will be counted towards your api usage limit.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: sensorId
+          in: path
+          type: integer
+          description: The sensor identifier for which to retrieve data.
+          required: true
+        - name: start
+          in: query
+          type: string
+          description: The beginning time of your data range in ISO 8601 format.
+          required: true
+        - name: end
+          in: query
+          type: string
+          description: The end time of your data range in ISO 8601 format. If not provided, API will use the current time.
+    - name: sensors-sensorId-details
+      path: /sensors/{sensorId}/details
+      operations:
+      - name: get
+        method: GET
+        description: All Sensor Details
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: sensorId
+          in: path
+          type: integer
+          required: true
+    - name: sensors-sensorId-force-read
+      path: /sensors/{sensorId}/force-read
+      operations:
+      - name: get
+        method: GET
+        description: Force an immediate sensor reading
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: sensorId
+          in: path
+          type: integer
+          description: The sensor identifier
+          required: true
+    - name: sensors-sensorId-recent-data
+      path: /sensors/{sensorId}/recent-data
+      operations:
+      - name: get
+        method: GET
+        description: Sensor Recent Data
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: sensorId
+          in: path
+          type: integer
+          description: The sensor identifier for which to retrieve the latest data.
+          required: true
+  exposes:
+  - type: rest
+    namespace: pulse-grow-sensors-rest
+    port: 8080
+    description: REST adapter for Pulse Api — Sensors. One Spectral-compliant resource per consumed operation, prefixed with
+      /v1.
+    resources:
+    - path: /v1/sensors/ids
+      name: sensors-ids
+      description: REST surface for sensors-ids.
+      operations:
+      - method: GET
+        name: get
+        description: All Sensor Ids
+        call: pulse-grow-sensors.get
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/sensors/{sensorid}/data-range
+      name: sensors-sensorid-data-range
+      description: REST surface for sensors-sensorId-data-range.
+      operations:
+      - method: GET
+        name: get
+        description: Data Range for Sensor. Each Datapoint in range will be counted towards your api usage limit.
+        call: pulse-grow-sensors.get
+        with:
+          sensorId: rest.sensorId
+          start: rest.start
+          end: rest.end
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/sensors/{sensorid}/details
+      name: sensors-sensorid-details
+      description: REST surface for sensors-sensorId-details.
+      operations:
+      - method: GET
+        name: get
+        description: All Sensor Details
+        call: pulse-grow-sensors.get
+        with:
+          sensorId: rest.sensorId
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/sensors/{sensorid}/force-read
+      name: sensors-sensorid-force-read
+      description: REST surface for sensors-sensorId-force-read.
+      operations:
+      - method: GET
+        name: get
+        description: Force an immediate sensor reading
+        call: pulse-grow-sensors.get
+        with:
+          sensorId: rest.sensorId
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/sensors/{sensorid}/recent-data
+      name: sensors-sensorid-recent-data
+      description: REST surface for sensors-sensorId-recent-data.
+      operations:
+      - method: GET
+        name: get
+        description: Sensor Recent Data
+        call: pulse-grow-sensors.get
+        with:
+          sensorId: rest.sensorId
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: pulse-grow-sensors-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Pulse Api — Sensors. One tool per consumed operation, routed inline through this capability's
+      consumes block.
+    tools:
+    - name: all-sensor-ids
+      description: All Sensor Ids
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: pulse-grow-sensors.get
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: data-range-sensor-each-datapoint
+      description: Data Range for Sensor. Each Datapoint in range will be counted towards your api usage limit.
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: pulse-grow-sensors.get
+      with:
+        sensorId: tools.sensorId
+        start: tools.start
+        end: tools.end
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: all-sensor-details
+      description: All Sensor Details
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: pulse-grow-sensors.get
+      with:
+        sensorId: tools.sensorId
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: force-immediate-sensor-reading
+      description: Force an immediate sensor reading
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: pulse-grow-sensors.get
+      with:
+        sensorId: tools.sensorId
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: sensor-recent-data
+      description: Sensor Recent Data
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: pulse-grow-sensors.get
+      with:
+        sensorId: tools.sensorId
+      outputParameters:
+      - type: object
+        mapping: $.
