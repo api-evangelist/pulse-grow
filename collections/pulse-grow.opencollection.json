@@ -1,0 +1,437 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Pulse Api",
+    "version": "v1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "AllDevices",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Gets all of the grows devices, including latest data.\nSparklines (data for the last hour) are not included",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/all-devices"
+          },
+          "docs": "Gets all of the grows devices, including latest data.\nSparklines (data for the last hour) are not included"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Devices",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Device Recent Data",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/devices/:deviceId/recent-data",
+            "params": [
+              {
+                "name": "deviceId",
+                "value": "123",
+                "type": "path",
+                "description": "The device identifier for which to retrieve the latest data."
+              }
+            ]
+          },
+          "docs": "Gets the last data point for a device"
+        },
+        {
+          "info": {
+            "name": "Data Range for Device. Each Datapoint in range will be counted towards your api usage limit.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/devices/:deviceId/data-range",
+            "params": [
+              {
+                "name": "deviceId",
+                "value": "123",
+                "type": "path",
+                "description": "The device identifier for which to retrieve data."
+              },
+              {
+                "name": "start",
+                "value": "2020-01-31T01:11:22Z",
+                "type": "query",
+                "description": "The beginning time of your data range in ISO 8601 format."
+              },
+              {
+                "name": "end",
+                "value": "2020-01-31T20:11:22Z",
+                "type": "query",
+                "description": "The end time of your data range in ISO 8601 format. If not provided, API will use the current time."
+              }
+            ]
+          },
+          "docs": "Retrieves all datapoints within a specified timespan the device."
+        },
+        {
+          "info": {
+            "name": "All Device Ids",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/devices/ids"
+          },
+          "docs": "Retrieves all of the device ids assigned to the grow."
+        },
+        {
+          "info": {
+            "name": "All Device Details",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/devices/details"
+          },
+          "docs": "Retrieves detailed information for all devices on the grow."
+        },
+        {
+          "info": {
+            "name": "Data Range for All Devices. Each Datapoint will be counted towards your api usage limit.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/devices/range",
+            "params": [
+              {
+                "name": "start",
+                "value": "2020-01-31T01:11:22Z",
+                "type": "query",
+                "description": "The beginning time of your data range in ISO 8601 format."
+              },
+              {
+                "name": "end",
+                "value": "2020-01-31T20:11:22Z",
+                "type": "query",
+                "description": "The end time of your data range in ISO 8601 format. If not provided, API will use the current time."
+              }
+            ]
+          },
+          "docs": "Retrieves all datapoints within a specified timespan for all devices on grow. Max data range of 7 days."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Hub",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "All Hub Ids",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/hubs/ids"
+          },
+          "docs": "Retrieves all of the hubs ids assigned to the grow."
+        },
+        {
+          "info": {
+            "name": "Gets details for hub",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/hubs/:hubId",
+            "params": [
+              {
+                "name": "hubId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Gets details for hub"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Invitation",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List of invitations that have been sent, but not yet been accepted or canceled.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/invitations"
+          },
+          "docs": "List of invitations that have been sent, but not yet been accepted or canceled."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "ProLightReading",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Retrieves (one page worth of) light readings(including spectrum) for a given device, supports pagination.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/light-readings/:deviceId",
+            "params": [
+              {
+                "name": "deviceId",
+                "value": "",
+                "type": "path",
+                "description": "Id of the device"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Object containing requested page position. Note that page numeration starts from zero"
+              }
+            ]
+          },
+          "docs": "Retrieves (one page worth of) light readings(including spectrum) for a given device, supports pagination."
+        },
+        {
+          "info": {
+            "name": "Remotely triggers a light reading off of a Pulse Pro.\nThe Result needs to be fetched separately in 5-10 seconds\nThere is a small chance of the Pro failing to trigger a light reading remotely\nIf no new data is found - retrigger in 1 minute",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/devices/:deviceId/trigger-light-reading",
+            "params": [
+              {
+                "name": "deviceId",
+                "value": "",
+                "type": "path",
+                "description": "Id of the device"
+              }
+            ]
+          },
+          "docs": "Remotely triggers a light reading off of a Pulse Pro.\nThe Result needs to be fetched separately in 5-10 seconds\nThere is a small chance of the Pro failing to trigger a light reading remotely\nIf no new data is found - retrigger in 1 minute"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Sensors",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Sensor Recent Data",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/sensors/:sensorId/recent-data",
+            "params": [
+              {
+                "name": "sensorId",
+                "value": "123",
+                "type": "path",
+                "description": "The sensor identifier for which to retrieve the latest data."
+              }
+            ]
+          },
+          "docs": "Gets the last data point for a sensor"
+        },
+        {
+          "info": {
+            "name": "Force an immediate sensor reading",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/sensors/:sensorId/force-read",
+            "params": [
+              {
+                "name": "sensorId",
+                "value": "123",
+                "type": "path",
+                "description": "The sensor identifier"
+              }
+            ]
+          },
+          "docs": "Force an immediate sensor reading"
+        },
+        {
+          "info": {
+            "name": "Data Range for Sensor. Each Datapoint in range will be counted towards your api usage limit.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/sensors/:sensorId/data-range",
+            "params": [
+              {
+                "name": "sensorId",
+                "value": "123",
+                "type": "path",
+                "description": "The sensor identifier for which to retrieve data."
+              },
+              {
+                "name": "start",
+                "value": "2020-01-31T01:11:22Z",
+                "type": "query",
+                "description": "The beginning time of your data range in ISO 8601 format."
+              },
+              {
+                "name": "end",
+                "value": "2020-01-31T20:11:22Z",
+                "type": "query",
+                "description": "The end time of your data range in ISO 8601 format. If not provided, API will use the current time."
+              }
+            ]
+          },
+          "docs": "Retrieves all datapoints within a specified timespan the sensor."
+        },
+        {
+          "info": {
+            "name": "All Sensor Ids",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/sensors/ids"
+          },
+          "docs": "Retrieves all of the sensor ids assigned to the grow."
+        },
+        {
+          "info": {
+            "name": "All Sensor Details",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/sensors/:sensorId/details",
+            "params": [
+              {
+                "name": "sensorId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "All Sensor Details"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "TimeLineEvent",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Retrieves timeline events for grow. \nSupports pagination by page and number of retrieved events.\nSupports filtering by range and event types.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/timeline",
+            "params": [
+              {
+                "name": "eventTypes",
+                "value": "",
+                "type": "query",
+                "description": "Types of events to include"
+              },
+              {
+                "name": "startDate",
+                "value": "",
+                "type": "query",
+                "description": "Starting day of event selection. 30 days prior will be used as starting date if not provided"
+              },
+              {
+                "name": "endDate",
+                "value": "",
+                "type": "query",
+                "description": "Last day day of event selection. 30 days after today will be used as starting date if not provided"
+              },
+              {
+                "name": "count",
+                "value": "",
+                "type": "query",
+                "description": "Number of events to include"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "pagination"
+              }
+            ]
+          },
+          "docs": "Retrieves timeline events for grow. \nSupports pagination by page and number of retrieved events.\nSupports filtering by range and event types."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "TriggeredThreshold",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Retrieves triggered thresholds for a grow",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/triggered-thresholds"
+          },
+          "docs": "Retrieves triggered thresholds for a grow"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "User",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List of users and their data for api key",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/users"
+          },
+          "docs": "Retrieves all users for the grow that is bound the the api key."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
