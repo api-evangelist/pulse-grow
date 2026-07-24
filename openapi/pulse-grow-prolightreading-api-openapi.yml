@@ -1,0 +1,199 @@
+openapi: 3.0.4
+info:
+  title: Pulse Api AllDevices ProLightReading API
+  description: "# Introduction\n\nThe Pulse API is an HTTP API that is designed to interact with your pulse account and devices. \n\nNote that not all app functionality has yet been exposed through this api, so if you need additional functionality, contact our support team at support@pulsegrow.com and we will add it for you. \n\nThis API reference includes all technical documentation developers need to integrate third-party applications and platforms. If you have any additional questions send an email to our support team at support@pulsegrow.com\n\n# Authentication\n\nAll HTTP requests made against the Pulse API must be validated with an API Key.\n\n### Acquiring an API Key\n\nTo generate a new api key go to https://app.pulsegrow.com/account, scroll down to the api key section, and press the \"Add Api Key\" button.\n\n### Using Your API Key \n\nNote: API keys are generated per grow and only have access to that grow's resources (users, devices, etc). \n\nAll requests should target domain `https://api.pulsegrow.com`.\n\nYou need to provide the API key via the `x-api-key` header.\n\nSecurity Warning: It's important to secure your API Key against public access. Guard and secure it like a password. If you suspect that your API key has been compromised, revoke it via the web application at https://app.pulsegrow.com/account. \n\nSample request:\n\n```\n\ncurl --request GET \"https://api.pulsegrow.com/devices/{deviceId}/recent-data\" --header \"x-api-key: {apiKey}\"\n\n``` \n\n### Api consumption\n\n Api consumption is measured by number of datapoints retrieved.\n\n An api call that does not retrieve datapoints counts as one datapoint.\n\n Hobbyist users can use up to 4800 datapoints daily, Enthusiasts and Professionals 24000 and 120000, respectively \n\n"
+  termsOfService: https://pulsegrow.com/terms
+  contact:
+    name: Need help? Contact support
+    email: support@pulsegrow.com
+  version: v1
+  x-logo:
+    url: https://cdn.shopify.com/s/files/1/2451/2393/files/logo_1_400x.png
+    altText: The Logo
+tags:
+- name: ProLightReading
+  description: A collection of API operations related to light readings.
+paths:
+  /api/light-readings/{deviceId}:
+    get:
+      tags:
+      - ProLightReading
+      summary: Retrieves (one page worth of) light readings(including spectrum) for a given device, supports pagination.
+      parameters:
+      - name: deviceId
+        in: path
+        description: Id of the device
+        required: true
+        schema:
+          type: integer
+          format: int32
+      - name: page
+        in: query
+        description: Object containing requested page position. Note that page numeration starts from zero
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LightReadingsResponseDto'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                type: string
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                type: string
+  /api/devices/{deviceId}/trigger-light-reading:
+    get:
+      tags:
+      - ProLightReading
+      summary: 'Remotely triggers a light reading off of a Pulse Pro.
+
+        The Result needs to be fetched separately in 5-10 seconds
+
+        There is a small chance of the Pro failing to trigger a light reading remotely
+
+        If no new data is found - retrigger in 1 minute'
+      parameters:
+      - name: deviceId
+        in: path
+        description: Id of the device
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/IActionResult'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                type: string
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                type: string
+components:
+  schemas:
+    LightReadingsResponseDto:
+      type: object
+      properties:
+        currentPage:
+          type: integer
+          format: int32
+        numPages:
+          type: integer
+          format: int32
+        numReadings:
+          type: integer
+          format: int32
+        lightReadings:
+          type: array
+          items:
+            $ref: '#/components/schemas/ProLightReadingDto'
+          nullable: true
+      additionalProperties: false
+    IActionResult:
+      type: object
+      additionalProperties: false
+    ProLightReadingDto:
+      type: object
+      properties:
+        deviceId:
+          type: integer
+          format: int32
+        id:
+          type: integer
+          format: int32
+        createdAt:
+          type: string
+          format: date-time
+        note:
+          type: string
+          nullable: true
+        channel1:
+          type: number
+          format: double
+        channel2:
+          type: number
+          format: double
+        channel3:
+          type: number
+          format: double
+        channel4:
+          type: number
+          format: double
+        channel5:
+          type: number
+          format: double
+        channel6:
+          type: number
+          format: double
+        channel7:
+          type: number
+          format: double
+        channel8:
+          type: number
+          format: double
+        ir:
+          type: number
+          format: double
+        clear:
+          type: number
+          format: double
+        flicker:
+          type: number
+          format: double
+        gain:
+          type: integer
+          format: int32
+        tint:
+          type: number
+          format: double
+        ppfd:
+          type: number
+          format: double
+        dli:
+          type: number
+          format: double
+          nullable: true
+        pfdRed:
+          type: number
+          format: double
+          nullable: true
+        pfdGreen:
+          type: number
+          format: double
+          nullable: true
+        pfdBlue:
+          type: number
+          format: double
+          nullable: true
+        pfdIr:
+          type: number
+          format: double
+          nullable: true
+        spectrum:
+          type: array
+          items:
+            type: number
+            format: double
+          nullable: true
+      additionalProperties: false

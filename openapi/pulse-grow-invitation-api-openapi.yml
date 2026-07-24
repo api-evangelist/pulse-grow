@@ -1,0 +1,90 @@
+openapi: 3.0.4
+info:
+  title: Pulse Api AllDevices Invitation API
+  description: "# Introduction\n\nThe Pulse API is an HTTP API that is designed to interact with your pulse account and devices. \n\nNote that not all app functionality has yet been exposed through this api, so if you need additional functionality, contact our support team at support@pulsegrow.com and we will add it for you. \n\nThis API reference includes all technical documentation developers need to integrate third-party applications and platforms. If you have any additional questions send an email to our support team at support@pulsegrow.com\n\n# Authentication\n\nAll HTTP requests made against the Pulse API must be validated with an API Key.\n\n### Acquiring an API Key\n\nTo generate a new api key go to https://app.pulsegrow.com/account, scroll down to the api key section, and press the \"Add Api Key\" button.\n\n### Using Your API Key \n\nNote: API keys are generated per grow and only have access to that grow's resources (users, devices, etc). \n\nAll requests should target domain `https://api.pulsegrow.com`.\n\nYou need to provide the API key via the `x-api-key` header.\n\nSecurity Warning: It's important to secure your API Key against public access. Guard and secure it like a password. If you suspect that your API key has been compromised, revoke it via the web application at https://app.pulsegrow.com/account. \n\nSample request:\n\n```\n\ncurl --request GET \"https://api.pulsegrow.com/devices/{deviceId}/recent-data\" --header \"x-api-key: {apiKey}\"\n\n``` \n\n### Api consumption\n\n Api consumption is measured by number of datapoints retrieved.\n\n An api call that does not retrieve datapoints counts as one datapoint.\n\n Hobbyist users can use up to 4800 datapoints daily, Enthusiasts and Professionals 24000 and 120000, respectively \n\n"
+  termsOfService: https://pulsegrow.com/terms
+  contact:
+    name: Need help? Contact support
+    email: support@pulsegrow.com
+  version: v1
+  x-logo:
+    url: https://cdn.shopify.com/s/files/1/2451/2393/files/logo_1_400x.png
+    altText: The Logo
+tags:
+- name: Invitation
+  description: A collection of API operations related to inviting users.
+paths:
+  /invitations:
+    get:
+      tags:
+      - Invitation
+      summary: List of invitations that have been sent, but not yet been accepted or canceled.
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ViewInvitationDto'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                type: string
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                type: string
+components:
+  schemas:
+    ViewInvitationDto:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+        growId:
+          type: integer
+          format: int32
+        sendingUserId:
+          type: integer
+          format: int32
+        sendingUserEmail:
+          type: string
+          nullable: true
+        statusId:
+          type: integer
+          format: int32
+        invitedUserId:
+          type: integer
+          format: int32
+          nullable: true
+        invitedUserEmail:
+          type: string
+          nullable: true
+        role:
+          $ref: '#/components/schemas/UserGrowRole'
+        dateSent:
+          type: string
+          format: date-time
+        dateAccepted:
+          type: string
+          format: date-time
+          nullable: true
+        dateDeclined:
+          type: string
+          format: date-time
+          nullable: true
+        dateCancelled:
+          type: string
+          format: date-time
+          nullable: true
+      additionalProperties: false
+    UserGrowRole:
+      type: integer
+      format: int32

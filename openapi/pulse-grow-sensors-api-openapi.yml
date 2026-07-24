@@ -1,0 +1,437 @@
+openapi: 3.0.4
+info:
+  title: Pulse Api AllDevices Sensors API
+  description: "# Introduction\n\nThe Pulse API is an HTTP API that is designed to interact with your pulse account and devices. \n\nNote that not all app functionality has yet been exposed through this api, so if you need additional functionality, contact our support team at support@pulsegrow.com and we will add it for you. \n\nThis API reference includes all technical documentation developers need to integrate third-party applications and platforms. If you have any additional questions send an email to our support team at support@pulsegrow.com\n\n# Authentication\n\nAll HTTP requests made against the Pulse API must be validated with an API Key.\n\n### Acquiring an API Key\n\nTo generate a new api key go to https://app.pulsegrow.com/account, scroll down to the api key section, and press the \"Add Api Key\" button.\n\n### Using Your API Key \n\nNote: API keys are generated per grow and only have access to that grow's resources (users, devices, etc). \n\nAll requests should target domain `https://api.pulsegrow.com`.\n\nYou need to provide the API key via the `x-api-key` header.\n\nSecurity Warning: It's important to secure your API Key against public access. Guard and secure it like a password. If you suspect that your API key has been compromised, revoke it via the web application at https://app.pulsegrow.com/account. \n\nSample request:\n\n```\n\ncurl --request GET \"https://api.pulsegrow.com/devices/{deviceId}/recent-data\" --header \"x-api-key: {apiKey}\"\n\n``` \n\n### Api consumption\n\n Api consumption is measured by number of datapoints retrieved.\n\n An api call that does not retrieve datapoints counts as one datapoint.\n\n Hobbyist users can use up to 4800 datapoints daily, Enthusiasts and Professionals 24000 and 120000, respectively \n\n"
+  termsOfService: https://pulsegrow.com/terms
+  contact:
+    name: Need help? Contact support
+    email: support@pulsegrow.com
+  version: v1
+  x-logo:
+    url: https://cdn.shopify.com/s/files/1/2451/2393/files/logo_1_400x.png
+    altText: The Logo
+tags:
+- name: Sensors
+  description: A collection of API operations related to devices.
+paths:
+  /sensors/{sensorId}/recent-data:
+    get:
+      tags:
+      - Sensors
+      summary: Sensor Recent Data
+      description: Gets the last data point for a sensor
+      parameters:
+      - name: sensorId
+        in: path
+        description: The sensor identifier for which to retrieve the latest data.
+        required: true
+        schema:
+          type: integer
+          format: int32
+        example: 123
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MostRecentSensorDataPointDto'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                type: string
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                type: string
+  /sensors/{sensorId}/force-read:
+    get:
+      tags:
+      - Sensors
+      summary: Force an immediate sensor reading
+      parameters:
+      - name: sensorId
+        in: path
+        description: The sensor identifier
+        required: true
+        schema:
+          type: integer
+          format: int32
+        example: 123
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UniversalDataPointDto'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                type: string
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                type: string
+  /sensors/{sensorId}/data-range:
+    get:
+      tags:
+      - Sensors
+      summary: Data Range for Sensor. Each Datapoint in range will be counted towards your api usage limit.
+      description: Retrieves all datapoints within a specified timespan the sensor.
+      parameters:
+      - name: sensorId
+        in: path
+        description: The sensor identifier for which to retrieve data.
+        required: true
+        schema:
+          type: integer
+          format: int32
+        example: 123
+      - name: start
+        in: query
+        description: The beginning time of your data range in ISO 8601 format.
+        required: true
+        schema:
+          type: string
+          format: date-time
+        example: '2020-01-31T01:11:22Z'
+      - name: end
+        in: query
+        description: The end time of your data range in ISO 8601 format. If not provided, API will use the current time.
+        schema:
+          type: string
+          format: date-time
+        example: '2020-01-31T20:11:22Z'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/UniversalDataPointArrayDto'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                type: string
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                type: string
+  /sensors/ids:
+    get:
+      tags:
+      - Sensors
+      summary: All Sensor Ids
+      description: Retrieves all of the sensor ids assigned to the grow.
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: integer
+                  format: int32
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                type: string
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                type: string
+  /sensors/{sensorId}/details:
+    get:
+      tags:
+      - Sensors
+      summary: All Sensor Details
+      parameters:
+      - name: sensorId
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/SensorDeviceDetailsDto'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                type: string
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                type: string
+components:
+  schemas:
+    Ph10SensorCalibrationInformationDto:
+      type: object
+      properties:
+        lastPh4CalibrationDate:
+          type: string
+          format: date-time
+          nullable: true
+        lastPh7CalibrationDate:
+          type: string
+          format: date-time
+          nullable: true
+        lastPh10CalibrationDate:
+          type: string
+          format: date-time
+          nullable: true
+      additionalProperties: false
+    Ec1SensorCalibrationInformationDto:
+      type: object
+      properties:
+        lastCalibrationDate:
+          type: string
+          format: date-time
+          nullable: true
+        isCalibrationUiShown:
+          type: boolean
+      additionalProperties: false
+    SensorThresholdType:
+      type: integer
+      format: int32
+    UniversalDataPointDto:
+      type: object
+      properties:
+        dataPointValues:
+          type: array
+          items:
+            $ref: '#/components/schemas/UniversalDataPointDtoSingleValue'
+          nullable: true
+        sensorId:
+          type: integer
+          format: int32
+        createdAt:
+          type: string
+          format: date-time
+      additionalProperties: false
+    SensorReadingType:
+      type: integer
+      format: int32
+    MostRecentSensorDataPointDto:
+      type: object
+      properties:
+        sensorType:
+          $ref: '#/components/schemas/SensorType'
+        deviceType:
+          $ref: '#/components/schemas/DeviceType'
+        name:
+          type: string
+          nullable: true
+        dataPointDto:
+          $ref: '#/components/schemas/UniversalDataPointDto'
+      additionalProperties: false
+    HighChartAuxiliaryData:
+      type: object
+      properties:
+        color:
+          type: string
+          nullable: true
+          readOnly: true
+        yAxis:
+          type: integer
+          format: int32
+        valueDecimal:
+          type: integer
+          format: int32
+        redCoefficient:
+          type: integer
+          format: int32
+        greenCoefficient:
+          type: integer
+          format: int32
+        blueCoefficient:
+          type: integer
+          format: int32
+      additionalProperties: false
+    DeviceType:
+      type: integer
+      format: int32
+    UniversalDataPointArrayDto:
+      type: object
+      properties:
+        dataPointValues:
+          type: array
+          items:
+            $ref: '#/components/schemas/UniversalDataPointDtoMultipleValue'
+          nullable: true
+        dataPointValuesCreatedAt:
+          type: array
+          items:
+            type: string
+            format: date-time
+          nullable: true
+      additionalProperties: false
+    ParSensorSubtype:
+      type: integer
+      format: int32
+    SensorThresholdDto:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+          nullable: true
+        notificationActive:
+          type: boolean
+          nullable: true
+        lowThresholdValue:
+          type: number
+          format: double
+          nullable: true
+        highThresholdValue:
+          type: number
+          format: double
+          nullable: true
+        delay:
+          type: string
+          format: date-span
+          nullable: true
+        day:
+          type: boolean
+          nullable: true
+        thresholdType:
+          $ref: '#/components/schemas/SensorThresholdType'
+        transitionalDelay:
+          type: string
+          format: date-span
+          nullable: true
+      additionalProperties: false
+    UniversalDataPointDtoSingleValue:
+      type: object
+      properties:
+        paramName:
+          type: string
+          nullable: true
+        measuringUnit:
+          type: string
+          nullable: true
+        paramValue:
+          type: number
+          format: float
+          nullable: true
+        highChartAuxiliaryData:
+          $ref: '#/components/schemas/HighChartAuxiliaryData'
+        sensorReadingType:
+          $ref: '#/components/schemas/SensorReadingType'
+      additionalProperties: false
+    SensorType:
+      type: integer
+      format: int32
+    SensorDeviceDetailsDto:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+        name:
+          type: string
+          nullable: true
+        sensorType:
+          $ref: '#/components/schemas/SensorType'
+        growId:
+          type: integer
+          format: int32
+        hubId:
+          type: integer
+          format: int32
+        hubName:
+          type: string
+          nullable: true
+        hidden:
+          type: boolean
+        vpdTarget:
+          type: number
+          format: float
+          nullable: true
+        vpdLeafTemperatureOffsetinF:
+          type: number
+          format: float
+          nullable: true
+        orpCalibrationOffSet:
+          type: integer
+          format: int32
+          nullable: true
+        dayStart:
+          type: string
+          format: date-span
+        nightStart:
+          type: string
+          format: date-span
+        sensorTemplateId:
+          type: integer
+          format: int32
+          nullable: true
+        sensorTemplateName:
+          type: string
+          nullable: true
+        thresholds:
+          type: array
+          items:
+            $ref: '#/components/schemas/SensorThresholdDto'
+          nullable: true
+        offsetId:
+          type: integer
+          format: int32
+          nullable: true
+        ph10SensorCalibrationInformationDto:
+          $ref: '#/components/schemas/Ph10SensorCalibrationInformationDto'
+        ec1SensorCalibrationInformationDto:
+          $ref: '#/components/schemas/Ec1SensorCalibrationInformationDto'
+        parSensorSubtype:
+          $ref: '#/components/schemas/ParSensorSubtype'
+      additionalProperties: false
+    UniversalDataPointDtoMultipleValue:
+      type: object
+      properties:
+        paramName:
+          type: string
+          nullable: true
+        measuringUnit:
+          type: string
+          nullable: true
+        paramValues:
+          type: array
+          items:
+            type: number
+            format: float
+          nullable: true
+        highChartAuxiliaryData:
+          $ref: '#/components/schemas/HighChartAuxiliaryData'
+        sensorReadingType:
+          $ref: '#/components/schemas/SensorReadingType'
+      additionalProperties: false

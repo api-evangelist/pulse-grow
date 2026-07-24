@@ -1,0 +1,482 @@
+openapi: 3.0.4
+info:
+  title: Pulse Api AllDevices Devices API
+  description: "# Introduction\n\nThe Pulse API is an HTTP API that is designed to interact with your pulse account and devices. \n\nNote that not all app functionality has yet been exposed through this api, so if you need additional functionality, contact our support team at support@pulsegrow.com and we will add it for you. \n\nThis API reference includes all technical documentation developers need to integrate third-party applications and platforms. If you have any additional questions send an email to our support team at support@pulsegrow.com\n\n# Authentication\n\nAll HTTP requests made against the Pulse API must be validated with an API Key.\n\n### Acquiring an API Key\n\nTo generate a new api key go to https://app.pulsegrow.com/account, scroll down to the api key section, and press the \"Add Api Key\" button.\n\n### Using Your API Key \n\nNote: API keys are generated per grow and only have access to that grow's resources (users, devices, etc). \n\nAll requests should target domain `https://api.pulsegrow.com`.\n\nYou need to provide the API key via the `x-api-key` header.\n\nSecurity Warning: It's important to secure your API Key against public access. Guard and secure it like a password. If you suspect that your API key has been compromised, revoke it via the web application at https://app.pulsegrow.com/account. \n\nSample request:\n\n```\n\ncurl --request GET \"https://api.pulsegrow.com/devices/{deviceId}/recent-data\" --header \"x-api-key: {apiKey}\"\n\n``` \n\n### Api consumption\n\n Api consumption is measured by number of datapoints retrieved.\n\n An api call that does not retrieve datapoints counts as one datapoint.\n\n Hobbyist users can use up to 4800 datapoints daily, Enthusiasts and Professionals 24000 and 120000, respectively \n\n"
+  termsOfService: https://pulsegrow.com/terms
+  contact:
+    name: Need help? Contact support
+    email: support@pulsegrow.com
+  version: v1
+  x-logo:
+    url: https://cdn.shopify.com/s/files/1/2451/2393/files/logo_1_400x.png
+    altText: The Logo
+tags:
+- name: Devices
+  description: A collection of API operations related to devices.
+paths:
+  /devices/{deviceId}/recent-data:
+    get:
+      tags:
+      - Devices
+      summary: Device Recent Data
+      description: Gets the last data point for a device
+      parameters:
+      - name: deviceId
+        in: path
+        description: The device identifier for which to retrieve the latest data.
+        required: true
+        schema:
+          type: integer
+          format: int32
+        example: 123
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PublicApiDataPoint'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                type: string
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                type: string
+  /devices/{deviceId}/data-range:
+    get:
+      tags:
+      - Devices
+      summary: Data Range for Device. Each Datapoint in range will be counted towards your api usage limit.
+      description: Retrieves all datapoints within a specified timespan the device.
+      parameters:
+      - name: deviceId
+        in: path
+        description: The device identifier for which to retrieve data.
+        required: true
+        schema:
+          type: integer
+          format: int32
+        example: 123
+      - name: start
+        in: query
+        description: The beginning time of your data range in ISO 8601 format.
+        required: true
+        schema:
+          type: string
+          format: date-time
+        example: '2020-01-31T01:11:22Z'
+      - name: end
+        in: query
+        description: The end time of your data range in ISO 8601 format. If not provided, API will use the current time.
+        schema:
+          type: string
+          format: date-time
+        example: '2020-01-31T20:11:22Z'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/PublicApiDataPoint'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                type: string
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                type: string
+  /devices/ids:
+    get:
+      tags:
+      - Devices
+      summary: All Device Ids
+      description: Retrieves all of the device ids assigned to the grow.
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: integer
+                  format: int32
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                type: string
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                type: string
+  /devices/details:
+    get:
+      tags:
+      - Devices
+      summary: All Device Details
+      description: Retrieves detailed information for all devices on the grow.
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/DeviceDetailsDto'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                type: string
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                type: string
+  /devices/range:
+    get:
+      tags:
+      - Devices
+      summary: Data Range for All Devices. Each Datapoint will be counted towards your api usage limit.
+      description: Retrieves all datapoints within a specified timespan for all devices on grow. Max data range of 7 days.
+      parameters:
+      - name: start
+        in: query
+        description: The beginning time of your data range in ISO 8601 format.
+        required: true
+        schema:
+          type: string
+          format: date-time
+        example: '2020-01-31T01:11:22Z'
+      - name: end
+        in: query
+        description: The end time of your data range in ISO 8601 format. If not provided, API will use the current time.
+        schema:
+          type: string
+          format: date-time
+        example: '2020-01-31T20:11:22Z'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/PublicApiDataPoint'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                type: string
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                type: string
+components:
+  schemas:
+    ThresholdType:
+      type: integer
+      format: int32
+    ViewThresholdDto:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+          nullable: true
+        notificationActive:
+          type: boolean
+          nullable: true
+        lowThresholdValue:
+          type: number
+          format: double
+          nullable: true
+        highThresholdValue:
+          type: number
+          format: double
+          nullable: true
+        delay:
+          type: string
+          format: date-span
+          nullable: true
+        day:
+          type: boolean
+          nullable: true
+        deviceId:
+          type: integer
+          format: int32
+          nullable: true
+        thresholdType:
+          $ref: '#/components/schemas/ThresholdType'
+      additionalProperties: false
+    PublicApiLightCalculationDto:
+      type: object
+      properties:
+        channels:
+          type: array
+          items:
+            type: number
+            format: double
+          nullable: true
+        tint:
+          type: number
+          format: double
+        gain:
+          type: integer
+          format: int32
+        ppfd:
+          type: number
+          format: double
+          nullable: true
+        pfdRed:
+          type: number
+          format: double
+          nullable: true
+        pfdGreen:
+          type: number
+          format: double
+          nullable: true
+        pfdBlue:
+          type: number
+          format: double
+          nullable: true
+        pfdIr:
+          type: number
+          format: double
+          nullable: true
+      additionalProperties: false
+    DeviceOffsetsDto:
+      type: object
+      properties:
+        tempOffset:
+          type: number
+          format: double
+        humidityOffset:
+          type: number
+          format: double
+        lightOffset:
+          type: number
+          format: double
+        airPressureOffset:
+          type: number
+          format: double
+        vpdLeafTempOffsetInF:
+          type: number
+          format: double
+      additionalProperties: false
+    PublicApiDataPoint:
+      type: object
+      properties:
+        deviceId:
+          type: integer
+          format: int32
+        pluggedIn:
+          type: boolean
+        batteryV:
+          type: number
+          format: float
+        electricImpId:
+          type: string
+          nullable: true
+        signalStrength:
+          type: integer
+          format: int32
+        createdAt:
+          type: string
+          format: date-time
+        deviceType:
+          $ref: '#/components/schemas/DeviceType'
+        temperatureF:
+          type: number
+          format: double
+        humidityRh:
+          type: number
+          format: float
+        lightLux:
+          type: number
+          format: float
+        airPressure:
+          type: number
+          format: float
+        vpd:
+          type: number
+          format: double
+        co2:
+          type: integer
+          format: int32
+        co2Temperature:
+          type: number
+          format: double
+        co2Rh:
+          type: number
+          format: double
+        voc:
+          type: integer
+          format: int32
+        channel1:
+          type: number
+          format: double
+        channel2:
+          type: number
+          format: double
+        channel3:
+          type: number
+          format: double
+        channel4:
+          type: number
+          format: double
+        channel5:
+          type: number
+          format: double
+        channel6:
+          type: number
+          format: double
+        channel7:
+          type: number
+          format: double
+        channel8:
+          type: number
+          format: double
+        near:
+          type: number
+          format: double
+        clear:
+          type: number
+          format: double
+        flicker:
+          type: number
+          format: double
+        par:
+          type: number
+          format: double
+        gain:
+          type: integer
+          format: int32
+        tint:
+          type: number
+          format: double
+        dpC:
+          type: number
+          format: double
+        dpF:
+          type: number
+          format: double
+        temperatureC:
+          type: number
+          format: double
+        lightCalculationReading:
+          $ref: '#/components/schemas/PublicApiLightCalculationDto'
+      additionalProperties: false
+    DeviceType:
+      type: integer
+      format: int32
+    BatteryType:
+      type: integer
+      format: int32
+    DeviceDetailsDto:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+        deviceType:
+          $ref: '#/components/schemas/DeviceType'
+        powerThreshold:
+          $ref: '#/components/schemas/ViewThresholdDto'
+        connectivityThreshold:
+          $ref: '#/components/schemas/ViewThresholdDto'
+        outletToBatteryTransitionThreshold:
+          $ref: '#/components/schemas/ViewThresholdDto'
+        lowBatteryThreshold:
+          $ref: '#/components/schemas/ViewThresholdDto'
+        dayThresholds:
+          $ref: '#/components/schemas/DeviceThresholdDto'
+        nightThresholds:
+          $ref: '#/components/schemas/DeviceThresholdDto'
+        offsets:
+          $ref: '#/components/schemas/DeviceOffsetsDto'
+        vpdLeafTempOffsetInF:
+          type: number
+          format: double
+        dayStart:
+          type: string
+          nullable: true
+        nightStart:
+          type: string
+          nullable: true
+        name:
+          type: string
+          nullable: true
+        vpdTarget:
+          type: number
+          format: double
+          nullable: true
+        templateId:
+          type: integer
+          format: int32
+          nullable: true
+        templateName:
+          type: string
+          nullable: true
+        templateTypeId:
+          type: integer
+          format: int32
+          nullable: true
+        batteryType:
+          $ref: '#/components/schemas/BatteryType'
+        lowBatteryVoltage:
+          type: number
+          format: float
+        macAddress:
+          type: string
+          nullable: true
+        lastCo2CalibrationDate:
+          type: string
+          format: date-time
+          nullable: true
+      additionalProperties: false
+    DeviceThresholdDto:
+      type: object
+      properties:
+        lightThreshold:
+          $ref: '#/components/schemas/ViewThresholdDto'
+        temperatureThreshold:
+          $ref: '#/components/schemas/ViewThresholdDto'
+        humidityThreshold:
+          $ref: '#/components/schemas/ViewThresholdDto'
+        vpdThreshold:
+          $ref: '#/components/schemas/ViewThresholdDto'
+        dewPointThreshold:
+          $ref: '#/components/schemas/ViewThresholdDto'
+        co2Threshold:
+          $ref: '#/components/schemas/ViewThresholdDto'
+        vocThreshold:
+          $ref: '#/components/schemas/ViewThresholdDto'
+        dewPointThresholdDual:
+          $ref: '#/components/schemas/ViewThresholdDto'
+      additionalProperties: false

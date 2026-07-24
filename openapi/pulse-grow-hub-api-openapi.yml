@@ -1,0 +1,178 @@
+openapi: 3.0.4
+info:
+  title: Pulse Api AllDevices Hub API
+  description: "# Introduction\n\nThe Pulse API is an HTTP API that is designed to interact with your pulse account and devices. \n\nNote that not all app functionality has yet been exposed through this api, so if you need additional functionality, contact our support team at support@pulsegrow.com and we will add it for you. \n\nThis API reference includes all technical documentation developers need to integrate third-party applications and platforms. If you have any additional questions send an email to our support team at support@pulsegrow.com\n\n# Authentication\n\nAll HTTP requests made against the Pulse API must be validated with an API Key.\n\n### Acquiring an API Key\n\nTo generate a new api key go to https://app.pulsegrow.com/account, scroll down to the api key section, and press the \"Add Api Key\" button.\n\n### Using Your API Key \n\nNote: API keys are generated per grow and only have access to that grow's resources (users, devices, etc). \n\nAll requests should target domain `https://api.pulsegrow.com`.\n\nYou need to provide the API key via the `x-api-key` header.\n\nSecurity Warning: It's important to secure your API Key against public access. Guard and secure it like a password. If you suspect that your API key has been compromised, revoke it via the web application at https://app.pulsegrow.com/account. \n\nSample request:\n\n```\n\ncurl --request GET \"https://api.pulsegrow.com/devices/{deviceId}/recent-data\" --header \"x-api-key: {apiKey}\"\n\n``` \n\n### Api consumption\n\n Api consumption is measured by number of datapoints retrieved.\n\n An api call that does not retrieve datapoints counts as one datapoint.\n\n Hobbyist users can use up to 4800 datapoints daily, Enthusiasts and Professionals 24000 and 120000, respectively \n\n"
+  termsOfService: https://pulsegrow.com/terms
+  contact:
+    name: Need help? Contact support
+    email: support@pulsegrow.com
+  version: v1
+  x-logo:
+    url: https://cdn.shopify.com/s/files/1/2451/2393/files/logo_1_400x.png
+    altText: The Logo
+tags:
+- name: Hub
+  description: A collection of API operations related to users.
+paths:
+  /hubs/ids:
+    get:
+      tags:
+      - Hub
+      summary: All Hub Ids
+      description: Retrieves all of the hubs ids assigned to the grow.
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: integer
+                  format: int32
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                type: string
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                type: string
+  /hubs/{hubId}:
+    get:
+      tags:
+      - Hub
+      summary: Gets details for hub
+      parameters:
+      - name: hubId
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HubDetailsDto'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                type: string
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                type: string
+components:
+  schemas:
+    DeviceType:
+      type: integer
+      format: int32
+    HubDetailsDto:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+        name:
+          type: string
+          nullable: true
+        hubThresholds:
+          type: array
+          items:
+            $ref: '#/components/schemas/HubThresholdDto'
+          nullable: true
+        hidden:
+          type: boolean
+        macAddress:
+          type: string
+          nullable: true
+        growId:
+          type: integer
+          format: int32
+        sensorDevices:
+          type: array
+          items:
+            $ref: '#/components/schemas/SensorDeviceViewDto'
+          nullable: true
+      additionalProperties: false
+    HubThresholdType:
+      type: integer
+      format: int32
+    SensorDeviceViewDto:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+        displayOrder:
+          type: integer
+          format: int32
+          nullable: true
+        name:
+          type: string
+          nullable: true
+        growId:
+          type: integer
+          format: int32
+        hidden:
+          type: boolean
+        hubId:
+          type: integer
+          format: int32
+          nullable: true
+        parSensorSubtype:
+          $ref: '#/components/schemas/ParSensorSubtype'
+        deviceType:
+          $ref: '#/components/schemas/DeviceType'
+        sensorType:
+          $ref: '#/components/schemas/SensorType'
+      additionalProperties: false
+    ParSensorSubtype:
+      type: integer
+      format: int32
+    SensorType:
+      type: integer
+      format: int32
+    HubThresholdDto:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+          nullable: true
+        notificationActive:
+          type: boolean
+          nullable: true
+        lowThresholdValue:
+          type: number
+          format: double
+          nullable: true
+        highThresholdValue:
+          type: number
+          format: double
+          nullable: true
+        delay:
+          type: string
+          format: date-span
+          nullable: true
+        day:
+          type: boolean
+          nullable: true
+        hubId:
+          type: integer
+          format: int32
+          nullable: true
+        thresholdType:
+          $ref: '#/components/schemas/HubThresholdType'
+      additionalProperties: false
