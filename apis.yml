@@ -2,9 +2,21 @@ aid: pulse-grow
 name: Pulse Grow
 description: The Pulse API is an HTTP API that is designed to interact with your pulse account and devices.
 type: Index
+accessModel:
+  pricing: freemium
+  onboarding: unknown
+  trial: false
+  try_now: false
+  public: false
+  label: Freemium
+  confidence: medium
+  source:
+  - plans
+  generated: '2026-07-22'
+  method: derived
 position: Consumer
 access: 3rd-Party
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/pulse-grow.png
 tags:
   - Devices
   - Sensors
@@ -23,21 +35,114 @@ common:
   - type: LinkedIn
     url: https://www.linkedin.com/company/pulsegrow
 apis:
-  - aid: pulse-grow:pulse-grow
-    name: Pulse Grow
-    description: The Pulse API is an HTTP API that is designed to interact with your pulse account and devices.
-    humanURL: https://api.pulsegrow.com/docs/index.html
-    baseURL: https://api.pulsegrow.com
-    tags:
-      - Devices
-      - Sensors
-      - Hub
-      - Monitoring
-    properties:
-      - type: Documentation
-        url: https://api.pulsegrow.com/docs/index.html
-      - type: OpenAPI
-        url: https://raw.githubusercontent.com/api-evangelist/pulse-grow/refs/heads/main/openapi/pulse-grow-openapi.json
+- aid: pulse-grow:pulse-grow-alldevices-api
+  name: Pulse Grow AllDevices API
+  description: A collection of API operations related to devices.
+  humanURL: https://api.pulsegrow.com/docs/index.html
+  baseURL: https://api.pulsegrow.com
+  tags:
+  - AllDevices
+  properties:
+  - type: OpenAPI
+    url: openapi/pulse-grow-alldevices-api-openapi.yml
+  - type: Documentation
+    url: https://api.pulsegrow.com/docs/index.html
+- aid: pulse-grow:pulse-grow-devices-api
+  name: Pulse Grow Devices API
+  description: A collection of API operations related to devices.
+  humanURL: https://api.pulsegrow.com/docs/index.html
+  baseURL: https://api.pulsegrow.com
+  tags:
+  - Devices
+  properties:
+  - type: OpenAPI
+    url: openapi/pulse-grow-devices-api-openapi.yml
+  - type: Documentation
+    url: https://api.pulsegrow.com/docs/index.html
+- aid: pulse-grow:pulse-grow-hub-api
+  name: Pulse Grow Hub API
+  description: A collection of API operations related to users.
+  humanURL: https://api.pulsegrow.com/docs/index.html
+  baseURL: https://api.pulsegrow.com
+  tags:
+  - Hub
+  properties:
+  - type: OpenAPI
+    url: openapi/pulse-grow-hub-api-openapi.yml
+  - type: Documentation
+    url: https://api.pulsegrow.com/docs/index.html
+- aid: pulse-grow:pulse-grow-invitation-api
+  name: Pulse Grow Invitation API
+  description: A collection of API operations related to inviting users.
+  humanURL: https://api.pulsegrow.com/docs/index.html
+  baseURL: https://api.pulsegrow.com
+  tags:
+  - Invitation
+  properties:
+  - type: OpenAPI
+    url: openapi/pulse-grow-invitation-api-openapi.yml
+  - type: Documentation
+    url: https://api.pulsegrow.com/docs/index.html
+- aid: pulse-grow:pulse-grow-prolightreading-api
+  name: Pulse Grow ProLightReading API
+  description: A collection of API operations related to light readings.
+  humanURL: https://api.pulsegrow.com/docs/index.html
+  baseURL: https://api.pulsegrow.com
+  tags:
+  - ProLightReading
+  properties:
+  - type: OpenAPI
+    url: openapi/pulse-grow-prolightreading-api-openapi.yml
+  - type: Documentation
+    url: https://api.pulsegrow.com/docs/index.html
+- aid: pulse-grow:pulse-grow-sensors-api
+  name: Pulse Grow Sensors API
+  description: A collection of API operations related to devices.
+  humanURL: https://api.pulsegrow.com/docs/index.html
+  baseURL: https://api.pulsegrow.com
+  tags:
+  - Sensors
+  properties:
+  - type: OpenAPI
+    url: openapi/pulse-grow-sensors-api-openapi.yml
+  - type: Documentation
+    url: https://api.pulsegrow.com/docs/index.html
+- aid: pulse-grow:pulse-grow-timelineevent-api
+  name: Pulse Grow TimeLineEvent API
+  description: A collection of API operations related to timeline events.
+  humanURL: https://api.pulsegrow.com/docs/index.html
+  baseURL: https://api.pulsegrow.com
+  tags:
+  - TimeLineEvent
+  properties:
+  - type: OpenAPI
+    url: openapi/pulse-grow-timelineevent-api-openapi.yml
+  - type: Documentation
+    url: https://api.pulsegrow.com/docs/index.html
+- aid: pulse-grow:pulse-grow-triggeredthreshold-api
+  name: Pulse Grow TriggeredThreshold API
+  description: A collection of API operations related to timeline events.
+  humanURL: https://api.pulsegrow.com/docs/index.html
+  baseURL: https://api.pulsegrow.com
+  tags:
+  - TriggeredThreshold
+  properties:
+  - type: OpenAPI
+    url: openapi/pulse-grow-triggeredthreshold-api-openapi.yml
+  - type: Documentation
+    url: https://api.pulsegrow.com/docs/index.html
+- aid: pulse-grow:pulse-grow-user-api
+  name: Pulse Grow User API
+  description: A collection of API operations related to users.
+  humanURL: https://api.pulsegrow.com/docs/index.html
+  baseURL: https://api.pulsegrow.com
+  tags:
+  - User
+  properties:
+  - type: OpenAPI
+    url: openapi/pulse-grow-user-api-openapi.yml
+  - type: Documentation
+    url: https://api.pulsegrow.com/docs/index.html
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
