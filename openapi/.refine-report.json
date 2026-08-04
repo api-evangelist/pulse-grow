@@ -1,0 +1,30 @@
+{
+  "provider": "pulse-grow",
+  "sources": [
+    "pulse-grow-alldevices-api-openapi.yml",
+    "pulse-grow-devices-api-openapi.yml",
+    "pulse-grow-hub-api-openapi.yml",
+    "pulse-grow-invitation-api-openapi.yml",
+    "pulse-grow-prolightreading-api-openapi.yml",
+    "pulse-grow-sensors-api-openapi.yml",
+    "pulse-grow-timelineevent-api-openapi.yml",
+    "pulse-grow-triggeredthreshold-api-openapi.yml",
+    "pulse-grow-user-api-openapi.yml"
+  ],
+  "outputs": [
+    "pulse-grow-alldevices-api-openapi.yml",
+    "pulse-grow-devices-api-openapi.yml",
+    "pulse-grow-hub-api-openapi.yml",
+    "pulse-grow-invitation-api-openapi.yml",
+    "pulse-grow-prolightreading-api-openapi.yml",
+    "pulse-grow-sensors-api-openapi.yml",
+    "pulse-grow-timelineevent-api-openapi.yml",
+    "pulse-grow-triggeredthreshold-api-openapi.yml",
+    "pulse-grow-user-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
