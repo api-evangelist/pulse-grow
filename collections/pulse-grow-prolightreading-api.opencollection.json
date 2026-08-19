@@ -1,0 +1,62 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Pulse Api AllDevices ProLightReading API",
+    "version": "v1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "ProLightReading",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Retrieves (one page worth of) light readings(including spectrum) for a given device, supports pagination.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/light-readings/:deviceId",
+            "params": [
+              {
+                "name": "deviceId",
+                "value": "",
+                "type": "path",
+                "description": "Id of the device"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Object containing requested page position. Note that page numeration starts from zero"
+              }
+            ]
+          },
+          "docs": "Retrieves (one page worth of) light readings(including spectrum) for a given device, supports pagination."
+        },
+        {
+          "info": {
+            "name": "Remotely triggers a light reading off of a Pulse Pro.\nThe Result needs to be fetched separately in 5-10 seconds\nThere is a small chance of the Pro failing to trigger a light reading remotely\nIf no new data is found - retrigger in 1 minute",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/devices/:deviceId/trigger-light-reading",
+            "params": [
+              {
+                "name": "deviceId",
+                "value": "",
+                "type": "path",
+                "description": "Id of the device"
+              }
+            ]
+          },
+          "docs": "Remotely triggers a light reading off of a Pulse Pro.\nThe Result needs to be fetched separately in 5-10 seconds\nThere is a small chance of the Pro failing to trigger a light reading remotely\nIf no new data is found - retrigger in 1 minute"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,61 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Pulse Api AllDevices TimeLineEvent API",
+    "version": "v1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "TimeLineEvent",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Retrieves timeline events for grow. \nSupports pagination by page and number of retrieved events.\nSupports filtering by range and event types.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/timeline",
+            "params": [
+              {
+                "name": "eventTypes",
+                "value": "",
+                "type": "query",
+                "description": "Types of events to include"
+              },
+              {
+                "name": "startDate",
+                "value": "",
+                "type": "query",
+                "description": "Starting day of event selection. 30 days prior will be used as starting date if not provided"
+              },
+              {
+                "name": "endDate",
+                "value": "",
+                "type": "query",
+                "description": "Last day day of event selection. 30 days after today will be used as starting date if not provided"
+              },
+              {
+                "name": "count",
+                "value": "",
+                "type": "query",
+                "description": "Number of events to include"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "pagination"
+              }
+            ]
+          },
+          "docs": "Retrieves timeline events for grow. \nSupports pagination by page and number of retrieved events.\nSupports filtering by range and event types."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

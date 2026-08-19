@@ -1,0 +1,29 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Pulse Api AllDevices Invitation API",
+    "version": "v1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Invitation",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List of invitations that have been sent, but not yet been accepted or canceled.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/invitations"
+          },
+          "docs": "List of invitations that have been sent, but not yet been accepted or canceled."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

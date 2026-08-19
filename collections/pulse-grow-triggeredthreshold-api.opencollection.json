@@ -1,0 +1,29 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Pulse Api AllDevices TriggeredThreshold API",
+    "version": "v1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "TriggeredThreshold",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Retrieves triggered thresholds for a grow",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/triggered-thresholds"
+          },
+          "docs": "Retrieves triggered thresholds for a grow"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

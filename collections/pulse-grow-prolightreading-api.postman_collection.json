@@ -1,0 +1,412 @@
+{
+  "item": [
+    {
+      "id": "af7f12d0-dc28-49f4-b9f6-a5048ba1d2cd",
+      "name": "ProLightReading",
+      "description": {
+        "content": "A collection of API operations related to light readings.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "1c23eae8-a4e8-494c-a6fc-16408f966e22",
+          "name": "Retrieves (one page worth of) light readings(including spectrum) for a given device, supports pagination.",
+          "request": {
+            "name": "Retrieves (one page worth of) light readings(including spectrum) for a given device, supports pagination.",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "light-readings",
+                ":deviceId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "<integer>",
+                  "description": "Object containing requested page position. Note that page numeration starts from zero"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "deviceId",
+                  "description": "(Required) Id of the device"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "2587a999-a622-4b80-8f87-53956be1d321",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "light-readings",
+                    ":deviceId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "deviceId",
+                      "description": "(Required) Id of the device"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"currentPage\": 8167,\n  \"numPages\": 7787,\n  \"numReadings\": 2201,\n  \"lightReadings\": [\n    {\n      \"deviceId\": 1413,\n      \"id\": 4027,\n      \"createdAt\": \"2013-12-26T00:06:17.514Z\",\n      \"note\": \"string\",\n      \"channel1\": 9025.402000149976,\n      \"channel2\": 3395.377093209654,\n      \"channel3\": 7686.504221796255,\n      \"channel4\": 7049.882158548156,\n      \"channel5\": 7051.658661609718,\n      \"channel6\": 7262.177614558872,\n      \"channel7\": 6014.706952211435,\n      \"channel8\": 8409.546564282722,\n      \"ir\": 3812.674949681415,\n      \"clear\": 9227.646991775462,\n      \"flicker\": 3368.6476860063217,\n      \"gain\": 2709,\n      \"tint\": 6095.359169888349,\n      \"ppfd\": 1493.7021759447432,\n      \"dli\": 5909.724017877612,\n      \"pfdRed\": 319.760566868299,\n      \"pfdGreen\": 5319.741846049725,\n      \"pfdBlue\": 3396.975821941718,\n      \"pfdIr\": 5860.27813480064,\n      \"spectrum\": [\n        9251.493407309272,\n        7252.6070018907485\n      ]\n    },\n    {\n      \"deviceId\": 2268,\n      \"id\": 5829,\n      \"createdAt\": \"1976-05-06T14:52:23.054Z\",\n      \"note\": \"string\",\n      \"channel1\": 998.6859025951644,\n      \"channel2\": 5984.683947277808,\n      \"channel3\": 2816.974033785522,\n      \"channel4\": 2750.682950089252,\n      \"channel5\": 1097.57352189502,\n      \"channel6\": 5007.775997870344,\n      \"channel7\": 4027.9039917519967,\n      \"channel8\": 4321.309710927984,\n      \"ir\": 8892.886146087385,\n      \"clear\": 5025.840467341529,\n      \"flicker\": 4281.314670288816,\n      \"gain\": 1850,\n      \"tint\": 2332.9511207386167,\n      \"ppfd\": 8005.720852133813,\n      \"dli\": 5040.809895182251,\n      \"pfdRed\": 977.858205456199,\n      \"pfdGreen\": 4522.745725468861,\n      \"pfdBlue\": 2629.034723968292,\n      \"pfdIr\": 6060.189925614643,\n      \"spectrum\": [\n        1956.6500920034025,\n        5869.115019222473\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f908b6e9-a7eb-4e15-8e1c-ce0b9772e62a",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "light-readings",
+                    ":deviceId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "deviceId",
+                      "description": "(Required) Id of the device"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"string\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ac901427-28e1-4e04-90e2-e2c1d86bd4e2",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "light-readings",
+                    ":deviceId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "deviceId",
+                      "description": "(Required) Id of the device"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"string\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e6217e2d-5feb-460f-b5da-32964e7433de",
+          "name": "Remotely triggers a light reading off of a Pulse Pro.\nThe Result needs to be fetched separately in 5-10 seconds\nThere is a small chance of the Pro failing to trigger a light reading remotely\nIf no new data is found - retrigger in 1 minute",
+          "request": {
+            "name": "Remotely triggers a light reading off of a Pulse Pro.\nThe Result needs to be fetched separately in 5-10 seconds\nThere is a small chance of the Pro failing to trigger a light reading remotely\nIf no new data is found - retrigger in 1 minute",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "devices",
+                ":deviceId",
+                "trigger-light-reading"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "deviceId",
+                  "description": "(Required) Id of the device"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "a61db08c-ece7-4945-96d1-099009e5142c",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "devices",
+                    ":deviceId",
+                    "trigger-light-reading"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "deviceId",
+                      "description": "(Required) Id of the device"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "78e74d54-f3b7-4682-807c-fa4cc165c0ce",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "devices",
+                    ":deviceId",
+                    "trigger-light-reading"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "deviceId",
+                      "description": "(Required) Id of the device"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"string\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "09eaeaf9-d17c-4ff2-aa9c-6dd600790716",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "devices",
+                    ":deviceId",
+                    "trigger-light-reading"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "deviceId",
+                      "description": "(Required) Id of the device"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"string\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "86c5391f-9386-4098-86fc-2b76ad0fbe8b",
+    "name": "Pulse Api AllDevices ProLightReading API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "# Introduction\n\nThe Pulse API is an HTTP API that is designed to interact with your pulse account and devices. \n\nNote that not all app functionality has yet been exposed through this api, so if you need additional functionality, contact our support team at support@pulsegrow.com and we will add it for you. \n\nThis API reference includes all technical documentation developers need to integrate third-party applications and platforms. If you have any additional questions send an email to our support team at support@pulsegrow.com\n\n# Authentication\n\nAll HTTP requests made against the Pulse API must be validated with an API Key.\n\n### Acquiring an API Key\n\nTo generate a new api key go to https://app.pulsegrow.com/account, scroll down to the api key section, and press the \"Add Api Key\" button.\n\n### Using Your API Key \n\nNote: API keys are generated per grow and only have access to that grow's resources (users, devices, etc). \n\nAll requests should target domain `https://api.pulsegrow.com`.\n\nYou need to provide the API key via the `x-api-key` header.\n\nSecurity Warning: It's important to secure your API Key against public access. Guard and secure it like a password. If you suspect that your API key has been compromised, revoke it via the web application at https://app.pulsegrow.com/account. \n\nSample request:\n\n```\n\ncurl --request GET \"https://api.pulsegrow.com/devices/{deviceId}/recent-data\" --header \"x-api-key: {apiKey}\"\n\n``` \n\n### Api consumption\n\n Api consumption is measured by number of datapoints retrieved.\n\n An api call that does not retrieve datapoints counts as one datapoint.\n\n Hobbyist users can use up to 4800 datapoints daily, Enthusiasts and Professionals 24000 and 120000, respectively \n\n\n\nContact Support:\n Name: Need help? Contact support\n Email: support@pulsegrow.com",
+      "type": "text/plain"
+    }
+  }
+}

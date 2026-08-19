@@ -1,0 +1,349 @@
+{
+  "item": [
+    {
+      "id": "6893486f-33d6-4b08-b139-1db907840bb8",
+      "name": "Hub",
+      "description": {
+        "content": "A collection of API operations related to users.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "1f30080e-5faa-4a6d-ae1d-4c4b4c61a2f5",
+          "name": "All Hub Ids",
+          "request": {
+            "name": "All Hub Ids",
+            "description": {
+              "content": "Retrieves all of the hubs ids assigned to the grow.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "hubs",
+                "ids"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "6237bf68-86ae-411c-b925-5b91811a75f1",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "hubs",
+                    "ids"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  8624,\n  4539\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "490ac2a7-0710-4486-b93e-c0333b46ea64",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "hubs",
+                    "ids"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"string\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "69d67b83-4d71-4bf1-b7f1-1c60b101f408",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "hubs",
+                    "ids"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"string\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2b930a54-b1ba-47b0-8bd7-4aaa6ae0708a",
+          "name": "Gets details for hub",
+          "request": {
+            "name": "Gets details for hub",
+            "description": {},
+            "url": {
+              "path": [
+                "hubs",
+                ":hubId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "hubId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "de3dff12-ec4d-4d40-91f1-98d8043458e4",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "hubs",
+                    ":hubId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "hubId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 1413,\n  \"name\": \"string\",\n  \"hubThresholds\": [\n    {\n      \"id\": 7782,\n      \"notificationActive\": false,\n      \"lowThresholdValue\": 12.863951457662282,\n      \"highThresholdValue\": 1150.3860518872411,\n      \"delay\": \"string\",\n      \"day\": false,\n      \"hubId\": 8915,\n      \"thresholdType\": 3965\n    },\n    {\n      \"id\": 9813,\n      \"notificationActive\": true,\n      \"lowThresholdValue\": 7141.858727027268,\n      \"highThresholdValue\": 4488.983290768828,\n      \"delay\": \"string\",\n      \"day\": true,\n      \"hubId\": 2821,\n      \"thresholdType\": 9914\n    }\n  ],\n  \"hidden\": true,\n  \"macAddress\": \"string\",\n  \"growId\": 1576,\n  \"sensorDevices\": [\n    {\n      \"id\": 2241,\n      \"displayOrder\": 5173,\n      \"name\": \"string\",\n      \"growId\": 2852,\n      \"hidden\": false,\n      \"hubId\": 9178,\n      \"parSensorSubtype\": 7382,\n      \"deviceType\": 3903,\n      \"sensorType\": 3153\n    },\n    {\n      \"id\": 6239,\n      \"displayOrder\": 6187,\n      \"name\": \"string\",\n      \"growId\": 6735,\n      \"hidden\": true,\n      \"hubId\": 1934,\n      \"parSensorSubtype\": 3360,\n      \"deviceType\": 7904,\n      \"sensorType\": 6321\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b571ae62-0182-44d9-aef4-1d4c54a40b0a",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "hubs",
+                    ":hubId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "hubId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"string\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f156f22f-c253-4754-a6e3-ddfe31b4a23e",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "hubs",
+                    ":hubId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "hubId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"string\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "7e8fcb39-3e84-4759-9cc4-43f9fd117b13",
+    "name": "Pulse Api AllDevices Hub API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "# Introduction\n\nThe Pulse API is an HTTP API that is designed to interact with your pulse account and devices. \n\nNote that not all app functionality has yet been exposed through this api, so if you need additional functionality, contact our support team at support@pulsegrow.com and we will add it for you. \n\nThis API reference includes all technical documentation developers need to integrate third-party applications and platforms. If you have any additional questions send an email to our support team at support@pulsegrow.com\n\n# Authentication\n\nAll HTTP requests made against the Pulse API must be validated with an API Key.\n\n### Acquiring an API Key\n\nTo generate a new api key go to https://app.pulsegrow.com/account, scroll down to the api key section, and press the \"Add Api Key\" button.\n\n### Using Your API Key \n\nNote: API keys are generated per grow and only have access to that grow's resources (users, devices, etc). \n\nAll requests should target domain `https://api.pulsegrow.com`.\n\nYou need to provide the API key via the `x-api-key` header.\n\nSecurity Warning: It's important to secure your API Key against public access. Guard and secure it like a password. If you suspect that your API key has been compromised, revoke it via the web application at https://app.pulsegrow.com/account. \n\nSample request:\n\n```\n\ncurl --request GET \"https://api.pulsegrow.com/devices/{deviceId}/recent-data\" --header \"x-api-key: {apiKey}\"\n\n``` \n\n### Api consumption\n\n Api consumption is measured by number of datapoints retrieved.\n\n An api call that does not retrieve datapoints counts as one datapoint.\n\n Hobbyist users can use up to 4800 datapoints daily, Enthusiasts and Professionals 24000 and 120000, respectively \n\n\n\nContact Support:\n Name: Need help? Contact support\n Email: support@pulsegrow.com",
+      "type": "text/plain"
+    }
+  }
+}

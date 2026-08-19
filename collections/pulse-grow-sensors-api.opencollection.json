@@ -1,0 +1,116 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Pulse Api AllDevices Sensors API",
+    "version": "v1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Sensors",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Sensor Recent Data",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/sensors/:sensorId/recent-data",
+            "params": [
+              {
+                "name": "sensorId",
+                "value": "123",
+                "type": "path",
+                "description": "The sensor identifier for which to retrieve the latest data."
+              }
+            ]
+          },
+          "docs": "Gets the last data point for a sensor"
+        },
+        {
+          "info": {
+            "name": "Force an immediate sensor reading",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/sensors/:sensorId/force-read",
+            "params": [
+              {
+                "name": "sensorId",
+                "value": "123",
+                "type": "path",
+                "description": "The sensor identifier"
+              }
+            ]
+          },
+          "docs": "Force an immediate sensor reading"
+        },
+        {
+          "info": {
+            "name": "Data Range for Sensor. Each Datapoint in range will be counted towards your api usage limit.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/sensors/:sensorId/data-range",
+            "params": [
+              {
+                "name": "sensorId",
+                "value": "123",
+                "type": "path",
+                "description": "The sensor identifier for which to retrieve data."
+              },
+              {
+                "name": "start",
+                "value": "2020-01-31T01:11:22Z",
+                "type": "query",
+                "description": "The beginning time of your data range in ISO 8601 format."
+              },
+              {
+                "name": "end",
+                "value": "2020-01-31T20:11:22Z",
+                "type": "query",
+                "description": "The end time of your data range in ISO 8601 format. If not provided, API will use the current time."
+              }
+            ]
+          },
+          "docs": "Retrieves all datapoints within a specified timespan the sensor."
+        },
+        {
+          "info": {
+            "name": "All Sensor Ids",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/sensors/ids"
+          },
+          "docs": "Retrieves all of the sensor ids assigned to the grow."
+        },
+        {
+          "info": {
+            "name": "All Sensor Details",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/sensors/:sensorId/details",
+            "params": [
+              {
+                "name": "sensorId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "All Sensor Details"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,115 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Pulse Api AllDevices Devices API",
+    "version": "v1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Devices",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Device Recent Data",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/devices/:deviceId/recent-data",
+            "params": [
+              {
+                "name": "deviceId",
+                "value": "123",
+                "type": "path",
+                "description": "The device identifier for which to retrieve the latest data."
+              }
+            ]
+          },
+          "docs": "Gets the last data point for a device"
+        },
+        {
+          "info": {
+            "name": "Data Range for Device. Each Datapoint in range will be counted towards your api usage limit.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/devices/:deviceId/data-range",
+            "params": [
+              {
+                "name": "deviceId",
+                "value": "123",
+                "type": "path",
+                "description": "The device identifier for which to retrieve data."
+              },
+              {
+                "name": "start",
+                "value": "2020-01-31T01:11:22Z",
+                "type": "query",
+                "description": "The beginning time of your data range in ISO 8601 format."
+              },
+              {
+                "name": "end",
+                "value": "2020-01-31T20:11:22Z",
+                "type": "query",
+                "description": "The end time of your data range in ISO 8601 format. If not provided, API will use the current time."
+              }
+            ]
+          },
+          "docs": "Retrieves all datapoints within a specified timespan the device."
+        },
+        {
+          "info": {
+            "name": "All Device Ids",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/devices/ids"
+          },
+          "docs": "Retrieves all of the device ids assigned to the grow."
+        },
+        {
+          "info": {
+            "name": "All Device Details",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/devices/details"
+          },
+          "docs": "Retrieves detailed information for all devices on the grow."
+        },
+        {
+          "info": {
+            "name": "Data Range for All Devices. Each Datapoint will be counted towards your api usage limit.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/devices/range",
+            "params": [
+              {
+                "name": "start",
+                "value": "2020-01-31T01:11:22Z",
+                "type": "query",
+                "description": "The beginning time of your data range in ISO 8601 format."
+              },
+              {
+                "name": "end",
+                "value": "2020-01-31T20:11:22Z",
+                "type": "query",
+                "description": "The end time of your data range in ISO 8601 format. If not provided, API will use the current time."
+              }
+            ]
+          },
+          "docs": "Retrieves all datapoints within a specified timespan for all devices on grow. Max data range of 7 days."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

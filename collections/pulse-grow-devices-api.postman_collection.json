@@ -1,0 +1,904 @@
+{
+  "item": [
+    {
+      "id": "92a66025-46c3-4788-ba8a-347e3a16dc23",
+      "name": "Devices",
+      "description": {
+        "content": "A collection of API operations related to devices.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "76ef1529-0e74-4b08-9022-9ed975617b24",
+          "name": "Device Recent Data",
+          "request": {
+            "name": "Device Recent Data",
+            "description": {
+              "content": "Gets the last data point for a device",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "devices",
+                ":deviceId",
+                "recent-data"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "deviceId",
+                  "description": "(Required) The device identifier for which to retrieve the latest data."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "571c81a6-df36-4cd1-9b01-6a0ca5d65ab4",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "devices",
+                    ":deviceId",
+                    "recent-data"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "deviceId",
+                      "description": "(Required) The device identifier for which to retrieve the latest data."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"deviceId\": 646,\n  \"pluggedIn\": false,\n  \"batteryV\": 7218.492934617484,\n  \"electricImpId\": \"string\",\n  \"signalStrength\": 6455,\n  \"createdAt\": \"1979-11-18T10:57:25.977Z\",\n  \"deviceType\": 5214,\n  \"temperatureF\": 944.2275652035137,\n  \"humidityRh\": 9223.190048086031,\n  \"lightLux\": 2205.3101834144964,\n  \"airPressure\": 1039.878909889701,\n  \"vpd\": 5954.02152004395,\n  \"co2\": 3346,\n  \"co2Temperature\": 6560.2348794682275,\n  \"co2Rh\": 6954.48564374783,\n  \"voc\": 8727,\n  \"channel1\": 7439.548684428408,\n  \"channel2\": 3994.9000998023275,\n  \"channel3\": 8108.182478447755,\n  \"channel4\": 2990.6576280149065,\n  \"channel5\": 5852.332118467462,\n  \"channel6\": 830.673947339361,\n  \"channel7\": 2787.7417482327483,\n  \"channel8\": 7186.305105053563,\n  \"near\": 1869.297962591796,\n  \"clear\": 2273.3861391141054,\n  \"flicker\": 3112.2968102690274,\n  \"par\": 4214.663417729086,\n  \"gain\": 9830,\n  \"tint\": 6193.704107382551,\n  \"dpC\": 3143.935239177701,\n  \"dpF\": 7660.694707286448,\n  \"temperatureC\": 5635.559230756885,\n  \"lightCalculationReading\": {\n    \"channels\": [\n      6234.990409696602,\n      1986.0122678820446\n    ],\n    \"tint\": 7483.926334834518,\n    \"gain\": 1048,\n    \"ppfd\": 3938.7889807961797,\n    \"pfdRed\": 413.9383457964307,\n    \"pfdGreen\": 5775.279324729162,\n    \"pfdBlue\": 5464.772260196659,\n    \"pfdIr\": 2808.8619453435613\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "9241659e-7dd3-4907-b91e-102697769fcf",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "devices",
+                    ":deviceId",
+                    "recent-data"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "deviceId",
+                      "description": "(Required) The device identifier for which to retrieve the latest data."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"string\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "2827ba2b-822e-49a7-a232-9a86e199de5c",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "devices",
+                    ":deviceId",
+                    "recent-data"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "deviceId",
+                      "description": "(Required) The device identifier for which to retrieve the latest data."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"string\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5c5c2304-ecf4-43fd-ae82-8eb53fb390f3",
+          "name": "Data Range for Device. Each Datapoint in range will be counted towards your api usage limit.",
+          "request": {
+            "name": "Data Range for Device. Each Datapoint in range will be counted towards your api usage limit.",
+            "description": {
+              "content": "Retrieves all datapoints within a specified timespan the device.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "devices",
+                ":deviceId",
+                "data-range"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "start",
+                  "value": "<dateTime>",
+                  "description": "(Required) The beginning time of your data range in ISO 8601 format."
+                },
+                {
+                  "disabled": false,
+                  "key": "end",
+                  "value": "<dateTime>",
+                  "description": "The end time of your data range in ISO 8601 format. If not provided, API will use the current time."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "deviceId",
+                  "description": "(Required) The device identifier for which to retrieve data."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "40c3be0e-5bae-4b52-aa8f-a72cca80598b",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "devices",
+                    ":deviceId",
+                    "data-range"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "start",
+                      "value": "2020-01-31T01:11:22Z"
+                    },
+                    {
+                      "key": "end",
+                      "value": "2020-01-31T20:11:22Z"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "deviceId",
+                      "description": "(Required) The device identifier for which to retrieve data."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"deviceId\": 2044,\n    \"pluggedIn\": true,\n    \"batteryV\": 1291.357524339496,\n    \"electricImpId\": \"string\",\n    \"signalStrength\": 784,\n    \"createdAt\": \"2014-07-15T02:40:55.950Z\",\n    \"deviceType\": 1463,\n    \"temperatureF\": 6735.064695220988,\n    \"humidityRh\": 6382.746877598213,\n    \"lightLux\": 6788.213157015187,\n    \"airPressure\": 4183.894189532438,\n    \"vpd\": 2747.478489667995,\n    \"co2\": 5865,\n    \"co2Temperature\": 9306.247201235976,\n    \"co2Rh\": 610.9507279474092,\n    \"voc\": 4388,\n    \"channel1\": 7521.557815651913,\n    \"channel2\": 7834.832984832852,\n    \"channel3\": 8446.411192055497,\n    \"channel4\": 2487.454133372632,\n    \"channel5\": 2340.5621885886153,\n    \"channel6\": 7251.705782110133,\n    \"channel7\": 786.5174704120226,\n    \"channel8\": 6184.314393686984,\n    \"near\": 6932.30625065263,\n    \"clear\": 9183.386562561962,\n    \"flicker\": 7790.024603435927,\n    \"par\": 4394.319524378471,\n    \"gain\": 7980,\n    \"tint\": 4553.038388115435,\n    \"dpC\": 7486.340661082834,\n    \"dpF\": 2692.7407489325474,\n    \"temperatureC\": 3263.480467111626,\n    \"lightCalculationReading\": {\n      \"channels\": [\n        350.86716178824196,\n        7127.499123933656\n      ],\n      \"tint\": 578.9586096250121,\n      \"gain\": 2380,\n      \"ppfd\": 9353.782554793941,\n      \"pfdRed\": 8626.722216963903,\n      \"pfdGreen\": 9630.893114174838,\n      \"pfdBlue\": 5530.273690038445,\n      \"pfdIr\": 1358.6687170066637\n    }\n  },\n  {\n    \"deviceId\": 5056,\n    \"pluggedIn\": false,\n    \"batteryV\": 1083.5091785610107,\n    \"electricImpId\": \"string\",\n    \"signalStrength\": 7992,\n    \"createdAt\": \"2009-07-19T18:52:17.997Z\",\n    \"deviceType\": 8040,\n    \"temperatureF\": 7878.961128331224,\n    \"humidityRh\": 9122.132006714795,\n    \"lightLux\": 2461.955950725695,\n    \"airPressure\": 9669.423322755236,\n    \"vpd\": 2570.631476536457,\n    \"co2\": 9142,\n    \"co2Temperature\": 2698.483355316392,\n    \"co2Rh\": 3158.453667746639,\n    \"voc\": 4677,\n    \"channel1\": 1905.3608148381263,\n    \"channel2\": 6186.281620904992,\n    \"channel3\": 8160.222851946234,\n    \"channel4\": 145.76930612899775,\n    \"channel5\": 6760.566290796413,\n    \"channel6\": 3734.873438492199,\n    \"channel7\": 1028.1363089053352,\n    \"channel8\": 2886.5861367015523,\n    \"near\": 733.0788491655849,\n    \"clear\": 249.41686967778543,\n    \"flicker\": 8304.658777565915,\n    \"par\": 8985.995027408952,\n    \"gain\": 6387,\n    \"tint\": 9434.27684714047,\n    \"dpC\": 420.5375836169456,\n    \"dpF\": 2967.88301527674,\n    \"temperatureC\": 5302.300577998338,\n    \"lightCalculationReading\": {\n      \"channels\": [\n        5564.403054683688,\n        9221.871476296988\n      ],\n      \"tint\": 9795.797582830666,\n      \"gain\": 355,\n      \"ppfd\": 6106.987284139813,\n      \"pfdRed\": 6400.157669923105,\n      \"pfdGreen\": 5994.946500980715,\n      \"pfdBlue\": 5783.343958924287,\n      \"pfdIr\": 2915.342591754706\n    }\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b6b163ee-d3fe-4427-a486-7a6fb6c72934",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "devices",
+                    ":deviceId",
+                    "data-range"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "start",
+                      "value": "2020-01-31T01:11:22Z"
+                    },
+                    {
+                      "key": "end",
+                      "value": "2020-01-31T20:11:22Z"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "deviceId",
+                      "description": "(Required) The device identifier for which to retrieve data."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"string\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "9693684f-cb06-44f3-841d-4132a6d03161",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "devices",
+                    ":deviceId",
+                    "data-range"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "start",
+                      "value": "2020-01-31T01:11:22Z"
+                    },
+                    {
+                      "key": "end",
+                      "value": "2020-01-31T20:11:22Z"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "deviceId",
+                      "description": "(Required) The device identifier for which to retrieve data."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"string\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "602f3e10-4065-4ec3-8733-bc06ef67dbd3",
+          "name": "All Device Ids",
+          "request": {
+            "name": "All Device Ids",
+            "description": {
+              "content": "Retrieves all of the device ids assigned to the grow.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "devices",
+                "ids"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "cdf7343e-0e0b-44fc-9593-ef08557dfdd0",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "devices",
+                    "ids"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  7715,\n  5103\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f763dc34-b1bb-4576-a6ba-b13ce50ff5a3",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "devices",
+                    "ids"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"string\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "4077c362-9926-438c-96bd-1d22978ea8bb",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "devices",
+                    "ids"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"string\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "de7a53bd-84fd-4877-acff-69df6c15c777",
+          "name": "All Device Details",
+          "request": {
+            "name": "All Device Details",
+            "description": {
+              "content": "Retrieves detailed information for all devices on the grow.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "devices",
+                "details"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "333ac303-a550-45f1-ad9f-c0ecafbaa243",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "devices",
+                    "details"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": 5010,\n    \"deviceType\": 7169,\n    \"powerThreshold\": {\n      \"id\": 1747,\n      \"notificationActive\": false,\n      \"lowThresholdValue\": 8381.263406963984,\n      \"highThresholdValue\": 3401.133053964721,\n      \"delay\": \"string\",\n      \"day\": false,\n      \"deviceId\": 7694,\n      \"thresholdType\": 8061\n    },\n    \"connectivityThreshold\": {\n      \"id\": 8883,\n      \"notificationActive\": true,\n      \"lowThresholdValue\": 5652.899692922163,\n      \"highThresholdValue\": 6053.931384347831,\n      \"delay\": \"string\",\n      \"day\": true,\n      \"deviceId\": 9483,\n      \"thresholdType\": 8912\n    },\n    \"outletToBatteryTransitionThreshold\": {\n      \"id\": 650,\n      \"notificationActive\": true,\n      \"lowThresholdValue\": 1785.2891467033471,\n      \"highThresholdValue\": 7610.452291749899,\n      \"delay\": \"string\",\n      \"day\": true,\n      \"deviceId\": 3668,\n      \"thresholdType\": 6672\n    },\n    \"lowBatteryThreshold\": {\n      \"id\": 692,\n      \"notificationActive\": false,\n      \"lowThresholdValue\": 6494.204975825065,\n      \"highThresholdValue\": 3375.941694464696,\n      \"delay\": \"string\",\n      \"day\": false,\n      \"deviceId\": 830,\n      \"thresholdType\": 7783\n    },\n    \"dayThresholds\": {\n      \"lightThreshold\": {\n        \"id\": 1792,\n        \"notificationActive\": false,\n        \"lowThresholdValue\": 4624.66041851602,\n        \"highThresholdValue\": 7541.372916857104,\n        \"delay\": \"string\",\n        \"day\": false,\n        \"deviceId\": 6488,\n        \"thresholdType\": 4509\n      },\n      \"temperatureThreshold\": {\n        \"id\": 3960,\n        \"notificationActive\": false,\n        \"lowThresholdValue\": 6404.924026152827,\n        \"highThresholdValue\": 3215.4434189837666,\n        \"delay\": \"string\",\n        \"day\": false,\n        \"deviceId\": 9664,\n        \"thresholdType\": 5150\n      },\n      \"humidityThreshold\": {\n        \"id\": 6637,\n        \"notificationActive\": true,\n        \"lowThresholdValue\": 7564.854268839528,\n        \"highThresholdValue\": 4097.8116090599015,\n        \"delay\": \"string\",\n        \"day\": false,\n        \"deviceId\": 3075,\n        \"thresholdType\": 3870\n      },\n      \"vpdThreshold\": {\n        \"id\": 384,\n        \"notificationActive\": false,\n        \"lowThresholdValue\": 41.54997115893843,\n        \"highThresholdValue\": 2081.9256492119475,\n        \"delay\": \"string\",\n        \"day\": false,\n        \"deviceId\": 6670,\n        \"thresholdType\": 8655\n      },\n      \"dewPointThreshold\": {\n        \"id\": 6417,\n        \"notificationActive\": true,\n        \"lowThresholdValue\": 2399.2201798804635,\n        \"highThresholdValue\": 9578.609306276323,\n        \"delay\": \"string\",\n        \"day\": false,\n        \"deviceId\": 5086,\n        \"thresholdType\": 2963\n      },\n      \"co2Threshold\": {\n        \"id\": 1375,\n        \"notificationActive\": true,\n        \"lowThresholdValue\": 8218.745673297068,\n        \"highThresholdValue\": 6915.190756709312,\n        \"delay\": \"string\",\n        \"day\": false,\n        \"deviceId\": 1201,\n        \"thresholdType\": 6573\n      },\n      \"vocThreshold\": {\n        \"id\": 5634,\n        \"notificationActive\": false,\n        \"lowThresholdValue\": 1294.2644011039783,\n        \"highThresholdValue\": 2549.6848610752586,\n        \"delay\": \"string\",\n        \"day\": false,\n        \"deviceId\": 5767,\n        \"thresholdType\": 852\n      },\n      \"dewPointThresholdDual\": {\n        \"id\": 2094,\n        \"notificationActive\": true,\n        \"lowThresholdValue\": 5448.6728385563965,\n        \"highThresholdValue\": 4189.451539749184,\n        \"delay\": \"string\",\n        \"day\": true,\n        \"deviceId\": 8200,\n        \"thresholdType\": 4290\n      }\n    },\n    \"nightThresholds\": {\n      \"lightThreshold\": {\n        \"id\": 5877,\n        \"notificationActive\": false,\n        \"lowThresholdValue\": 9890.91505858053,\n        \"highThresholdValue\": 1749.8270999396582,\n        \"delay\": \"string\",\n        \"day\": false,\n        \"deviceId\": 4891,\n        \"thresholdType\": 2746\n      },\n      \"temperatureThreshold\": {\n        \"id\": 6334,\n        \"notificationActive\": false,\n        \"lowThresholdValue\": 4994.269286520545,\n        \"highThresholdValue\": 7632.380376346542,\n        \"delay\": \"string\",\n        \"day\": true,\n        \"deviceId\": 3446,\n        \"thresholdType\": 3071\n      },\n      \"humidityThreshold\": {\n        \"id\": 5818,\n        \"notificationActive\": true,\n        \"lowThresholdValue\": 3733.2305527517283,\n        \"highThresholdValue\": 7474.168821666542,\n        \"delay\": \"string\",\n        \"day\": false,\n        \"deviceId\": 6441,\n        \"thresholdType\": 774\n      },\n      \"vpdThreshold\": {\n        \"id\": 3822,\n        \"notificationActive\": false,\n        \"lowThresholdValue\": 3102.5413228922525,\n        \"highThresholdValue\": 1078.114325954781,\n        \"delay\": \"string\",\n        \"day\": false,\n        \"deviceId\": 5985,\n        \"thresholdType\": 6895\n      },\n      \"dewPointThreshold\": {\n        \"id\": 8596,\n        \"notificationActive\": false,\n        \"lowThresholdValue\": 9171.530311909612,\n        \"highThresholdValue\": 5302.4265362155065,\n        \"delay\": \"string\",\n        \"day\": false,\n        \"deviceId\": 5371,\n        \"thresholdType\": 2703\n      },\n      \"co2Threshold\": {\n        \"id\": 4423,\n        \"notificationActive\": false,\n        \"lowThresholdValue\": 7330.1019209579645,\n        \"highThresholdValue\": 307.51996880366784,\n        \"delay\": \"string\",\n        \"day\": true,\n        \"deviceId\": 8507,\n        \"thresholdType\": 251\n      },\n      \"vocThreshold\": {\n        \"id\": 3740,\n        \"notificationActive\": true,\n        \"lowThresholdValue\": 2699.0385559189035,\n        \"highThresholdValue\": 3313.4031277975087,\n        \"delay\": \"string\",\n        \"day\": true,\n        \"deviceId\": 4987,\n        \"thresholdType\": 8421\n      },\n      \"dewPointThresholdDual\": {\n        \"id\": 5017,\n        \"notificationActive\": false,\n        \"lowThresholdValue\": 7963.563768699595,\n        \"highThresholdValue\": 1158.427332971156,\n        \"delay\": \"string\",\n        \"day\": true,\n        \"deviceId\": 7247,\n        \"thresholdType\": 3650\n      }\n    },\n    \"offsets\": {\n      \"tempOffset\": 5665.681362688229,\n      \"humidityOffset\": 3803.9575606088106,\n      \"lightOffset\": 3229.424863770196,\n      \"airPressureOffset\": 1316.4679244195543,\n      \"vpdLeafTempOffsetInF\": 6330.414569379318\n    },\n    \"vpdLeafTempOffsetInF\": 1018.350010328527,\n    \"dayStart\": \"string\",\n    \"nightStart\": \"string\",\n    \"name\": \"string\",\n    \"vpdTarget\": 9696.635131054501,\n    \"templateId\": 3319,\n    \"templateName\": \"string\",\n    \"templateTypeId\": 2386,\n    \"batteryType\": 6280,\n    \"lowBatteryVoltage\": 8275.108559138052,\n    \"macAddress\": \"string\",\n    \"lastCo2CalibrationDate\": \"1987-09-18T01:49:12.405Z\"\n  },\n  {\n    \"id\": 5857,\n    \"deviceType\": 8564,\n    \"powerThreshold\": {\n      \"id\": 8474,\n      \"notificationActive\": true,\n      \"lowThresholdValue\": 8880.77111332815,\n      \"highThresholdValue\": 26.391562876429965,\n      \"delay\": \"string\",\n      \"day\": true,\n      \"deviceId\": 8637,\n      \"thresholdType\": 7839\n    },\n    \"connectivityThreshold\": {\n      \"id\": 5810,\n      \"notificationActive\": false,\n      \"lowThresholdValue\": 7128.573111689219,\n      \"highThresholdValue\": 4648.608956682693,\n      \"delay\": \"string\",\n      \"day\": true,\n      \"deviceId\": 7462,\n      \"thresholdType\": 1634\n    },\n    \"outletToBatteryTransitionThreshold\": {\n      \"id\": 9323,\n      \"notificationActive\": false,\n      \"lowThresholdValue\": 5644.824842209929,\n      \"highThresholdValue\": 9133.066130177996,\n      \"delay\": \"string\",\n      \"day\": false,\n      \"deviceId\": 1158,\n      \"thresholdType\": 4777\n    },\n    \"lowBatteryThreshold\": {\n      \"id\": 5013,\n      \"notificationActive\": false,\n      \"lowThresholdValue\": 1806.7327604839722,\n      \"highThresholdValue\": 5400.559293335618,\n      \"delay\": \"string\",\n      \"day\": false,\n      \"deviceId\": 1969,\n      \"thresholdType\": 7926\n    },\n    \"dayThresholds\": {\n      \"lightThreshold\": {\n        \"id\": 6538,\n        \"notificationActive\": false,\n        \"lowThresholdValue\": 4535.377599272899,\n        \"highThresholdValue\": 5216.790963495429,\n        \"delay\": \"string\",\n        \"day\": false,\n        \"deviceId\": 6429,\n        \"thresholdType\": 658\n      },\n      \"temperatureThreshold\": {\n        \"id\": 737,\n        \"notificationActive\": false,\n        \"lowThresholdValue\": 3442.4341469399988,\n        \"highThresholdValue\": 5742.779782856909,\n        \"delay\": \"string\",\n        \"day\": false,\n        \"deviceId\": 6734,\n        \"thresholdType\": 5909\n      },\n      \"humidityThreshold\": {\n        \"id\": 6550,\n        \"notificationActive\": false,\n        \"lowThresholdValue\": 3723.561056544332,\n        \"highThresholdValue\": 4009.5745352353297,\n        \"delay\": \"string\",\n        \"day\": false,\n        \"deviceId\": 221,\n        \"thresholdType\": 2320\n      },\n      \"vpdThreshold\": {\n        \"id\": 4562,\n        \"notificationActive\": true,\n        \"lowThresholdValue\": 5278.926216777306,\n        \"highThresholdValue\": 6093.188671212119,\n        \"delay\": \"string\",\n        \"day\": false,\n        \"deviceId\": 6112,\n        \"thresholdType\": 358\n      },\n      \"dewPointThreshold\": {\n        \"id\": 8009,\n        \"notificationActive\": true,\n        \"lowThresholdValue\": 2705.515702147936,\n        \"highThresholdValue\": 4294.549138979833,\n        \"delay\": \"string\",\n        \"day\": true,\n        \"deviceId\": 1067,\n        \"thresholdType\": 9791\n      },\n      \"co2Threshold\": {\n        \"id\": 9166,\n        \"notificationActive\": true,\n        \"lowThresholdValue\": 1119.5382587298718,\n        \"highThresholdValue\": 2911.5531984786435,\n        \"delay\": \"string\",\n        \"day\": false,\n        \"deviceId\": 3309,\n        \"thresholdType\": 6711\n      },\n      \"vocThreshold\": {\n        \"id\": 6037,\n        \"notificationActive\": true,\n        \"lowThresholdValue\": 4937.09332905087,\n        \"highThresholdValue\": 5570.460947901828,\n        \"delay\": \"string\",\n        \"day\": false,\n        \"deviceId\": 3460,\n        \"thresholdType\": 3231\n      },\n      \"dewPointThresholdDual\": {\n        \"id\": 3533,\n        \"notificationActive\": false,\n        \"lowThresholdValue\": 3871.7664052742807,\n        \"highThresholdValue\": 9020.51024668871,\n        \"delay\": \"string\",\n        \"day\": false,\n        \"deviceId\": 6061,\n        \"thresholdType\": 9012\n      }\n    },\n    \"nightThresholds\": {\n      \"lightThreshold\": {\n        \"id\": 2281,\n        \"notificationActive\": false,\n        \"lowThresholdValue\": 2928.675362551826,\n        \"highThresholdValue\": 1978.145454071495,\n        \"delay\": \"string\",\n        \"day\": true,\n        \"deviceId\": 3277,\n        \"thresholdType\": 3349\n      },\n      \"temperatureThreshold\": {\n        \"id\": 6367,\n        \"notificationActive\": true,\n        \"lowThresholdValue\": 6341.484594452541,\n        \"highThresholdValue\": 5488.32923977499,\n        \"delay\": \"string\",\n        \"day\": false,\n        \"deviceId\": 3355,\n        \"thresholdType\": 5470\n      },\n      \"humidityThreshold\": {\n        \"id\": 3890,\n        \"notificationActive\": true,\n        \"lowThresholdValue\": 2270.608930380934,\n        \"highThresholdValue\": 8807.789055873236,\n        \"delay\": \"string\",\n        \"day\": false,\n        \"deviceId\": 9416,\n        \"thresholdType\": 8762\n      },\n      \"vpdThreshold\": {\n        \"id\": 3920,\n        \"notificationActive\": true,\n        \"lowThresholdValue\": 4167.974259024463,\n        \"highThresholdValue\": 8269.075696996968,\n        \"delay\": \"string\",\n        \"day\": true,\n        \"deviceId\": 3256,\n        \"thresholdType\": 2860\n      },\n      \"dewPointThreshold\": {\n        \"id\": 9215,\n        \"notificationActive\": true,\n        \"lowThresholdValue\": 5031.311590689136,\n        \"highThresholdValue\": 2657.919024771098,\n        \"delay\": \"string\",\n        \"day\": false,\n        \"deviceId\": 3934,\n        \"thresholdType\": 5182\n      },\n      \"co2Threshold\": {\n        \"id\": 9591,\n        \"notificationActive\": false,\n        \"lowThresholdValue\": 6685.466591510658,\n        \"highThresholdValue\": 3939.105078070381,\n        \"delay\": \"string\",\n        \"day\": false,\n        \"deviceId\": 569,\n        \"thresholdType\": 7396\n      },\n      \"vocThreshold\": {\n        \"id\": 4651,\n        \"notificationActive\": true,\n        \"lowThresholdValue\": 7509.923145150261,\n        \"highThresholdValue\": 9853.442536646353,\n        \"delay\": \"string\",\n        \"day\": true,\n        \"deviceId\": 1766,\n        \"thresholdType\": 7944\n      },\n      \"dewPointThresholdDual\": {\n        \"id\": 721,\n        \"notificationActive\": true,\n        \"lowThresholdValue\": 5643.853659396264,\n        \"highThresholdValue\": 945.5994184425454,\n        \"delay\": \"string\",\n        \"day\": true,\n        \"deviceId\": 1805,\n        \"thresholdType\": 7286\n      }\n    },\n    \"offsets\": {\n      \"tempOffset\": 6666.612877021416,\n      \"humidityOffset\": 2258.0706007302374,\n      \"lightOffset\": 7992.838614339469,\n      \"airPressureOffset\": 9386.232739633599,\n      \"vpdLeafTempOffsetInF\": 9293.367283435766\n    },\n    \"vpdLeafTempOffsetInF\": 7290.4633886450365,\n    \"dayStart\": \"string\",\n    \"nightStart\": \"string\",\n    \"name\": \"string\",\n    \"vpdTarget\": 6555.935934764836,\n    \"templateId\": 303,\n    \"templateName\": \"string\",\n    \"templateTypeId\": 2290,\n    \"batteryType\": 548,\n    \"lowBatteryVoltage\": 4479.815092732992,\n    \"macAddress\": \"string\",\n    \"lastCo2CalibrationDate\": \"1995-07-23T20:32:16.548Z\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "1e93e3ff-5e6f-4cbd-978d-079c39703811",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "devices",
+                    "details"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"string\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "7c7d6686-fbef-41bb-a92d-a00c9abcde39",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "devices",
+                    "details"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"string\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "81214332-7dca-45bd-a37e-91af6f0f7f39",
+          "name": "Data Range for All Devices. Each Datapoint will be counted towards your api usage limit.",
+          "request": {
+            "name": "Data Range for All Devices. Each Datapoint will be counted towards your api usage limit.",
+            "description": {
+              "content": "Retrieves all datapoints within a specified timespan for all devices on grow. Max data range of 7 days.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "devices",
+                "range"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "start",
+                  "value": "<dateTime>",
+                  "description": "(Required) The beginning time of your data range in ISO 8601 format."
+                },
+                {
+                  "disabled": false,
+                  "key": "end",
+                  "value": "<dateTime>",
+                  "description": "The end time of your data range in ISO 8601 format. If not provided, API will use the current time."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "a6adec8c-4ba5-44c2-93e8-fd6b0ea71aaf",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "devices",
+                    "range"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "start",
+                      "value": "2020-01-31T01:11:22Z"
+                    },
+                    {
+                      "key": "end",
+                      "value": "2020-01-31T20:11:22Z"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"deviceId\": 2044,\n    \"pluggedIn\": true,\n    \"batteryV\": 1291.357524339496,\n    \"electricImpId\": \"string\",\n    \"signalStrength\": 784,\n    \"createdAt\": \"2014-07-15T02:40:55.950Z\",\n    \"deviceType\": 1463,\n    \"temperatureF\": 6735.064695220988,\n    \"humidityRh\": 6382.746877598213,\n    \"lightLux\": 6788.213157015187,\n    \"airPressure\": 4183.894189532438,\n    \"vpd\": 2747.478489667995,\n    \"co2\": 5865,\n    \"co2Temperature\": 9306.247201235976,\n    \"co2Rh\": 610.9507279474092,\n    \"voc\": 4388,\n    \"channel1\": 7521.557815651913,\n    \"channel2\": 7834.832984832852,\n    \"channel3\": 8446.411192055497,\n    \"channel4\": 2487.454133372632,\n    \"channel5\": 2340.5621885886153,\n    \"channel6\": 7251.705782110133,\n    \"channel7\": 786.5174704120226,\n    \"channel8\": 6184.314393686984,\n    \"near\": 6932.30625065263,\n    \"clear\": 9183.386562561962,\n    \"flicker\": 7790.024603435927,\n    \"par\": 4394.319524378471,\n    \"gain\": 7980,\n    \"tint\": 4553.038388115435,\n    \"dpC\": 7486.340661082834,\n    \"dpF\": 2692.7407489325474,\n    \"temperatureC\": 3263.480467111626,\n    \"lightCalculationReading\": {\n      \"channels\": [\n        350.86716178824196,\n        7127.499123933656\n      ],\n      \"tint\": 578.9586096250121,\n      \"gain\": 2380,\n      \"ppfd\": 9353.782554793941,\n      \"pfdRed\": 8626.722216963903,\n      \"pfdGreen\": 9630.893114174838,\n      \"pfdBlue\": 5530.273690038445,\n      \"pfdIr\": 1358.6687170066637\n    }\n  },\n  {\n    \"deviceId\": 5056,\n    \"pluggedIn\": false,\n    \"batteryV\": 1083.5091785610107,\n    \"electricImpId\": \"string\",\n    \"signalStrength\": 7992,\n    \"createdAt\": \"2009-07-19T18:52:17.997Z\",\n    \"deviceType\": 8040,\n    \"temperatureF\": 7878.961128331224,\n    \"humidityRh\": 9122.132006714795,\n    \"lightLux\": 2461.955950725695,\n    \"airPressure\": 9669.423322755236,\n    \"vpd\": 2570.631476536457,\n    \"co2\": 9142,\n    \"co2Temperature\": 2698.483355316392,\n    \"co2Rh\": 3158.453667746639,\n    \"voc\": 4677,\n    \"channel1\": 1905.3608148381263,\n    \"channel2\": 6186.281620904992,\n    \"channel3\": 8160.222851946234,\n    \"channel4\": 145.76930612899775,\n    \"channel5\": 6760.566290796413,\n    \"channel6\": 3734.873438492199,\n    \"channel7\": 1028.1363089053352,\n    \"channel8\": 2886.5861367015523,\n    \"near\": 733.0788491655849,\n    \"clear\": 249.41686967778543,\n    \"flicker\": 8304.658777565915,\n    \"par\": 8985.995027408952,\n    \"gain\": 6387,\n    \"tint\": 9434.27684714047,\n    \"dpC\": 420.5375836169456,\n    \"dpF\": 2967.88301527674,\n    \"temperatureC\": 5302.300577998338,\n    \"lightCalculationReading\": {\n      \"channels\": [\n        5564.403054683688,\n        9221.871476296988\n      ],\n      \"tint\": 9795.797582830666,\n      \"gain\": 355,\n      \"ppfd\": 6106.987284139813,\n      \"pfdRed\": 6400.157669923105,\n      \"pfdGreen\": 5994.946500980715,\n      \"pfdBlue\": 5783.343958924287,\n      \"pfdIr\": 2915.342591754706\n    }\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "16dffcb5-1af9-4b9d-ba9b-691b0a5fd5df",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "devices",
+                    "range"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "start",
+                      "value": "2020-01-31T01:11:22Z"
+                    },
+                    {
+                      "key": "end",
+                      "value": "2020-01-31T20:11:22Z"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"string\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a8e467b6-f8fb-4dfd-b880-5a5e99a9ccd0",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "devices",
+                    "range"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "start",
+                      "value": "2020-01-31T01:11:22Z"
+                    },
+                    {
+                      "key": "end",
+                      "value": "2020-01-31T20:11:22Z"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"string\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "dc74ff21-dc55-42c5-a663-2ee7bcd90fc1",
+    "name": "Pulse Api AllDevices Devices API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "# Introduction\n\nThe Pulse API is an HTTP API that is designed to interact with your pulse account and devices. \n\nNote that not all app functionality has yet been exposed through this api, so if you need additional functionality, contact our support team at support@pulsegrow.com and we will add it for you. \n\nThis API reference includes all technical documentation developers need to integrate third-party applications and platforms. If you have any additional questions send an email to our support team at support@pulsegrow.com\n\n# Authentication\n\nAll HTTP requests made against the Pulse API must be validated with an API Key.\n\n### Acquiring an API Key\n\nTo generate a new api key go to https://app.pulsegrow.com/account, scroll down to the api key section, and press the \"Add Api Key\" button.\n\n### Using Your API Key \n\nNote: API keys are generated per grow and only have access to that grow's resources (users, devices, etc). \n\nAll requests should target domain `https://api.pulsegrow.com`.\n\nYou need to provide the API key via the `x-api-key` header.\n\nSecurity Warning: It's important to secure your API Key against public access. Guard and secure it like a password. If you suspect that your API key has been compromised, revoke it via the web application at https://app.pulsegrow.com/account. \n\nSample request:\n\n```\n\ncurl --request GET \"https://api.pulsegrow.com/devices/{deviceId}/recent-data\" --header \"x-api-key: {apiKey}\"\n\n``` \n\n### Api consumption\n\n Api consumption is measured by number of datapoints retrieved.\n\n An api call that does not retrieve datapoints counts as one datapoint.\n\n Hobbyist users can use up to 4800 datapoints daily, Enthusiasts and Professionals 24000 and 120000, respectively \n\n\n\nContact Support:\n Name: Need help? Contact support\n Email: support@pulsegrow.com",
+      "type": "text/plain"
+    }
+  }
+}

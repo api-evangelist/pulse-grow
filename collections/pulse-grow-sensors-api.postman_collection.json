@@ -1,0 +1,930 @@
+{
+  "item": [
+    {
+      "id": "fc74f733-ad0f-42a1-9c77-a5569877f2e5",
+      "name": "Sensors",
+      "description": {
+        "content": "A collection of API operations related to devices.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "3b24e39a-816e-47ec-88c3-2fc041c6215e",
+          "name": "Sensor Recent Data",
+          "request": {
+            "name": "Sensor Recent Data",
+            "description": {
+              "content": "Gets the last data point for a sensor",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "sensors",
+                ":sensorId",
+                "recent-data"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "sensorId",
+                  "description": "(Required) The sensor identifier for which to retrieve the latest data."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "5f1f98b6-02f5-4321-9729-20aa80a6b01d",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sensors",
+                    ":sensorId",
+                    "recent-data"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "sensorId",
+                      "description": "(Required) The sensor identifier for which to retrieve the latest data."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"sensorType\": 3066,\n  \"deviceType\": 9927,\n  \"name\": \"string\",\n  \"dataPointDto\": {\n    \"dataPointValues\": [\n      {\n        \"paramName\": \"string\",\n        \"measuringUnit\": \"string\",\n        \"paramValue\": 6861.616007205157,\n        \"highChartAuxiliaryData\": {\n          \"color\": \"string\",\n          \"yAxis\": 3296,\n          \"valueDecimal\": 2878,\n          \"redCoefficient\": 9767,\n          \"greenCoefficient\": 3711,\n          \"blueCoefficient\": 7118\n        },\n        \"sensorReadingType\": 5900\n      },\n      {\n        \"paramName\": \"string\",\n        \"measuringUnit\": \"string\",\n        \"paramValue\": 5694.590680728527,\n        \"highChartAuxiliaryData\": {\n          \"color\": \"string\",\n          \"yAxis\": 8902,\n          \"valueDecimal\": 6866,\n          \"redCoefficient\": 8668,\n          \"greenCoefficient\": 5870,\n          \"blueCoefficient\": 3807\n        },\n        \"sensorReadingType\": 9635\n      }\n    ],\n    \"sensorId\": 9944,\n    \"createdAt\": \"2005-12-19T09:08:29.877Z\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "9a226663-9505-4e96-a8ad-d8c388691b03",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sensors",
+                    ":sensorId",
+                    "recent-data"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "sensorId",
+                      "description": "(Required) The sensor identifier for which to retrieve the latest data."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"string\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a3869b30-f817-49da-9bb8-ecc77029dcae",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sensors",
+                    ":sensorId",
+                    "recent-data"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "sensorId",
+                      "description": "(Required) The sensor identifier for which to retrieve the latest data."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"string\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2a1f2d32-4e0a-44e8-a455-4a5ee864dd0f",
+          "name": "Force an immediate sensor reading",
+          "request": {
+            "name": "Force an immediate sensor reading",
+            "description": {},
+            "url": {
+              "path": [
+                "sensors",
+                ":sensorId",
+                "force-read"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "sensorId",
+                  "description": "(Required) The sensor identifier"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "3738dd7d-026f-4438-8ab3-4c7dc73a970c",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sensors",
+                    ":sensorId",
+                    "force-read"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "sensorId",
+                      "description": "(Required) The sensor identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"dataPointValues\": [\n    {\n      \"paramName\": \"string\",\n      \"measuringUnit\": \"string\",\n      \"paramValue\": 8993.651583586261,\n      \"highChartAuxiliaryData\": {\n        \"color\": \"string\",\n        \"yAxis\": 8565,\n        \"valueDecimal\": 273,\n        \"redCoefficient\": 7691,\n        \"greenCoefficient\": 1188,\n        \"blueCoefficient\": 1276\n      },\n      \"sensorReadingType\": 7335\n    },\n    {\n      \"paramName\": \"string\",\n      \"measuringUnit\": \"string\",\n      \"paramValue\": 5575.355806140408,\n      \"highChartAuxiliaryData\": {\n        \"color\": \"string\",\n        \"yAxis\": 1409,\n        \"valueDecimal\": 7173,\n        \"redCoefficient\": 4642,\n        \"greenCoefficient\": 8962,\n        \"blueCoefficient\": 2283\n      },\n      \"sensorReadingType\": 2613\n    }\n  ],\n  \"sensorId\": 3861,\n  \"createdAt\": \"1985-02-02T21:00:21.781Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "449fe7c8-8371-4ff4-9b4c-bb3999ae52fd",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sensors",
+                    ":sensorId",
+                    "force-read"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "sensorId",
+                      "description": "(Required) The sensor identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"string\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "014d6af1-e45a-410c-a50d-2f6080a7ca06",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sensors",
+                    ":sensorId",
+                    "force-read"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "sensorId",
+                      "description": "(Required) The sensor identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"string\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b2dca9fe-e517-4167-b7c6-8378e3bb8a09",
+          "name": "Data Range for Sensor. Each Datapoint in range will be counted towards your api usage limit.",
+          "request": {
+            "name": "Data Range for Sensor. Each Datapoint in range will be counted towards your api usage limit.",
+            "description": {
+              "content": "Retrieves all datapoints within a specified timespan the sensor.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "sensors",
+                ":sensorId",
+                "data-range"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "start",
+                  "value": "<dateTime>",
+                  "description": "(Required) The beginning time of your data range in ISO 8601 format."
+                },
+                {
+                  "disabled": false,
+                  "key": "end",
+                  "value": "<dateTime>",
+                  "description": "The end time of your data range in ISO 8601 format. If not provided, API will use the current time."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "sensorId",
+                  "description": "(Required) The sensor identifier for which to retrieve data."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "ee551707-a96a-4328-af45-111fb0219294",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sensors",
+                    ":sensorId",
+                    "data-range"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "start",
+                      "value": "2020-01-31T01:11:22Z"
+                    },
+                    {
+                      "key": "end",
+                      "value": "2020-01-31T20:11:22Z"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "sensorId",
+                      "description": "(Required) The sensor identifier for which to retrieve data."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"dataPointValues\": [\n      {\n        \"paramName\": \"string\",\n        \"measuringUnit\": \"string\",\n        \"paramValues\": [\n          7708.88519143684,\n          8107.164706618979\n        ],\n        \"highChartAuxiliaryData\": {\n          \"color\": \"string\",\n          \"yAxis\": 6481,\n          \"valueDecimal\": 7153,\n          \"redCoefficient\": 754,\n          \"greenCoefficient\": 5425,\n          \"blueCoefficient\": 2066\n        },\n        \"sensorReadingType\": 2181\n      },\n      {\n        \"paramName\": \"string\",\n        \"measuringUnit\": \"string\",\n        \"paramValues\": [\n          4817.815411738271,\n          2658.780359034433\n        ],\n        \"highChartAuxiliaryData\": {\n          \"color\": \"string\",\n          \"yAxis\": 7126,\n          \"valueDecimal\": 172,\n          \"redCoefficient\": 9360,\n          \"greenCoefficient\": 2589,\n          \"blueCoefficient\": 7568\n        },\n        \"sensorReadingType\": 3105\n      }\n    ],\n    \"dataPointValuesCreatedAt\": [\n      \"1964-07-31T12:22:47.396Z\",\n      \"1958-09-03T18:42:04.781Z\"\n    ]\n  },\n  {\n    \"dataPointValues\": [\n      {\n        \"paramName\": \"string\",\n        \"measuringUnit\": \"string\",\n        \"paramValues\": [\n          8030.745225973293,\n          1967.3262365835908\n        ],\n        \"highChartAuxiliaryData\": {\n          \"color\": \"string\",\n          \"yAxis\": 1425,\n          \"valueDecimal\": 4010,\n          \"redCoefficient\": 5810,\n          \"greenCoefficient\": 2567,\n          \"blueCoefficient\": 2444\n        },\n        \"sensorReadingType\": 1154\n      },\n      {\n        \"paramName\": \"string\",\n        \"measuringUnit\": \"string\",\n        \"paramValues\": [\n          8632.482441987617,\n          1223.7479759561108\n        ],\n        \"highChartAuxiliaryData\": {\n          \"color\": \"string\",\n          \"yAxis\": 9451,\n          \"valueDecimal\": 4680,\n          \"redCoefficient\": 3988,\n          \"greenCoefficient\": 932,\n          \"blueCoefficient\": 9475\n        },\n        \"sensorReadingType\": 301\n      }\n    ],\n    \"dataPointValuesCreatedAt\": [\n      \"1997-07-09T09:28:36.092Z\",\n      \"2018-07-27T19:26:28.648Z\"\n    ]\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "29fb50c4-f0d8-4e1c-b613-875c0c97f9e6",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sensors",
+                    ":sensorId",
+                    "data-range"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "start",
+                      "value": "2020-01-31T01:11:22Z"
+                    },
+                    {
+                      "key": "end",
+                      "value": "2020-01-31T20:11:22Z"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "sensorId",
+                      "description": "(Required) The sensor identifier for which to retrieve data."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"string\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "23873ed6-5bfc-45d6-96e4-a87f181bd657",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sensors",
+                    ":sensorId",
+                    "data-range"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "start",
+                      "value": "2020-01-31T01:11:22Z"
+                    },
+                    {
+                      "key": "end",
+                      "value": "2020-01-31T20:11:22Z"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "sensorId",
+                      "description": "(Required) The sensor identifier for which to retrieve data."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"string\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a9ab23b5-b053-4a7f-971e-8ddc82d78576",
+          "name": "All Sensor Ids",
+          "request": {
+            "name": "All Sensor Ids",
+            "description": {
+              "content": "Retrieves all of the sensor ids assigned to the grow.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "sensors",
+                "ids"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "42a4b39f-1f6f-4103-b98a-3a1bc65ee31e",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sensors",
+                    "ids"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  127,\n  1604\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "941d996d-17c2-4cea-bb5c-ce59d292253a",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sensors",
+                    "ids"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"string\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "dc83eca0-9c17-4545-8ead-7bdb51959151",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sensors",
+                    "ids"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"string\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7835b857-8e8e-4fc7-ad73-3b6d859e3b63",
+          "name": "All Sensor Details",
+          "request": {
+            "name": "All Sensor Details",
+            "description": {},
+            "url": {
+              "path": [
+                "sensors",
+                ":sensorId",
+                "details"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "sensorId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "e24ec6ba-9d3e-4750-adb6-bdb38139b9aa",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sensors",
+                    ":sensorId",
+                    "details"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "sensorId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": 5076,\n    \"name\": \"string\",\n    \"sensorType\": 7161,\n    \"growId\": 4257,\n    \"hubId\": 2863,\n    \"hubName\": \"string\",\n    \"hidden\": true,\n    \"vpdTarget\": 1366.0683262052476,\n    \"vpdLeafTemperatureOffsetinF\": 3483.250362603367,\n    \"orpCalibrationOffSet\": 3007,\n    \"dayStart\": \"string\",\n    \"nightStart\": \"string\",\n    \"sensorTemplateId\": 4412,\n    \"sensorTemplateName\": \"string\",\n    \"thresholds\": [\n      {\n        \"id\": 4744,\n        \"notificationActive\": true,\n        \"lowThresholdValue\": 6873.631626369642,\n        \"highThresholdValue\": 6367.447245371035,\n        \"delay\": \"string\",\n        \"day\": false,\n        \"thresholdType\": 8860,\n        \"transitionalDelay\": \"string\"\n      },\n      {\n        \"id\": 2350,\n        \"notificationActive\": true,\n        \"lowThresholdValue\": 5181.877771721659,\n        \"highThresholdValue\": 2820.4579137497476,\n        \"delay\": \"string\",\n        \"day\": false,\n        \"thresholdType\": 8383,\n        \"transitionalDelay\": \"string\"\n      }\n    ],\n    \"offsetId\": 7902,\n    \"ph10SensorCalibrationInformationDto\": {\n      \"lastPh4CalibrationDate\": \"2009-02-02T20:32:55.417Z\",\n      \"lastPh7CalibrationDate\": \"2022-08-28T14:33:28.671Z\",\n      \"lastPh10CalibrationDate\": \"1966-06-17T18:59:40.186Z\"\n    },\n    \"ec1SensorCalibrationInformationDto\": {\n      \"lastCalibrationDate\": \"2009-09-01T05:27:48.057Z\",\n      \"isCalibrationUiShown\": false\n    },\n    \"parSensorSubtype\": 1711\n  },\n  {\n    \"id\": 3582,\n    \"name\": \"string\",\n    \"sensorType\": 2629,\n    \"growId\": 4044,\n    \"hubId\": 7235,\n    \"hubName\": \"string\",\n    \"hidden\": true,\n    \"vpdTarget\": 7869.705836079446,\n    \"vpdLeafTemperatureOffsetinF\": 2648.61066084101,\n    \"orpCalibrationOffSet\": 8121,\n    \"dayStart\": \"string\",\n    \"nightStart\": \"string\",\n    \"sensorTemplateId\": 9973,\n    \"sensorTemplateName\": \"string\",\n    \"thresholds\": [\n      {\n        \"id\": 4001,\n        \"notificationActive\": false,\n        \"lowThresholdValue\": 5052.342761130178,\n        \"highThresholdValue\": 9876.843609632422,\n        \"delay\": \"string\",\n        \"day\": false,\n        \"thresholdType\": 9910,\n        \"transitionalDelay\": \"string\"\n      },\n      {\n        \"id\": 2854,\n        \"notificationActive\": true,\n        \"lowThresholdValue\": 9266.553050478122,\n        \"highThresholdValue\": 4050.5218329465033,\n        \"delay\": \"string\",\n        \"day\": false,\n        \"thresholdType\": 9064,\n        \"transitionalDelay\": \"string\"\n      }\n    ],\n    \"offsetId\": 1374,\n    \"ph10SensorCalibrationInformationDto\": {\n      \"lastPh4CalibrationDate\": \"1968-11-04T22:28:43.156Z\",\n      \"lastPh7CalibrationDate\": \"1966-05-07T05:43:16.917Z\",\n      \"lastPh10CalibrationDate\": \"1978-05-16T14:27:29.338Z\"\n    },\n    \"ec1SensorCalibrationInformationDto\": {\n      \"lastCalibrationDate\": \"2017-09-28T09:24:29.596Z\",\n      \"isCalibrationUiShown\": true\n    },\n    \"parSensorSubtype\": 1288\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d701f15c-93a9-456f-aef0-f64aedb41e82",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sensors",
+                    ":sensorId",
+                    "details"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "sensorId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"string\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b2035ffe-5d05-4d54-890c-0e736791de27",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sensors",
+                    ":sensorId",
+                    "details"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "sensorId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"string\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "57290f95-5307-49da-a727-9a90160cc637",
+    "name": "Pulse Api AllDevices Sensors API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "# Introduction\n\nThe Pulse API is an HTTP API that is designed to interact with your pulse account and devices. \n\nNote that not all app functionality has yet been exposed through this api, so if you need additional functionality, contact our support team at support@pulsegrow.com and we will add it for you. \n\nThis API reference includes all technical documentation developers need to integrate third-party applications and platforms. If you have any additional questions send an email to our support team at support@pulsegrow.com\n\n# Authentication\n\nAll HTTP requests made against the Pulse API must be validated with an API Key.\n\n### Acquiring an API Key\n\nTo generate a new api key go to https://app.pulsegrow.com/account, scroll down to the api key section, and press the \"Add Api Key\" button.\n\n### Using Your API Key \n\nNote: API keys are generated per grow and only have access to that grow's resources (users, devices, etc). \n\nAll requests should target domain `https://api.pulsegrow.com`.\n\nYou need to provide the API key via the `x-api-key` header.\n\nSecurity Warning: It's important to secure your API Key against public access. Guard and secure it like a password. If you suspect that your API key has been compromised, revoke it via the web application at https://app.pulsegrow.com/account. \n\nSample request:\n\n```\n\ncurl --request GET \"https://api.pulsegrow.com/devices/{deviceId}/recent-data\" --header \"x-api-key: {apiKey}\"\n\n``` \n\n### Api consumption\n\n Api consumption is measured by number of datapoints retrieved.\n\n An api call that does not retrieve datapoints counts as one datapoint.\n\n Hobbyist users can use up to 4800 datapoints daily, Enthusiasts and Professionals 24000 and 120000, respectively \n\n\n\nContact Support:\n Name: Need help? Contact support\n Email: support@pulsegrow.com",
+      "type": "text/plain"
+    }
+  }
+}

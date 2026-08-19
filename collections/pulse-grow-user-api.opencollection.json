@@ -1,0 +1,29 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Pulse Api AllDevices User API",
+    "version": "v1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "User",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List of users and their data for api key",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/users"
+          },
+          "docs": "Retrieves all users for the grow that is bound the the api key."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

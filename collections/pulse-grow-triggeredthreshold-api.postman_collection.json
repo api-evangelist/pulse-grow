@@ -1,0 +1,173 @@
+{
+  "item": [
+    {
+      "id": "734a1d2f-5eb8-45c4-b1c8-8fee71edd655",
+      "name": "TriggeredThreshold",
+      "description": {
+        "content": "A collection of API operations related to timeline events.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "852f898f-bdb0-4a2e-94b6-5f8d259a1385",
+          "name": "Retrieves triggered thresholds for a grow",
+          "request": {
+            "name": "Retrieves triggered thresholds for a grow",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "triggered-thresholds"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "db4d297a-2232-4c6c-92d0-c52fadfca411",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "triggered-thresholds"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"ongoing\": [\n      {\n        \"id\": 500,\n        \"createdAt\": \"1966-10-01T12:02:13.268Z\",\n        \"resolvedAt\": \"1988-11-12T17:08:12.508Z\",\n        \"resolved\": false,\n        \"thresholdId\": 8248,\n        \"thresholdType\": 3571,\n        \"deviceId\": 2962,\n        \"deviceName\": \"string\",\n        \"lowOrHigh\": true,\n        \"lowThresholdValue\": 8869.243344541526,\n        \"highThresholdValue\": 8851.616949844823,\n        \"triggeringValue\": \"string\",\n        \"sensorThresholdType\": 6600,\n        \"hubThresholdType\": 4454\n      },\n      {\n        \"id\": 849,\n        \"createdAt\": \"1953-07-06T04:19:11.944Z\",\n        \"resolvedAt\": \"1967-01-01T21:52:22.716Z\",\n        \"resolved\": true,\n        \"thresholdId\": 1966,\n        \"thresholdType\": 3236,\n        \"deviceId\": 8104,\n        \"deviceName\": \"string\",\n        \"lowOrHigh\": true,\n        \"lowThresholdValue\": 3747.629991071194,\n        \"highThresholdValue\": 6689.883070386762,\n        \"triggeringValue\": \"string\",\n        \"sensorThresholdType\": 2093,\n        \"hubThresholdType\": 4405\n      }\n    ],\n    \"resolved\": [\n      {\n        \"id\": 8832,\n        \"createdAt\": \"1963-07-19T10:48:13.418Z\",\n        \"resolvedAt\": \"1956-12-26T20:19:51.744Z\",\n        \"resolved\": false,\n        \"thresholdId\": 6977,\n        \"thresholdType\": 6394,\n        \"deviceId\": 496,\n        \"deviceName\": \"string\",\n        \"lowOrHigh\": true,\n        \"lowThresholdValue\": 7940.1634734280005,\n        \"highThresholdValue\": 3012.1523598497215,\n        \"triggeringValue\": \"string\",\n        \"sensorThresholdType\": 333,\n        \"hubThresholdType\": 2291\n      },\n      {\n        \"id\": 7928,\n        \"createdAt\": \"2001-04-28T21:42:20.567Z\",\n        \"resolvedAt\": \"1956-04-29T11:04:12.231Z\",\n        \"resolved\": false,\n        \"thresholdId\": 3810,\n        \"thresholdType\": 6675,\n        \"deviceId\": 6486,\n        \"deviceName\": \"string\",\n        \"lowOrHigh\": true,\n        \"lowThresholdValue\": 4949.058975032295,\n        \"highThresholdValue\": 4226.085543984618,\n        \"triggeringValue\": \"string\",\n        \"sensorThresholdType\": 4241,\n        \"hubThresholdType\": 1645\n      }\n    ],\n    \"growId\": 8700\n  },\n  {\n    \"ongoing\": [\n      {\n        \"id\": 6346,\n        \"createdAt\": \"1970-11-25T15:56:48.301Z\",\n        \"resolvedAt\": \"2019-03-27T06:06:44.507Z\",\n        \"resolved\": false,\n        \"thresholdId\": 3503,\n        \"thresholdType\": 1790,\n        \"deviceId\": 4794,\n        \"deviceName\": \"string\",\n        \"lowOrHigh\": true,\n        \"lowThresholdValue\": 8184.498288005545,\n        \"highThresholdValue\": 6709.948635910919,\n        \"triggeringValue\": \"string\",\n        \"sensorThresholdType\": 7227,\n        \"hubThresholdType\": 207\n      },\n      {\n        \"id\": 3983,\n        \"createdAt\": \"1954-07-31T05:48:23.035Z\",\n        \"resolvedAt\": \"1962-03-04T02:18:40.245Z\",\n        \"resolved\": false,\n        \"thresholdId\": 9174,\n        \"thresholdType\": 2911,\n        \"deviceId\": 7910,\n        \"deviceName\": \"string\",\n        \"lowOrHigh\": true,\n        \"lowThresholdValue\": 8849.875349392436,\n        \"highThresholdValue\": 8209.392358179897,\n        \"triggeringValue\": \"string\",\n        \"sensorThresholdType\": 685,\n        \"hubThresholdType\": 4518\n      }\n    ],\n    \"resolved\": [\n      {\n        \"id\": 98,\n        \"createdAt\": \"1997-02-17T19:51:44.962Z\",\n        \"resolvedAt\": \"1964-09-04T18:28:24.671Z\",\n        \"resolved\": false,\n        \"thresholdId\": 4919,\n        \"thresholdType\": 1011,\n        \"deviceId\": 2781,\n        \"deviceName\": \"string\",\n        \"lowOrHigh\": true,\n        \"lowThresholdValue\": 8610.151752542119,\n        \"highThresholdValue\": 5.634086348997869,\n        \"triggeringValue\": \"string\",\n        \"sensorThresholdType\": 4219,\n        \"hubThresholdType\": 4677\n      },\n      {\n        \"id\": 6578,\n        \"createdAt\": \"1987-11-08T00:55:15.134Z\",\n        \"resolvedAt\": \"1949-06-12T02:13:43.602Z\",\n        \"resolved\": true,\n        \"thresholdId\": 5421,\n        \"thresholdType\": 875,\n        \"deviceId\": 7791,\n        \"deviceName\": \"string\",\n        \"lowOrHigh\": false,\n        \"lowThresholdValue\": 8197.286095976004,\n        \"highThresholdValue\": 4929.410755534266,\n        \"triggeringValue\": \"string\",\n        \"sensorThresholdType\": 2695,\n        \"hubThresholdType\": 4926\n      }\n    ],\n    \"growId\": 9361\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e8d9b52c-3221-42b0-b354-521c25704f06",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "triggered-thresholds"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"string\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "4dfae056-71ea-479f-90bf-c3f1e73fea2c",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "triggered-thresholds"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"string\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "c1f066fb-50be-45fd-ba4b-f1206dd2f0e6",
+    "name": "Pulse Api AllDevices TriggeredThreshold API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "# Introduction\n\nThe Pulse API is an HTTP API that is designed to interact with your pulse account and devices. \n\nNote that not all app functionality has yet been exposed through this api, so if you need additional functionality, contact our support team at support@pulsegrow.com and we will add it for you. \n\nThis API reference includes all technical documentation developers need to integrate third-party applications and platforms. If you have any additional questions send an email to our support team at support@pulsegrow.com\n\n# Authentication\n\nAll HTTP requests made against the Pulse API must be validated with an API Key.\n\n### Acquiring an API Key\n\nTo generate a new api key go to https://app.pulsegrow.com/account, scroll down to the api key section, and press the \"Add Api Key\" button.\n\n### Using Your API Key \n\nNote: API keys are generated per grow and only have access to that grow's resources (users, devices, etc). \n\nAll requests should target domain `https://api.pulsegrow.com`.\n\nYou need to provide the API key via the `x-api-key` header.\n\nSecurity Warning: It's important to secure your API Key against public access. Guard and secure it like a password. If you suspect that your API key has been compromised, revoke it via the web application at https://app.pulsegrow.com/account. \n\nSample request:\n\n```\n\ncurl --request GET \"https://api.pulsegrow.com/devices/{deviceId}/recent-data\" --header \"x-api-key: {apiKey}\"\n\n``` \n\n### Api consumption\n\n Api consumption is measured by number of datapoints retrieved.\n\n An api call that does not retrieve datapoints counts as one datapoint.\n\n Hobbyist users can use up to 4800 datapoints daily, Enthusiasts and Professionals 24000 and 120000, respectively \n\n\n\nContact Support:\n Name: Need help? Contact support\n Email: support@pulsegrow.com",
+      "type": "text/plain"
+    }
+  }
+}

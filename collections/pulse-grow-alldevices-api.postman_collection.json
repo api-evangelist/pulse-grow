@@ -1,0 +1,169 @@
+{
+  "item": [
+    {
+      "id": "79ead734-7f93-41ee-86ea-aa7418d13065",
+      "name": "AllDevices",
+      "description": {
+        "content": "A collection of API operations related to devices.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "3d9d4471-2c4f-4ab5-b698-3f81834bcb48",
+          "name": "Gets all of the grows devices, including latest data.\nSparklines (data for the last hour) are not included",
+          "request": {
+            "name": "Gets all of the grows devices, including latest data.\nSparklines (data for the last hour) are not included",
+            "description": {},
+            "url": {
+              "path": [
+                "all-devices"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "d82f1f46-35da-4bb7-a83c-c48c5385a5a8",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "all-devices"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"deviceViewDtos\": [\n    {\n      \"id\": 3682,\n      \"displayOrder\": 1066,\n      \"name\": \"string\",\n      \"growId\": 646,\n      \"hidden\": false,\n      \"deviceType\": 4232,\n      \"guid\": \"bba306ce-370c-c1af-eac1-0866f124b4ad\",\n      \"templateId\": 6720,\n      \"pulseGuid\": \"ea0155ac-49f3-f450-5f5e-ee63f4fddc3f\",\n      \"dayStart\": \"string\",\n      \"nightStart\": \"string\",\n      \"isDay\": false,\n      \"vpdLeafTempOffsetInF\": 552.2451696662934,\n      \"vpdTarget\": 9033.444286980206,\n      \"batteryCount\": 8465,\n      \"lowBatteryVoltage\": 4083.3774349727983,\n      \"mostRecentDataPoint\": {\n        \"deviceId\": 5781,\n        \"pluggedIn\": false,\n        \"batteryV\": 8932.658367372911,\n        \"electricImpId\": \"string\",\n        \"signalStrength\": 4698,\n        \"createdAt\": \"1992-02-20T09:19:21.288Z\",\n        \"deviceType\": 4699,\n        \"temperatureF\": 89.82849276405247,\n        \"humidityRh\": 3755.9641400857345,\n        \"lightLux\": 4639.092944270452,\n        \"airPressure\": 8493.310591640608,\n        \"vpd\": 9246.582946838505,\n        \"co2\": 963,\n        \"co2Temperature\": 5166.732429335688,\n        \"co2Rh\": 3473.259364844332,\n        \"voc\": 532,\n        \"channel1\": 6715.568100840003,\n        \"channel2\": 3023.440892061341,\n        \"channel3\": 4379.159273054941,\n        \"channel4\": 4104.5396025839245,\n        \"channel5\": 3826.5776432474663,\n        \"channel6\": 3954.5624939528643,\n        \"channel7\": 5801.799858806691,\n        \"channel8\": 2912.398739394424,\n        \"near\": 9928.249741803222,\n        \"clear\": 3740.5711151981222,\n        \"flicker\": 6761.528554316452,\n        \"par\": 6221.55492772839,\n        \"gain\": 9393,\n        \"tint\": 471.52168235952365\n      },\n      \"lastHourData\": [\n        {\n          \"deviceId\": 7646,\n          \"pluggedIn\": true,\n          \"batteryV\": 2645.0336831135514,\n          \"electricImpId\": \"string\",\n          \"signalStrength\": 9711,\n          \"createdAt\": \"2023-07-07T16:30:56.804Z\",\n          \"deviceType\": 5100,\n          \"temperatureF\": 5802.474792282117,\n          \"humidityRh\": 5340.599858730288,\n          \"lightLux\": 9807.852652348143,\n          \"airPressure\": 1600.2197131623675,\n          \"vpd\": 5708.316003333076,\n          \"co2\": 7826,\n          \"co2Temperature\": 5509.755328653417,\n          \"co2Rh\": 6697.934505314366,\n          \"voc\": 1233,\n          \"channel1\": 1570.9981599870482,\n          \"channel2\": 8534.927119163005,\n          \"channel3\": 2520.6798425101374,\n          \"channel4\": 4395.485110130748,\n          \"channel5\": 6947.669508562833,\n          \"channel6\": 7761.172975097414,\n          \"channel7\": 3899.029419024047,\n          \"channel8\": 3828.0066928153356,\n          \"near\": 6007.046179874322,\n          \"clear\": 7609.783041711143,\n          \"flicker\": 8074.226508488386,\n          \"par\": 7160.374923731345,\n          \"gain\": 2304,\n          \"tint\": 4729.2523577857655\n        },\n        {\n          \"deviceId\": 6213,\n          \"pluggedIn\": false,\n          \"batteryV\": 7111.24124542572,\n          \"electricImpId\": \"string\",\n          \"signalStrength\": 4592,\n          \"createdAt\": \"1972-05-22T06:06:35.133Z\",\n          \"deviceType\": 7594,\n          \"temperatureF\": 7951.177042880795,\n          \"humidityRh\": 1274.739658616445,\n          \"lightLux\": 3992.9921957937886,\n          \"airPressure\": 4825.862645812043,\n          \"vpd\": 970.9021283881691,\n          \"co2\": 1304,\n          \"co2Temperature\": 194.61721039249147,\n          \"co2Rh\": 3438.6906812668417,\n          \"voc\": 1414,\n          \"channel1\": 7571.388395145754,\n          \"channel2\": 9362.751326480455,\n          \"channel3\": 8589.057758095498,\n          \"channel4\": 7973.46917479376,\n          \"channel5\": 6352.623725205057,\n          \"channel6\": 1806.3248665205856,\n          \"channel7\": 2693.0835639325455,\n          \"channel8\": 9443.895006310404,\n          \"near\": 2216.6816485324694,\n          \"clear\": 2222.7002320381716,\n          \"flicker\": 9275.78047404367,\n          \"par\": 779.8614973091078,\n          \"gain\": 6559,\n          \"tint\": 9496.17975435147\n        }\n      ],\n      \"proLightReadingPreviewDto\": {\n        \"id\": 9628,\n        \"ppfd\": 1323.760064809739,\n        \"dli\": 1104.9650662064237,\n        \"createdAt\": \"1947-02-26T00:50:05.468Z\"\n      },\n      \"growTimezoneOffset\": 9579\n    },\n    {\n      \"id\": 2687,\n      \"displayOrder\": 6765,\n      \"name\": \"string\",\n      \"growId\": 7485,\n      \"hidden\": false,\n      \"deviceType\": 7610,\n      \"guid\": \"e116bc31-4dd5-dab5-84e3-7dfed70c34e4\",\n      \"templateId\": 4402,\n      \"pulseGuid\": \"ed9f577f-9f41-fab9-c2e7-af9af9c3a320\",\n      \"dayStart\": \"string\",\n      \"nightStart\": \"string\",\n      \"isDay\": true,\n      \"vpdLeafTempOffsetInF\": 8356.000938732142,\n      \"vpdTarget\": 7091.857874556662,\n      \"batteryCount\": 1589,\n      \"lowBatteryVoltage\": 6692.852462194224,\n      \"mostRecentDataPoint\": {\n        \"deviceId\": 8749,\n        \"pluggedIn\": false,\n        \"batteryV\": 2541.015992908325,\n        \"electricImpId\": \"string\",\n        \"signalStrength\": 6408,\n        \"createdAt\": \"1992-04-06T09:20:45.289Z\",\n        \"deviceType\": 9362,\n        \"temperatureF\": 2107.6196037843765,\n        \"humidityRh\": 9769.04983670837,\n        \"lightLux\": 1526.5083641736444,\n        \"airPressure\": 6405.5769721749575,\n        \"vpd\": 8009.527998470404,\n        \"co2\": 4200,\n        \"co2Temperature\": 9901.488825087712,\n        \"co2Rh\": 3716.4829657107935,\n        \"voc\": 3868,\n        \"channel1\": 9641.590899103756,\n        \"channel2\": 8756.49211119991,\n        \"channel3\": 3704.6280987229043,\n        \"channel4\": 7994.863681606468,\n        \"channel5\": 4610.449632630861,\n        \"channel6\": 904.2451297105181,\n        \"channel7\": 464.3869907340781,\n        \"channel8\": 23.63236411182079,\n        \"near\": 7193.4842645541785,\n        \"clear\": 2810.9027470671645,\n        \"flicker\": 4030.79737913697,\n        \"par\": 1210.9855161750893,\n        \"gain\": 9025,\n        \"tint\": 7820.086936743655\n      },\n      \"lastHourData\": [\n        {\n          \"deviceId\": 5399,\n          \"pluggedIn\": false,\n          \"batteryV\": 6441.793186614184,\n          \"electricImpId\": \"string\",\n          \"signalStrength\": 5787,\n          \"createdAt\": \"2020-07-12T01:12:39.559Z\",\n          \"deviceType\": 9962,\n          \"temperatureF\": 1646.8391419196105,\n          \"humidityRh\": 9356.755229946513,\n          \"lightLux\": 334.13932569055004,\n          \"airPressure\": 5673.927532106098,\n          \"vpd\": 4680.874929587048,\n          \"co2\": 1512,\n          \"co2Temperature\": 9135.368745470661,\n          \"co2Rh\": 3009.6058742610167,\n          \"voc\": 1611,\n          \"channel1\": 3505.250255780006,\n          \"channel2\": 2066.6072212013655,\n          \"channel3\": 951.5647008189699,\n          \"channel4\": 1493.9859643934305,\n          \"channel5\": 8167.736942802093,\n          \"channel6\": 9514.367316231637,\n          \"channel7\": 269.952376777427,\n          \"channel8\": 4444.441291259838,\n          \"near\": 3593.846288471705,\n          \"clear\": 7400.28435011383,\n          \"flicker\": 77.12595659197463,\n          \"par\": 418.9228875778295,\n          \"gain\": 8907,\n          \"tint\": 1878.904922237614\n        },\n        {\n          \"deviceId\": 8700,\n          \"pluggedIn\": true,\n          \"batteryV\": 4868.388146790611,\n          \"electricImpId\": \"string\",\n          \"signalStrength\": 371,\n          \"createdAt\": \"2015-12-12T02:44:06.590Z\",\n          \"deviceType\": 8963,\n          \"temperatureF\": 8180.195996160955,\n          \"humidityRh\": 399.1626256730263,\n          \"lightLux\": 3900.2572764627917,\n          \"airPressure\": 6605.216051096648,\n          \"vpd\": 3176.16848963035,\n          \"co2\": 3300,\n          \"co2Temperature\": 6033.641260742362,\n          \"co2Rh\": 9128.672747101677,\n          \"voc\": 6582,\n          \"channel1\": 4668.780007313108,\n          \"channel2\": 1491.349893192202,\n          \"channel3\": 7644.096486679114,\n          \"channel4\": 3493.346325716722,\n          \"channel5\": 3971.0404031463363,\n          \"channel6\": 3855.7702990792563,\n          \"channel7\": 3791.341101239327,\n          \"channel8\": 8345.252628392831,\n          \"near\": 4546.89411784001,\n          \"clear\": 2457.028087275609,\n          \"flicker\": 7515.108784331964,\n          \"par\": 2454.6413144289368,\n          \"gain\": 7063,\n          \"tint\": 8650.125434371897\n        }\n      ],\n      \"proLightReadingPreviewDto\": {\n        \"id\": 4613,\n        \"ppfd\": 3837.8020780762167,\n        \"dli\": 1258.9879393419012,\n        \"createdAt\": \"1972-02-25T00:17:52.020Z\"\n      },\n      \"growTimezoneOffset\": 4906\n    }\n  ],\n  \"universalSensorViews\": [\n    {\n      \"id\": 1780,\n      \"displayOrder\": 878,\n      \"name\": \"string\",\n      \"growId\": 726,\n      \"hidden\": true,\n      \"hubId\": 8016,\n      \"deviceType\": 116,\n      \"mostRecentDataPoint\": {\n        \"dataPointValues\": [\n          {\n            \"paramName\": \"string\",\n            \"measuringUnit\": \"string\",\n            \"paramValue\": 1276.7154299087658,\n            \"highChartAuxiliaryData\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"sensorReadingType\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"paramName\": \"string\",\n            \"measuringUnit\": \"string\",\n            \"paramValue\": 8427.314212384556,\n            \"highChartAuxiliaryData\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"sensorReadingType\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ],\n        \"sensorId\": 4387,\n        \"createdAt\": \"2004-08-22T10:59:52.011Z\"\n      },\n      \"sensorType\": 9826,\n      \"lastHourDataPointDtos\": {\n        \"dataPointValues\": [\n          {\n            \"paramName\": \"string\",\n            \"measuringUnit\": \"string\",\n            \"paramValues\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"highChartAuxiliaryData\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"sensorReadingType\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"paramName\": \"string\",\n            \"measuringUnit\": \"string\",\n            \"paramValues\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"highChartAuxiliaryData\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"sensorReadingType\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ],\n        \"dataPointValuesCreatedAt\": [\n          \"1976-08-01T14:38:25.067Z\",\n          \"1958-11-18T18:11:19.086Z\"\n        ]\n      },\n      \"templateId\": 6572,\n      \"dayStart\": \"string\",\n      \"nightStart\": \"string\",\n      \"parSensorSubtype\": 5233\n    },\n    {\n      \"id\": 9644,\n      \"displayOrder\": 5067,\n      \"name\": \"string\",\n      \"growId\": 9488,\n      \"hidden\": true,\n      \"hubId\": 5689,\n      \"deviceType\": 5545,\n      \"mostRecentDataPoint\": {\n        \"dataPointValues\": [\n          {\n            \"paramName\": \"string\",\n            \"measuringUnit\": \"string\",\n            \"paramValue\": 9871.112363730366,\n            \"highChartAuxiliaryData\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"sensorReadingType\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"paramName\": \"string\",\n            \"measuringUnit\": \"string\",\n            \"paramValue\": 730.3093313726195,\n            \"highChartAuxiliaryData\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"sensorReadingType\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ],\n        \"sensorId\": 6915,\n        \"createdAt\": \"2025-10-06T13:52:35.726Z\"\n      },\n      \"sensorType\": 4590,\n      \"lastHourDataPointDtos\": {\n        \"dataPointValues\": [\n          {\n            \"paramName\": \"string\",\n            \"measuringUnit\": \"string\",\n            \"paramValues\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"highChartAuxiliaryData\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"sensorReadingType\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"paramName\": \"string\",\n            \"measuringUnit\": \"string\",\n            \"paramValues\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"highChartAuxiliaryData\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"sensorReadingType\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ],\n        \"dataPointValuesCreatedAt\": [\n          \"2008-02-27T09:33:19.060Z\",\n          \"1985-08-24T10:01:37.271Z\"\n        ]\n      },\n      \"templateId\": 1396,\n      \"dayStart\": \"string\",\n      \"nightStart\": \"string\",\n      \"parSensorSubtype\": 4273\n    }\n  ],\n  \"hubViewDtos\": [\n    {\n      \"id\": 920,\n      \"displayOrder\": 8063,\n      \"name\": \"string\",\n      \"growId\": 5449,\n      \"hidden\": false,\n      \"deviceType\": 628,\n      \"mostRecentDataPoint\": {\n        \"deviceId\": 7101,\n        \"pluggedIn\": false,\n        \"batteryV\": 9452.952084605213,\n        \"electricImpId\": \"string\",\n        \"signalStrength\": 2111,\n        \"createdAt\": \"1980-08-05T18:58:43.272Z\"\n      }\n    },\n    {\n      \"id\": 8947,\n      \"displayOrder\": 9719,\n      \"name\": \"string\",\n      \"growId\": 1145,\n      \"hidden\": true,\n      \"deviceType\": 4040,\n      \"mostRecentDataPoint\": {\n        \"deviceId\": 2070,\n        \"pluggedIn\": false,\n        \"batteryV\": 9096.105360939351,\n        \"electricImpId\": \"string\",\n        \"signalStrength\": 3499,\n        \"createdAt\": \"1964-08-06T03:38:35.128Z\"\n      }\n    }\n  ],\n  \"controlsViewDtos\": [\n    {\n      \"id\": 2685,\n      \"name\": \"string\",\n      \"controlType\": 7860,\n      \"displayOrder\": 6731,\n      \"deviceType\": 3298,\n      \"openSprinklerSpecificData\": {\n        \"lastOnline\": \"1948-04-09T05:24:59.470Z\",\n        \"nextOpenSprinklerProgramRunInfo\": {\n          \"programId\": 970,\n          \"inDays\": 6146,\n          \"startTime\": \"string\",\n          \"programName\": \"string\",\n          \"dayOfRun\": \"2007-08-31T13:20:21.722Z\"\n        },\n        \"lastRanProgramName\": \"string\",\n        \"lastRunProgramId\": 5809,\n        \"mac\": \"string\",\n        \"lastRunDuration\": 9154,\n        \"lastRunTimeEnd\": \"2014-09-06T11:41:52.973Z\",\n        \"pausedUntil\": \"1995-08-08T08:23:38.284Z\",\n        \"lastSynced\": \"1974-06-17T07:25:29.531Z\",\n        \"durations\": [\n          337,\n          1741\n        ],\n        \"lastAutomationInfo\": {\n          \"durations\": [\n            2494,\n            4638\n          ],\n          \"sensorId\": 7096,\n          \"triggeringValue\": \"string\",\n          \"time\": \"1970-01-21T17:05:47.304Z\",\n          \"mostRecentSensorDataPointDto\": {\n            \"sensorType\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"deviceType\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"name\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"dataPointDto\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        }\n      }\n    },\n    {\n      \"id\": 5763,\n      \"name\": \"string\",\n      \"controlType\": 4735,\n      \"displayOrder\": 7932,\n      \"deviceType\": 2984,\n      \"openSprinklerSpecificData\": {\n        \"lastOnline\": \"1954-07-29T06:05:05.660Z\",\n        \"nextOpenSprinklerProgramRunInfo\": {\n          \"programId\": 7034,\n          \"inDays\": 655,\n          \"startTime\": \"string\",\n          \"programName\": \"string\",\n          \"dayOfRun\": \"1983-10-25T01:20:35.827Z\"\n        },\n        \"lastRanProgramName\": \"string\",\n        \"lastRunProgramId\": 5457,\n        \"mac\": \"string\",\n        \"lastRunDuration\": 42,\n        \"lastRunTimeEnd\": \"2001-02-20T22:12:03.590Z\",\n        \"pausedUntil\": \"2019-06-11T00:56:13.286Z\",\n        \"lastSynced\": \"2025-06-05T17:32:01.685Z\",\n        \"durations\": [\n          6003,\n          1159\n        ],\n        \"lastAutomationInfo\": {\n          \"durations\": [\n            3618,\n            7826\n          ],\n          \"sensorId\": 9469,\n          \"triggeringValue\": \"string\",\n          \"time\": \"2002-11-07T07:27:07.781Z\",\n          \"mostRecentSensorDataPointDto\": {\n            \"sensorType\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"deviceType\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"name\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"dataPointDto\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        }\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "836987ab-8e69-4fb1-abbc-13791179b0a6",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "all-devices"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"string\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f4e3fc3e-de12-45fe-8251-194a1c316905",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "all-devices"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"string\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "9dbcd8fd-f0eb-4fd9-acba-8e3c07f74066",
+    "name": "Pulse Api AllDevices API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "# Introduction\n\nThe Pulse API is an HTTP API that is designed to interact with your pulse account and devices. \n\nNote that not all app functionality has yet been exposed through this api, so if you need additional functionality, contact our support team at support@pulsegrow.com and we will add it for you. \n\nThis API reference includes all technical documentation developers need to integrate third-party applications and platforms. If you have any additional questions send an email to our support team at support@pulsegrow.com\n\n# Authentication\n\nAll HTTP requests made against the Pulse API must be validated with an API Key.\n\n### Acquiring an API Key\n\nTo generate a new api key go to https://app.pulsegrow.com/account, scroll down to the api key section, and press the \"Add Api Key\" button.\n\n### Using Your API Key \n\nNote: API keys are generated per grow and only have access to that grow's resources (users, devices, etc). \n\nAll requests should target domain `https://api.pulsegrow.com`.\n\nYou need to provide the API key via the `x-api-key` header.\n\nSecurity Warning: It's important to secure your API Key against public access. Guard and secure it like a password. If you suspect that your API key has been compromised, revoke it via the web application at https://app.pulsegrow.com/account. \n\nSample request:\n\n```\n\ncurl --request GET \"https://api.pulsegrow.com/devices/{deviceId}/recent-data\" --header \"x-api-key: {apiKey}\"\n\n``` \n\n### Api consumption\n\n Api consumption is measured by number of datapoints retrieved.\n\n An api call that does not retrieve datapoints counts as one datapoint.\n\n Hobbyist users can use up to 4800 datapoints daily, Enthusiasts and Professionals 24000 and 120000, respectively \n\n\n\nContact Support:\n Name: Need help? Contact support\n Email: support@pulsegrow.com",
+      "type": "text/plain"
+    }
+  }
+}

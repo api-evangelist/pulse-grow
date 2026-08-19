@@ -1,0 +1,47 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Pulse Api AllDevices Hub API",
+    "version": "v1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Hub",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "All Hub Ids",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/hubs/ids"
+          },
+          "docs": "Retrieves all of the hubs ids assigned to the grow."
+        },
+        {
+          "info": {
+            "name": "Gets details for hub",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/hubs/:hubId",
+            "params": [
+              {
+                "name": "hubId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Gets details for hub"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

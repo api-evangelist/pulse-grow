@@ -1,0 +1,29 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Pulse Api AllDevices API",
+    "version": "v1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "AllDevices",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Gets all of the grows devices, including latest data.\nSparklines (data for the last hour) are not included",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/all-devices"
+          },
+          "docs": "Gets all of the grows devices, including latest data.\nSparklines (data for the last hour) are not included"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
