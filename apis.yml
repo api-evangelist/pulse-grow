@@ -29,22 +29,24 @@ position: Consuming
 access: 3rd-Party
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/pulse-grow.png
 tags:
-  - Devices
-  - Sensors
-  - Hub
-  - Monitoring
-  - Growing
+- Devices
+- Sensors
+- Hub
+- Monitoring
+- Growing
 created: '2025-02-24'
-modified: '2026-05-19'
+modified: '2026-09-16'
 url: https://raw.githubusercontent.com/api-evangelist/pulse-grow/refs/heads/main/apis.yml
 specificationVersion: '0.23'
 common:
-  - type: AgenticAccess
-    url: agentic-access/pulse-grow-agentic-access.yml
-  - type: DomainSecurity
-    url: security/pulse-grow-domain-security.yml
-  - type: LinkedIn
-    url: https://www.linkedin.com/company/pulsegrow
+- type: Website
+  url: https://pulsegrow.com
+- type: AgenticAccess
+  url: agentic-access/pulse-grow-agentic-access.yml
+- type: DomainSecurity
+  url: security/pulse-grow-domain-security.yml
+- type: LinkedIn
+  url: https://www.linkedin.com/company/pulsegrow
 apis:
 - aid: pulse-grow:pulse-grow-alldevices-api
   name: Pulse Grow AllDevices API
@@ -155,5 +157,5 @@ apis:
   - type: Documentation
     url: https://api.pulsegrow.com/docs/index.html
 maintainers:
-  - FN: Kin Lane
-    email: kin@apievangelist.com
+- FN: Kin Lane
+  email: kin@apievangelist.com
