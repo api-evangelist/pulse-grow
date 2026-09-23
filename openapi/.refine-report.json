@@ -1,15 +1,7 @@
 {
   "provider": "pulse-grow",
   "sources": [
-    "pulse-grow-alldevices-api-openapi.yml",
-    "pulse-grow-devices-api-openapi.yml",
-    "pulse-grow-hub-api-openapi.yml",
-    "pulse-grow-invitation-api-openapi.yml",
-    "pulse-grow-prolightreading-api-openapi.yml",
-    "pulse-grow-sensors-api-openapi.yml",
-    "pulse-grow-timelineevent-api-openapi.yml",
-    "pulse-grow-triggeredthreshold-api-openapi.yml",
-    "pulse-grow-user-api-openapi.yml"
+    "_original/pulse-grow-openapi.json"
   ],
   "outputs": [
     "pulse-grow-alldevices-api-openapi.yml",
@@ -25,6 +17,20 @@
   "archived": [],
   "errors": [],
   "warnings": [],
-  "notes": [],
-  "skipped": []
+  "notes": [
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "pulse-grow-openapi.json: upgraded openapi 3.0.4 -> OpenAPI 3.2.0",
+    "apis.yml register: already-registered"
+  ],
+  "skipped": [
+    "pulse-grow-alldevices-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "pulse-grow-devices-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "pulse-grow-hub-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "pulse-grow-invitation-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "pulse-grow-prolightreading-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "pulse-grow-sensors-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "pulse-grow-timelineevent-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "pulse-grow-triggeredthreshold-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "pulse-grow-user-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }

@@ -1,7 +1,10 @@
-openapi: 3.0.4
+openapi: 3.2.0
 info:
-  title: Pulse Api AllDevices Devices API
-  description: "# Introduction\n\nThe Pulse API is an HTTP API that is designed to interact with your pulse account and devices. \n\nNote that not all app functionality has yet been exposed through this api, so if you need additional functionality, contact our support team at support@pulsegrow.com and we will add it for you. \n\nThis API reference includes all technical documentation developers need to integrate third-party applications and platforms. If you have any additional questions send an email to our support team at support@pulsegrow.com\n\n# Authentication\n\nAll HTTP requests made against the Pulse API must be validated with an API Key.\n\n### Acquiring an API Key\n\nTo generate a new api key go to https://app.pulsegrow.com/account, scroll down to the api key section, and press the \"Add Api Key\" button.\n\n### Using Your API Key \n\nNote: API keys are generated per grow and only have access to that grow's resources (users, devices, etc). \n\nAll requests should target domain `https://api.pulsegrow.com`.\n\nYou need to provide the API key via the `x-api-key` header.\n\nSecurity Warning: It's important to secure your API Key against public access. Guard and secure it like a password. If you suspect that your API key has been compromised, revoke it via the web application at https://app.pulsegrow.com/account. \n\nSample request:\n\n```\n\ncurl --request GET \"https://api.pulsegrow.com/devices/{deviceId}/recent-data\" --header \"x-api-key: {apiKey}\"\n\n``` \n\n### Api consumption\n\n Api consumption is measured by number of datapoints retrieved.\n\n An api call that does not retrieve datapoints counts as one datapoint.\n\n Hobbyist users can use up to 4800 datapoints daily, Enthusiasts and Professionals 24000 and 120000, respectively \n\n"
+  title: Pulse Devices API
+  description: '# Introduction
+
+
+    The Pulse API is an HTTP API that is designed to interact with your pulse account and devices.'
   termsOfService: https://pulsegrow.com/terms
   contact:
     name: Need help? Contact support
@@ -48,11 +51,13 @@ paths:
             application/json:
               schema:
                 type: string
+      operationId: getDevicesByDeviceIdRecentData
+      x-operation-id-source: derived
   /devices/{deviceId}/data-range:
     get:
       tags:
       - Devices
-      summary: Data Range for Device. Each Datapoint in range will be counted towards your api usage limit.
+      summary: Data Range for Device.
       description: Retrieves all datapoints within a specified timespan the device.
       parameters:
       - name: deviceId
@@ -99,6 +104,8 @@ paths:
             application/json:
               schema:
                 type: string
+      operationId: getDevicesByDeviceIdDataRange
+      x-operation-id-source: derived
   /devices/ids:
     get:
       tags:
@@ -127,6 +134,8 @@ paths:
             application/json:
               schema:
                 type: string
+      operationId: getDevicesIds
+      x-operation-id-source: derived
   /devices/details:
     get:
       tags:
@@ -154,11 +163,13 @@ paths:
             application/json:
               schema:
                 type: string
+      operationId: getDevicesDetails
+      x-operation-id-source: derived
   /devices/range:
     get:
       tags:
       - Devices
-      summary: Data Range for All Devices. Each Datapoint will be counted towards your api usage limit.
+      summary: Data Range for All Devices.
       description: Retrieves all datapoints within a specified timespan for all devices on grow. Max data range of 7 days.
       parameters:
       - name: start
@@ -197,98 +208,13 @@ paths:
             application/json:
               schema:
                 type: string
+      operationId: getDevicesRange
+      x-operation-id-source: derived
 components:
   schemas:
-    ThresholdType:
+    DeviceType:
       type: integer
       format: int32
-    ViewThresholdDto:
-      type: object
-      properties:
-        id:
-          type: integer
-          format: int32
-          nullable: true
-        notificationActive:
-          type: boolean
-          nullable: true
-        lowThresholdValue:
-          type: number
-          format: double
-          nullable: true
-        highThresholdValue:
-          type: number
-          format: double
-          nullable: true
-        delay:
-          type: string
-          format: date-span
-          nullable: true
-        day:
-          type: boolean
-          nullable: true
-        deviceId:
-          type: integer
-          format: int32
-          nullable: true
-        thresholdType:
-          $ref: '#/components/schemas/ThresholdType'
-      additionalProperties: false
-    PublicApiLightCalculationDto:
-      type: object
-      properties:
-        channels:
-          type: array
-          items:
-            type: number
-            format: double
-          nullable: true
-        tint:
-          type: number
-          format: double
-        gain:
-          type: integer
-          format: int32
-        ppfd:
-          type: number
-          format: double
-          nullable: true
-        pfdRed:
-          type: number
-          format: double
-          nullable: true
-        pfdGreen:
-          type: number
-          format: double
-          nullable: true
-        pfdBlue:
-          type: number
-          format: double
-          nullable: true
-        pfdIr:
-          type: number
-          format: double
-          nullable: true
-      additionalProperties: false
-    DeviceOffsetsDto:
-      type: object
-      properties:
-        tempOffset:
-          type: number
-          format: double
-        humidityOffset:
-          type: number
-          format: double
-        lightOffset:
-          type: number
-          format: double
-        airPressureOffset:
-          type: number
-          format: double
-        vpdLeafTempOffsetInF:
-          type: number
-          format: double
-      additionalProperties: false
     PublicApiDataPoint:
       type: object
       properties:
@@ -301,8 +227,9 @@ components:
           type: number
           format: float
         electricImpId:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
         signalStrength:
           type: integer
           format: int32
@@ -392,12 +319,45 @@ components:
         lightCalculationReading:
           $ref: '#/components/schemas/PublicApiLightCalculationDto'
       additionalProperties: false
-    DeviceType:
-      type: integer
-      format: int32
-    BatteryType:
-      type: integer
-      format: int32
+    ViewThresholdDto:
+      type: object
+      properties:
+        id:
+          type:
+          - integer
+          - 'null'
+          format: int32
+        notificationActive:
+          type:
+          - boolean
+          - 'null'
+        lowThresholdValue:
+          type:
+          - number
+          - 'null'
+          format: double
+        highThresholdValue:
+          type:
+          - number
+          - 'null'
+          format: double
+        delay:
+          type:
+          - string
+          - 'null'
+          format: date-span
+        day:
+          type:
+          - boolean
+          - 'null'
+        deviceId:
+          type:
+          - integer
+          - 'null'
+          format: int32
+        thresholdType:
+          $ref: '#/components/schemas/ThresholdType'
+      additionalProperties: false
     DeviceDetailsDto:
       type: object
       properties:
@@ -424,42 +384,54 @@ components:
           type: number
           format: double
         dayStart:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
         nightStart:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
         name:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
         vpdTarget:
-          type: number
+          type:
+          - number
+          - 'null'
           format: double
-          nullable: true
         templateId:
-          type: integer
+          type:
+          - integer
+          - 'null'
           format: int32
-          nullable: true
         templateName:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
         templateTypeId:
-          type: integer
+          type:
+          - integer
+          - 'null'
           format: int32
-          nullable: true
         batteryType:
           $ref: '#/components/schemas/BatteryType'
         lowBatteryVoltage:
           type: number
           format: float
         macAddress:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
         lastCo2CalibrationDate:
-          type: string
+          type:
+          - string
+          - 'null'
           format: date-time
-          nullable: true
       additionalProperties: false
+    ThresholdType:
+      type: integer
+      format: int32
     DeviceThresholdDto:
       type: object
       properties:
@@ -479,4 +451,68 @@ components:
           $ref: '#/components/schemas/ViewThresholdDto'
         dewPointThresholdDual:
           $ref: '#/components/schemas/ViewThresholdDto'
+      additionalProperties: false
+    PublicApiLightCalculationDto:
+      type: object
+      properties:
+        channels:
+          type:
+          - array
+          - 'null'
+          items:
+            type: number
+            format: double
+        tint:
+          type: number
+          format: double
+        gain:
+          type: integer
+          format: int32
+        ppfd:
+          type:
+          - number
+          - 'null'
+          format: double
+        pfdRed:
+          type:
+          - number
+          - 'null'
+          format: double
+        pfdGreen:
+          type:
+          - number
+          - 'null'
+          format: double
+        pfdBlue:
+          type:
+          - number
+          - 'null'
+          format: double
+        pfdIr:
+          type:
+          - number
+          - 'null'
+          format: double
+      additionalProperties: false
+    BatteryType:
+      type: integer
+      format: int32
+    DeviceOffsetsDto:
+      type: object
+      properties:
+        tempOffset:
+          type: number
+          format: double
+        humidityOffset:
+          type: number
+          format: double
+        lightOffset:
+          type: number
+          format: double
+        airPressureOffset:
+          type: number
+          format: double
+        vpdLeafTempOffsetInF:
+          type: number
+          format: double
       additionalProperties: false
