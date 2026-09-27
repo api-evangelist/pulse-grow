@@ -208,15 +208,62 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
+    UniversalDataPointArrayDto:
+      type: object
+      properties:
+        dataPointValues:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/UniversalDataPointDtoMultipleValue'
+        dataPointValuesCreatedAt:
+          type:
+          - array
+          - 'null'
+          items:
+            type: string
+            format: date-time
+      additionalProperties: false
     DeviceType:
       type: integer
       format: int32
     SensorType:
       type: integer
       format: int32
-    SensorThresholdType:
-      type: integer
-      format: int32
+    Ph10SensorCalibrationInformationDto:
+      type: object
+      properties:
+        lastPh4CalibrationDate:
+          type:
+          - string
+          - 'null'
+          format: date-time
+        lastPh7CalibrationDate:
+          type:
+          - string
+          - 'null'
+          format: date-time
+        lastPh10CalibrationDate:
+          type:
+          - string
+          - 'null'
+          format: date-time
+      additionalProperties: false
+    MostRecentSensorDataPointDto:
+      type: object
+      properties:
+        sensorType:
+          $ref: '#/components/schemas/SensorType'
+        deviceType:
+          $ref: '#/components/schemas/DeviceType'
+        name:
+          type:
+          - string
+          - 'null'
+        dataPointDto:
+          $ref: '#/components/schemas/UniversalDataPointDto'
+      additionalProperties: false
     SensorThresholdDto:
       type: object
       properties:
@@ -259,97 +306,9 @@ components:
     SensorReadingType:
       type: integer
       format: int32
-    SensorDeviceDetailsDto:
-      type: object
-      properties:
-        id:
-          type: integer
-          format: int32
-        name:
-          type:
-          - string
-          - 'null'
-        sensorType:
-          $ref: '#/components/schemas/SensorType'
-        growId:
-          type: integer
-          format: int32
-        hubId:
-          type: integer
-          format: int32
-        hubName:
-          type:
-          - string
-          - 'null'
-        hidden:
-          type: boolean
-        vpdTarget:
-          type:
-          - number
-          - 'null'
-          format: float
-        vpdLeafTemperatureOffsetinF:
-          type:
-          - number
-          - 'null'
-          format: float
-        orpCalibrationOffSet:
-          type:
-          - integer
-          - 'null'
-          format: int32
-        dayStart:
-          type: string
-          format: date-span
-        nightStart:
-          type: string
-          format: date-span
-        sensorTemplateId:
-          type:
-          - integer
-          - 'null'
-          format: int32
-        sensorTemplateName:
-          type:
-          - string
-          - 'null'
-        thresholds:
-          type:
-          - array
-          - 'null'
-          items:
-            $ref: '#/components/schemas/SensorThresholdDto'
-        offsetId:
-          type:
-          - integer
-          - 'null'
-          format: int32
-        ph10SensorCalibrationInformationDto:
-          $ref: '#/components/schemas/Ph10SensorCalibrationInformationDto'
-        ec1SensorCalibrationInformationDto:
-          $ref: '#/components/schemas/Ec1SensorCalibrationInformationDto'
-        parSensorSubtype:
-          $ref: '#/components/schemas/ParSensorSubtype'
-      additionalProperties: false
-    Ph10SensorCalibrationInformationDto:
-      type: object
-      properties:
-        lastPh4CalibrationDate:
-          type:
-          - string
-          - 'null'
-          format: date-time
-        lastPh7CalibrationDate:
-          type:
-          - string
-          - 'null'
-          format: date-time
-        lastPh10CalibrationDate:
-          type:
-          - string
-          - 'null'
-          format: date-time
-      additionalProperties: false
+    SensorThresholdType:
+      type: integer
+      format: int32
     HighChartAuxiliaryData:
       type: object
       properties:
@@ -434,6 +393,78 @@ components:
           type: string
           format: date-time
       additionalProperties: false
+    SensorDeviceDetailsDto:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+        name:
+          type:
+          - string
+          - 'null'
+        sensorType:
+          $ref: '#/components/schemas/SensorType'
+        growId:
+          type: integer
+          format: int32
+        hubId:
+          type: integer
+          format: int32
+        hubName:
+          type:
+          - string
+          - 'null'
+        hidden:
+          type: boolean
+        vpdTarget:
+          type:
+          - number
+          - 'null'
+          format: float
+        vpdLeafTemperatureOffsetinF:
+          type:
+          - number
+          - 'null'
+          format: float
+        orpCalibrationOffSet:
+          type:
+          - integer
+          - 'null'
+          format: int32
+        dayStart:
+          type: string
+          format: date-span
+        nightStart:
+          type: string
+          format: date-span
+        sensorTemplateId:
+          type:
+          - integer
+          - 'null'
+          format: int32
+        sensorTemplateName:
+          type:
+          - string
+          - 'null'
+        thresholds:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/SensorThresholdDto'
+        offsetId:
+          type:
+          - integer
+          - 'null'
+          format: int32
+        ph10SensorCalibrationInformationDto:
+          $ref: '#/components/schemas/Ph10SensorCalibrationInformationDto'
+        ec1SensorCalibrationInformationDto:
+          $ref: '#/components/schemas/Ec1SensorCalibrationInformationDto'
+        parSensorSubtype:
+          $ref: '#/components/schemas/ParSensorSubtype'
+      additionalProperties: false
     Ec1SensorCalibrationInformationDto:
       type: object
       properties:
@@ -448,34 +479,3 @@ components:
     ParSensorSubtype:
       type: integer
       format: int32
-    UniversalDataPointArrayDto:
-      type: object
-      properties:
-        dataPointValues:
-          type:
-          - array
-          - 'null'
-          items:
-            $ref: '#/components/schemas/UniversalDataPointDtoMultipleValue'
-        dataPointValuesCreatedAt:
-          type:
-          - array
-          - 'null'
-          items:
-            type: string
-            format: date-time
-      additionalProperties: false
-    MostRecentSensorDataPointDto:
-      type: object
-      properties:
-        sensorType:
-          $ref: '#/components/schemas/SensorType'
-        deviceType:
-          $ref: '#/components/schemas/DeviceType'
-        name:
-          type:
-          - string
-          - 'null'
-        dataPointDto:
-          $ref: '#/components/schemas/UniversalDataPointDto'
-      additionalProperties: false

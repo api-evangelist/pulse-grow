@@ -47,9 +47,6 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    UserGrowRole:
-      type: integer
-      format: int32
     ViewInvitationDto:
       type: object
       properties:
@@ -99,3 +96,6 @@ components:
           - 'null'
           format: date-time
       additionalProperties: false
+    UserGrowRole:
+      type: integer
+      format: int32

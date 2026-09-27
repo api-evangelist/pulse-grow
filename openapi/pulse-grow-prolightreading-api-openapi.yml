@@ -93,6 +93,28 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
+    IActionResult:
+      type: object
+      additionalProperties: false
+    LightReadingsResponseDto:
+      type: object
+      properties:
+        currentPage:
+          type: integer
+          format: int32
+        numPages:
+          type: integer
+          format: int32
+        numReadings:
+          type: integer
+          format: int32
+        lightReadings:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/ProLightReadingDto'
+      additionalProperties: false
     ProLightReadingDto:
       type: object
       properties:
@@ -183,26 +205,4 @@ components:
           items:
             type: number
             format: double
-      additionalProperties: false
-    LightReadingsResponseDto:
-      type: object
-      properties:
-        currentPage:
-          type: integer
-          format: int32
-        numPages:
-          type: integer
-          format: int32
-        numReadings:
-          type: integer
-          format: int32
-        lightReadings:
-          type:
-          - array
-          - 'null'
-          items:
-            $ref: '#/components/schemas/ProLightReadingDto'
-      additionalProperties: false
-    IActionResult:
-      type: object
       additionalProperties: false

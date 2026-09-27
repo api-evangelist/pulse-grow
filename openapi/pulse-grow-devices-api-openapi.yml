@@ -215,6 +215,67 @@ components:
     DeviceType:
       type: integer
       format: int32
+    ViewThresholdDto:
+      type: object
+      properties:
+        id:
+          type:
+          - integer
+          - 'null'
+          format: int32
+        notificationActive:
+          type:
+          - boolean
+          - 'null'
+        lowThresholdValue:
+          type:
+          - number
+          - 'null'
+          format: double
+        highThresholdValue:
+          type:
+          - number
+          - 'null'
+          format: double
+        delay:
+          type:
+          - string
+          - 'null'
+          format: date-span
+        day:
+          type:
+          - boolean
+          - 'null'
+        deviceId:
+          type:
+          - integer
+          - 'null'
+          format: int32
+        thresholdType:
+          $ref: '#/components/schemas/ThresholdType'
+      additionalProperties: false
+    DeviceOffsetsDto:
+      type: object
+      properties:
+        tempOffset:
+          type: number
+          format: double
+        humidityOffset:
+          type: number
+          format: double
+        lightOffset:
+          type: number
+          format: double
+        airPressureOffset:
+          type: number
+          format: double
+        vpdLeafTempOffsetInF:
+          type: number
+          format: double
+      additionalProperties: false
+    BatteryType:
+      type: integer
+      format: int32
     PublicApiDataPoint:
       type: object
       properties:
@@ -319,44 +380,50 @@ components:
         lightCalculationReading:
           $ref: '#/components/schemas/PublicApiLightCalculationDto'
       additionalProperties: false
-    ViewThresholdDto:
+    ThresholdType:
+      type: integer
+      format: int32
+    PublicApiLightCalculationDto:
       type: object
       properties:
-        id:
+        channels:
           type:
-          - integer
+          - array
           - 'null'
+          items:
+            type: number
+            format: double
+        tint:
+          type: number
+          format: double
+        gain:
+          type: integer
           format: int32
-        notificationActive:
-          type:
-          - boolean
-          - 'null'
-        lowThresholdValue:
+        ppfd:
           type:
           - number
           - 'null'
           format: double
-        highThresholdValue:
+        pfdRed:
           type:
           - number
           - 'null'
           format: double
-        delay:
+        pfdGreen:
           type:
-          - string
+          - number
           - 'null'
-          format: date-span
-        day:
+          format: double
+        pfdBlue:
           type:
-          - boolean
+          - number
           - 'null'
-        deviceId:
+          format: double
+        pfdIr:
           type:
-          - integer
+          - number
           - 'null'
-          format: int32
-        thresholdType:
-          $ref: '#/components/schemas/ThresholdType'
+          format: double
       additionalProperties: false
     DeviceDetailsDto:
       type: object
@@ -429,9 +496,6 @@ components:
           - 'null'
           format: date-time
       additionalProperties: false
-    ThresholdType:
-      type: integer
-      format: int32
     DeviceThresholdDto:
       type: object
       properties:
@@ -451,68 +515,4 @@ components:
           $ref: '#/components/schemas/ViewThresholdDto'
         dewPointThresholdDual:
           $ref: '#/components/schemas/ViewThresholdDto'
-      additionalProperties: false
-    PublicApiLightCalculationDto:
-      type: object
-      properties:
-        channels:
-          type:
-          - array
-          - 'null'
-          items:
-            type: number
-            format: double
-        tint:
-          type: number
-          format: double
-        gain:
-          type: integer
-          format: int32
-        ppfd:
-          type:
-          - number
-          - 'null'
-          format: double
-        pfdRed:
-          type:
-          - number
-          - 'null'
-          format: double
-        pfdGreen:
-          type:
-          - number
-          - 'null'
-          format: double
-        pfdBlue:
-          type:
-          - number
-          - 'null'
-          format: double
-        pfdIr:
-          type:
-          - number
-          - 'null'
-          format: double
-      additionalProperties: false
-    BatteryType:
-      type: integer
-      format: int32
-    DeviceOffsetsDto:
-      type: object
-      properties:
-        tempOffset:
-          type: number
-          format: double
-        humidityOffset:
-          type: number
-          format: double
-        lightOffset:
-          type: number
-          format: double
-        airPressureOffset:
-          type: number
-          format: double
-        vpdLeafTempOffsetInF:
-          type: number
-          format: double
       additionalProperties: false
