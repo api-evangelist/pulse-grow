@@ -77,6 +77,9 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
+    TimelineEventType:
+      type: integer
+      format: int32
     TimelineEventDto:
       type: object
       properties:
@@ -113,6 +116,3 @@ components:
           - 'null'
           format: int32
       additionalProperties: false
-    TimelineEventType:
-      type: integer
-      format: int32

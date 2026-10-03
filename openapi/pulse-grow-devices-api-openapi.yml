@@ -215,67 +215,97 @@ components:
     DeviceType:
       type: integer
       format: int32
-    ViewThresholdDto:
+    DeviceThresholdDto:
+      type: object
+      properties:
+        lightThreshold:
+          $ref: '#/components/schemas/ViewThresholdDto'
+        temperatureThreshold:
+          $ref: '#/components/schemas/ViewThresholdDto'
+        humidityThreshold:
+          $ref: '#/components/schemas/ViewThresholdDto'
+        vpdThreshold:
+          $ref: '#/components/schemas/ViewThresholdDto'
+        dewPointThreshold:
+          $ref: '#/components/schemas/ViewThresholdDto'
+        co2Threshold:
+          $ref: '#/components/schemas/ViewThresholdDto'
+        vocThreshold:
+          $ref: '#/components/schemas/ViewThresholdDto'
+        dewPointThresholdDual:
+          $ref: '#/components/schemas/ViewThresholdDto'
+      additionalProperties: false
+    DeviceDetailsDto:
       type: object
       properties:
         id:
-          type:
-          - integer
-          - 'null'
+          type: integer
           format: int32
-        notificationActive:
-          type:
-          - boolean
-          - 'null'
-        lowThresholdValue:
-          type:
-          - number
-          - 'null'
-          format: double
-        highThresholdValue:
-          type:
-          - number
-          - 'null'
-          format: double
-        delay:
-          type:
-          - string
-          - 'null'
-          format: date-span
-        day:
-          type:
-          - boolean
-          - 'null'
-        deviceId:
-          type:
-          - integer
-          - 'null'
-          format: int32
-        thresholdType:
-          $ref: '#/components/schemas/ThresholdType'
-      additionalProperties: false
-    DeviceOffsetsDto:
-      type: object
-      properties:
-        tempOffset:
-          type: number
-          format: double
-        humidityOffset:
-          type: number
-          format: double
-        lightOffset:
-          type: number
-          format: double
-        airPressureOffset:
-          type: number
-          format: double
+        deviceType:
+          $ref: '#/components/schemas/DeviceType'
+        powerThreshold:
+          $ref: '#/components/schemas/ViewThresholdDto'
+        connectivityThreshold:
+          $ref: '#/components/schemas/ViewThresholdDto'
+        outletToBatteryTransitionThreshold:
+          $ref: '#/components/schemas/ViewThresholdDto'
+        lowBatteryThreshold:
+          $ref: '#/components/schemas/ViewThresholdDto'
+        dayThresholds:
+          $ref: '#/components/schemas/DeviceThresholdDto'
+        nightThresholds:
+          $ref: '#/components/schemas/DeviceThresholdDto'
+        offsets:
+          $ref: '#/components/schemas/DeviceOffsetsDto'
         vpdLeafTempOffsetInF:
           type: number
           format: double
+        dayStart:
+          type:
+          - string
+          - 'null'
+        nightStart:
+          type:
+          - string
+          - 'null'
+        name:
+          type:
+          - string
+          - 'null'
+        vpdTarget:
+          type:
+          - number
+          - 'null'
+          format: double
+        templateId:
+          type:
+          - integer
+          - 'null'
+          format: int32
+        templateName:
+          type:
+          - string
+          - 'null'
+        templateTypeId:
+          type:
+          - integer
+          - 'null'
+          format: int32
+        batteryType:
+          $ref: '#/components/schemas/BatteryType'
+        lowBatteryVoltage:
+          type: number
+          format: float
+        macAddress:
+          type:
+          - string
+          - 'null'
+        lastCo2CalibrationDate:
+          type:
+          - string
+          - 'null'
+          format: date-time
       additionalProperties: false
-    BatteryType:
-      type: integer
-      format: int32
     PublicApiDataPoint:
       type: object
       properties:
@@ -380,9 +410,6 @@ components:
         lightCalculationReading:
           $ref: '#/components/schemas/PublicApiLightCalculationDto'
       additionalProperties: false
-    ThresholdType:
-      type: integer
-      format: int32
     PublicApiLightCalculationDto:
       type: object
       properties:
@@ -425,94 +452,67 @@ components:
           - 'null'
           format: double
       additionalProperties: false
-    DeviceDetailsDto:
+    ViewThresholdDto:
       type: object
       properties:
         id:
-          type: integer
+          type:
+          - integer
+          - 'null'
           format: int32
-        deviceType:
-          $ref: '#/components/schemas/DeviceType'
-        powerThreshold:
-          $ref: '#/components/schemas/ViewThresholdDto'
-        connectivityThreshold:
-          $ref: '#/components/schemas/ViewThresholdDto'
-        outletToBatteryTransitionThreshold:
-          $ref: '#/components/schemas/ViewThresholdDto'
-        lowBatteryThreshold:
-          $ref: '#/components/schemas/ViewThresholdDto'
-        dayThresholds:
-          $ref: '#/components/schemas/DeviceThresholdDto'
-        nightThresholds:
-          $ref: '#/components/schemas/DeviceThresholdDto'
-        offsets:
-          $ref: '#/components/schemas/DeviceOffsetsDto'
-        vpdLeafTempOffsetInF:
-          type: number
-          format: double
-        dayStart:
+        notificationActive:
           type:
-          - string
+          - boolean
           - 'null'
-        nightStart:
-          type:
-          - string
-          - 'null'
-        name:
-          type:
-          - string
-          - 'null'
-        vpdTarget:
+        lowThresholdValue:
           type:
           - number
           - 'null'
           format: double
-        templateId:
+        highThresholdValue:
+          type:
+          - number
+          - 'null'
+          format: double
+        delay:
+          type:
+          - string
+          - 'null'
+          format: date-span
+        day:
+          type:
+          - boolean
+          - 'null'
+        deviceId:
           type:
           - integer
           - 'null'
           format: int32
-        templateName:
-          type:
-          - string
-          - 'null'
-        templateTypeId:
-          type:
-          - integer
-          - 'null'
-          format: int32
-        batteryType:
-          $ref: '#/components/schemas/BatteryType'
-        lowBatteryVoltage:
-          type: number
-          format: float
-        macAddress:
-          type:
-          - string
-          - 'null'
-        lastCo2CalibrationDate:
-          type:
-          - string
-          - 'null'
-          format: date-time
+        thresholdType:
+          $ref: '#/components/schemas/ThresholdType'
       additionalProperties: false
-    DeviceThresholdDto:
+    DeviceOffsetsDto:
       type: object
       properties:
-        lightThreshold:
-          $ref: '#/components/schemas/ViewThresholdDto'
-        temperatureThreshold:
-          $ref: '#/components/schemas/ViewThresholdDto'
-        humidityThreshold:
-          $ref: '#/components/schemas/ViewThresholdDto'
-        vpdThreshold:
-          $ref: '#/components/schemas/ViewThresholdDto'
-        dewPointThreshold:
-          $ref: '#/components/schemas/ViewThresholdDto'
-        co2Threshold:
-          $ref: '#/components/schemas/ViewThresholdDto'
-        vocThreshold:
-          $ref: '#/components/schemas/ViewThresholdDto'
-        dewPointThresholdDual:
-          $ref: '#/components/schemas/ViewThresholdDto'
+        tempOffset:
+          type: number
+          format: double
+        humidityOffset:
+          type: number
+          format: double
+        lightOffset:
+          type: number
+          format: double
+        airPressureOffset:
+          type: number
+          format: double
+        vpdLeafTempOffsetInF:
+          type: number
+          format: double
       additionalProperties: false
+    BatteryType:
+      type: integer
+      format: int32
+    ThresholdType:
+      type: integer
+      format: int32

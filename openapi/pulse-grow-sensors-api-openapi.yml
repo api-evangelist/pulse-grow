@@ -208,7 +208,18 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    UniversalDataPointArrayDto:
+    Ec1SensorCalibrationInformationDto:
+      type: object
+      properties:
+        lastCalibrationDate:
+          type:
+          - string
+          - 'null'
+          format: date-time
+        isCalibrationUiShown:
+          type: boolean
+      additionalProperties: false
+    UniversalDataPointDto:
       type: object
       properties:
         dataPointValues:
@@ -216,38 +227,12 @@ components:
           - array
           - 'null'
           items:
-            $ref: '#/components/schemas/UniversalDataPointDtoMultipleValue'
-        dataPointValuesCreatedAt:
-          type:
-          - array
-          - 'null'
-          items:
-            type: string
-            format: date-time
-      additionalProperties: false
-    DeviceType:
-      type: integer
-      format: int32
-    SensorType:
-      type: integer
-      format: int32
-    Ph10SensorCalibrationInformationDto:
-      type: object
-      properties:
-        lastPh4CalibrationDate:
-          type:
-          - string
-          - 'null'
-          format: date-time
-        lastPh7CalibrationDate:
-          type:
-          - string
-          - 'null'
-          format: date-time
-        lastPh10CalibrationDate:
-          type:
-          - string
-          - 'null'
+            $ref: '#/components/schemas/UniversalDataPointDtoSingleValue'
+        sensorId:
+          type: integer
+          format: int32
+        createdAt:
+          type: string
           format: date-time
       additionalProperties: false
     MostRecentSensorDataPointDto:
@@ -263,75 +248,6 @@ components:
           - 'null'
         dataPointDto:
           $ref: '#/components/schemas/UniversalDataPointDto'
-      additionalProperties: false
-    SensorThresholdDto:
-      type: object
-      properties:
-        id:
-          type:
-          - integer
-          - 'null'
-          format: int32
-        notificationActive:
-          type:
-          - boolean
-          - 'null'
-        lowThresholdValue:
-          type:
-          - number
-          - 'null'
-          format: double
-        highThresholdValue:
-          type:
-          - number
-          - 'null'
-          format: double
-        delay:
-          type:
-          - string
-          - 'null'
-          format: date-span
-        day:
-          type:
-          - boolean
-          - 'null'
-        thresholdType:
-          $ref: '#/components/schemas/SensorThresholdType'
-        transitionalDelay:
-          type:
-          - string
-          - 'null'
-          format: date-span
-      additionalProperties: false
-    SensorReadingType:
-      type: integer
-      format: int32
-    SensorThresholdType:
-      type: integer
-      format: int32
-    HighChartAuxiliaryData:
-      type: object
-      properties:
-        color:
-          type:
-          - string
-          - 'null'
-          readOnly: true
-        yAxis:
-          type: integer
-          format: int32
-        valueDecimal:
-          type: integer
-          format: int32
-        redCoefficient:
-          type: integer
-          format: int32
-        greenCoefficient:
-          type: integer
-          format: int32
-        blueCoefficient:
-          type: integer
-          format: int32
       additionalProperties: false
     UniversalDataPointDtoMultipleValue:
       type: object
@@ -355,43 +271,6 @@ components:
           $ref: '#/components/schemas/HighChartAuxiliaryData'
         sensorReadingType:
           $ref: '#/components/schemas/SensorReadingType'
-      additionalProperties: false
-    UniversalDataPointDtoSingleValue:
-      type: object
-      properties:
-        paramName:
-          type:
-          - string
-          - 'null'
-        measuringUnit:
-          type:
-          - string
-          - 'null'
-        paramValue:
-          type:
-          - number
-          - 'null'
-          format: float
-        highChartAuxiliaryData:
-          $ref: '#/components/schemas/HighChartAuxiliaryData'
-        sensorReadingType:
-          $ref: '#/components/schemas/SensorReadingType'
-      additionalProperties: false
-    UniversalDataPointDto:
-      type: object
-      properties:
-        dataPointValues:
-          type:
-          - array
-          - 'null'
-          items:
-            $ref: '#/components/schemas/UniversalDataPointDtoSingleValue'
-        sensorId:
-          type: integer
-          format: int32
-        createdAt:
-          type: string
-          format: date-time
       additionalProperties: false
     SensorDeviceDetailsDto:
       type: object
@@ -465,17 +344,138 @@ components:
         parSensorSubtype:
           $ref: '#/components/schemas/ParSensorSubtype'
       additionalProperties: false
-    Ec1SensorCalibrationInformationDto:
+    DeviceType:
+      type: integer
+      format: int32
+    SensorType:
+      type: integer
+      format: int32
+    Ph10SensorCalibrationInformationDto:
       type: object
       properties:
-        lastCalibrationDate:
+        lastPh4CalibrationDate:
           type:
           - string
           - 'null'
           format: date-time
-        isCalibrationUiShown:
-          type: boolean
+        lastPh7CalibrationDate:
+          type:
+          - string
+          - 'null'
+          format: date-time
+        lastPh10CalibrationDate:
+          type:
+          - string
+          - 'null'
+          format: date-time
       additionalProperties: false
     ParSensorSubtype:
       type: integer
       format: int32
+    SensorThresholdDto:
+      type: object
+      properties:
+        id:
+          type:
+          - integer
+          - 'null'
+          format: int32
+        notificationActive:
+          type:
+          - boolean
+          - 'null'
+        lowThresholdValue:
+          type:
+          - number
+          - 'null'
+          format: double
+        highThresholdValue:
+          type:
+          - number
+          - 'null'
+          format: double
+        delay:
+          type:
+          - string
+          - 'null'
+          format: date-span
+        day:
+          type:
+          - boolean
+          - 'null'
+        thresholdType:
+          $ref: '#/components/schemas/SensorThresholdType'
+        transitionalDelay:
+          type:
+          - string
+          - 'null'
+          format: date-span
+      additionalProperties: false
+    SensorReadingType:
+      type: integer
+      format: int32
+    UniversalDataPointArrayDto:
+      type: object
+      properties:
+        dataPointValues:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/UniversalDataPointDtoMultipleValue'
+        dataPointValuesCreatedAt:
+          type:
+          - array
+          - 'null'
+          items:
+            type: string
+            format: date-time
+      additionalProperties: false
+    SensorThresholdType:
+      type: integer
+      format: int32
+    HighChartAuxiliaryData:
+      type: object
+      properties:
+        color:
+          type:
+          - string
+          - 'null'
+          readOnly: true
+        yAxis:
+          type: integer
+          format: int32
+        valueDecimal:
+          type: integer
+          format: int32
+        redCoefficient:
+          type: integer
+          format: int32
+        greenCoefficient:
+          type: integer
+          format: int32
+        blueCoefficient:
+          type: integer
+          format: int32
+      additionalProperties: false
+    UniversalDataPointDtoSingleValue:
+      type: object
+      properties:
+        paramName:
+          type:
+          - string
+          - 'null'
+        measuringUnit:
+          type:
+          - string
+          - 'null'
+        paramValue:
+          type:
+          - number
+          - 'null'
+          format: float
+        highChartAuxiliaryData:
+          $ref: '#/components/schemas/HighChartAuxiliaryData'
+        sensorReadingType:
+          $ref: '#/components/schemas/SensorReadingType'
+      additionalProperties: false

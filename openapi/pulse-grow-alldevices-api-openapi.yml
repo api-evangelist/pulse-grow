@@ -45,6 +45,69 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
+    UniversalDataPointDto:
+      type: object
+      properties:
+        dataPointValues:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/UniversalDataPointDtoSingleValue'
+        sensorId:
+          type: integer
+          format: int32
+        createdAt:
+          type: string
+          format: date-time
+      additionalProperties: false
+    ParSensorSubtype:
+      type: integer
+      format: int32
+    DeviceType:
+      type: integer
+      format: int32
+    UniversalDataPointArrayDto:
+      type: object
+      properties:
+        dataPointValues:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/UniversalDataPointDtoMultipleValue'
+        dataPointValuesCreatedAt:
+          type:
+          - array
+          - 'null'
+          items:
+            type: string
+            format: date-time
+      additionalProperties: false
+    HighChartAuxiliaryData:
+      type: object
+      properties:
+        color:
+          type:
+          - string
+          - 'null'
+          readOnly: true
+        yAxis:
+          type: integer
+          format: int32
+        valueDecimal:
+          type: integer
+          format: int32
+        redCoefficient:
+          type: integer
+          format: int32
+        greenCoefficient:
+          type: integer
+          format: int32
+        blueCoefficient:
+          type: integer
+          format: int32
+      additionalProperties: false
     HubViewDto:
       type: object
       properties:
@@ -70,98 +133,49 @@ components:
         mostRecentDataPoint:
           $ref: '#/components/schemas/HubDataPointDto'
       additionalProperties: false
-    SensorDeviceViewUniversalDto:
+    OpenSprinklerSpecificData:
       type: object
       properties:
-        id:
-          type: integer
-          format: int32
-        displayOrder:
-          type:
-          - integer
-          - 'null'
-          format: int32
-        name:
+        lastOnline:
           type:
           - string
           - 'null'
-        growId:
-          type: integer
-          format: int32
-        hidden:
-          type: boolean
-        hubId:
-          type:
-          - integer
-          - 'null'
-          format: int32
-        deviceType:
-          $ref: '#/components/schemas/DeviceType'
-        mostRecentDataPoint:
-          $ref: '#/components/schemas/UniversalDataPointDto'
-        sensorType:
-          $ref: '#/components/schemas/SensorType'
-        lastHourDataPointDtos:
-          $ref: '#/components/schemas/UniversalDataPointArrayDto'
-        templateId:
-          type:
-          - integer
-          - 'null'
-          format: int32
-        dayStart:
-          type: string
-          format: date-span
-        nightStart:
-          type: string
-          format: date-span
-        parSensorSubtype:
-          $ref: '#/components/schemas/ParSensorSubtype'
-      additionalProperties: false
-    UniversalDataPointArrayDto:
-      type: object
-      properties:
-        dataPointValues:
-          type:
-          - array
-          - 'null'
-          items:
-            $ref: '#/components/schemas/UniversalDataPointDtoMultipleValue'
-        dataPointValuesCreatedAt:
-          type:
-          - array
-          - 'null'
-          items:
-            type: string
-            format: date-time
-      additionalProperties: false
-    SensorType:
-      type: integer
-      format: int32
-    ControlsViewDto:
-      type: object
-      properties:
-        id:
-          type: integer
-          format: int32
-        name:
+          format: date-time
+        nextOpenSprinklerProgramRunInfo:
+          $ref: '#/components/schemas/NextOpenSprinklerProgramRunInfo'
+        lastRanProgramName:
           type:
           - string
           - 'null'
-        controlType:
-          $ref: '#/components/schemas/ControlType'
-        displayOrder:
+        lastRunProgramId:
           type:
           - integer
           - 'null'
           format: int32
-        deviceType:
-          $ref: '#/components/schemas/DeviceType'
-        openSprinklerSpecificData:
-          $ref: '#/components/schemas/OpenSprinklerSpecificData'
-      additionalProperties: false
-    LastAutomationInfo:
-      type: object
-      properties:
+        mac:
+          type:
+          - string
+          - 'null'
+        lastRunDuration:
+          type:
+          - integer
+          - 'null'
+          format: int32
+        lastRunTimeEnd:
+          type:
+          - string
+          - 'null'
+          format: date-time
+        pausedUntil:
+          type:
+          - string
+          - 'null'
+          format: date-time
+        lastSynced:
+          type:
+          - string
+          - 'null'
+          format: date-time
         durations:
           type:
           - array
@@ -169,46 +183,12 @@ components:
           items:
             type: integer
             format: int32
-        sensorId:
-          type: integer
-          format: int32
-        triggeringValue:
-          type:
-          - string
-          - 'null'
-        time:
-          type: string
-          format: date-time
-        mostRecentSensorDataPointDto:
-          $ref: '#/components/schemas/MostRecentSensorDataPointDto'
+        lastAutomationInfo:
+          $ref: '#/components/schemas/LastAutomationInfo'
       additionalProperties: false
-    SensorReadingType:
+    SensorType:
       type: integer
       format: int32
-    HighChartAuxiliaryData:
-      type: object
-      properties:
-        color:
-          type:
-          - string
-          - 'null'
-          readOnly: true
-        yAxis:
-          type: integer
-          format: int32
-        valueDecimal:
-          type: integer
-          format: int32
-        redCoefficient:
-          type: integer
-          format: int32
-        greenCoefficient:
-          type: integer
-          format: int32
-        blueCoefficient:
-          type: integer
-          format: int32
-      additionalProperties: false
     NextOpenSprinklerProgramRunInfo:
       type: object
       properties:
@@ -231,9 +211,6 @@ components:
           type: string
           format: date-time
       additionalProperties: false
-    ParSensorSubtype:
-      type: integer
-      format: int32
     DataPointDto:
       type: object
       properties:
@@ -327,89 +304,31 @@ components:
           type: number
           format: double
       additionalProperties: false
-    MostRecentSensorDataPointDto:
+    ControlsViewDto:
       type: object
       properties:
-        sensorType:
-          $ref: '#/components/schemas/SensorType'
-        deviceType:
-          $ref: '#/components/schemas/DeviceType'
+        id:
+          type: integer
+          format: int32
         name:
           type:
           - string
           - 'null'
-        dataPointDto:
-          $ref: '#/components/schemas/UniversalDataPointDto'
-      additionalProperties: false
-    ControlType:
-      type: integer
-      format: int32
-    UniversalDataPointDtoMultipleValue:
-      type: object
-      properties:
-        paramName:
-          type:
-          - string
-          - 'null'
-        measuringUnit:
-          type:
-          - string
-          - 'null'
-        paramValues:
-          type:
-          - array
-          - 'null'
-          items:
-            type: number
-            format: float
-        highChartAuxiliaryData:
-          $ref: '#/components/schemas/HighChartAuxiliaryData'
-        sensorReadingType:
-          $ref: '#/components/schemas/SensorReadingType'
-      additionalProperties: false
-    OpenSprinklerSpecificData:
-      type: object
-      properties:
-        lastOnline:
-          type:
-          - string
-          - 'null'
-          format: date-time
-        nextOpenSprinklerProgramRunInfo:
-          $ref: '#/components/schemas/NextOpenSprinklerProgramRunInfo'
-        lastRanProgramName:
-          type:
-          - string
-          - 'null'
-        lastRunProgramId:
+        controlType:
+          $ref: '#/components/schemas/ControlType'
+        displayOrder:
           type:
           - integer
           - 'null'
           format: int32
-        mac:
-          type:
-          - string
-          - 'null'
-        lastRunDuration:
-          type:
-          - integer
-          - 'null'
-          format: int32
-        lastRunTimeEnd:
-          type:
-          - string
-          - 'null'
-          format: date-time
-        pausedUntil:
-          type:
-          - string
-          - 'null'
-          format: date-time
-        lastSynced:
-          type:
-          - string
-          - 'null'
-          format: date-time
+        deviceType:
+          $ref: '#/components/schemas/DeviceType'
+        openSprinklerSpecificData:
+          $ref: '#/components/schemas/OpenSprinklerSpecificData'
+      additionalProperties: false
+    LastAutomationInfo:
+      type: object
+      properties:
         durations:
           type:
           - array
@@ -417,45 +336,65 @@ components:
           items:
             type: integer
             format: int32
-        lastAutomationInfo:
-          $ref: '#/components/schemas/LastAutomationInfo'
-      additionalProperties: false
-    UniversalDataPointDto:
-      type: object
-      properties:
-        dataPointValues:
-          type:
-          - array
-          - 'null'
-          items:
-            $ref: '#/components/schemas/UniversalDataPointDtoSingleValue'
         sensorId:
           type: integer
           format: int32
-        createdAt:
+        triggeringValue:
+          type:
+          - string
+          - 'null'
+        time:
           type: string
           format: date-time
+        mostRecentSensorDataPointDto:
+          $ref: '#/components/schemas/MostRecentSensorDataPointDto'
       additionalProperties: false
-    UniversalDataPointDtoSingleValue:
+    SensorDeviceViewUniversalDto:
       type: object
       properties:
-        paramName:
+        id:
+          type: integer
+          format: int32
+        displayOrder:
+          type:
+          - integer
+          - 'null'
+          format: int32
+        name:
           type:
           - string
           - 'null'
-        measuringUnit:
+        growId:
+          type: integer
+          format: int32
+        hidden:
+          type: boolean
+        hubId:
           type:
-          - string
+          - integer
           - 'null'
-        paramValue:
+          format: int32
+        deviceType:
+          $ref: '#/components/schemas/DeviceType'
+        mostRecentDataPoint:
+          $ref: '#/components/schemas/UniversalDataPointDto'
+        sensorType:
+          $ref: '#/components/schemas/SensorType'
+        lastHourDataPointDtos:
+          $ref: '#/components/schemas/UniversalDataPointArrayDto'
+        templateId:
           type:
-          - number
+          - integer
           - 'null'
-          format: float
-        highChartAuxiliaryData:
-          $ref: '#/components/schemas/HighChartAuxiliaryData'
-        sensorReadingType:
-          $ref: '#/components/schemas/SensorReadingType'
+          format: int32
+        dayStart:
+          type: string
+          format: date-span
+        nightStart:
+          type: string
+          format: date-span
+        parSensorSubtype:
+          $ref: '#/components/schemas/ParSensorSubtype'
       additionalProperties: false
     HubDataPointDto:
       type: object
@@ -479,9 +418,53 @@ components:
           type: string
           format: date-time
       additionalProperties: false
-    DeviceType:
+    ControlType:
       type: integer
       format: int32
+    UniversalDataPointDtoSingleValue:
+      type: object
+      properties:
+        paramName:
+          type:
+          - string
+          - 'null'
+        measuringUnit:
+          type:
+          - string
+          - 'null'
+        paramValue:
+          type:
+          - number
+          - 'null'
+          format: float
+        highChartAuxiliaryData:
+          $ref: '#/components/schemas/HighChartAuxiliaryData'
+        sensorReadingType:
+          $ref: '#/components/schemas/SensorReadingType'
+      additionalProperties: false
+    UniversalDataPointDtoMultipleValue:
+      type: object
+      properties:
+        paramName:
+          type:
+          - string
+          - 'null'
+        measuringUnit:
+          type:
+          - string
+          - 'null'
+        paramValues:
+          type:
+          - array
+          - 'null'
+          items:
+            type: number
+            format: float
+        highChartAuxiliaryData:
+          $ref: '#/components/schemas/HighChartAuxiliaryData'
+        sensorReadingType:
+          $ref: '#/components/schemas/SensorReadingType'
+      additionalProperties: false
     ProLightReadingPreviewDto:
       type: object
       properties:
@@ -500,6 +483,51 @@ components:
           type: string
           format: date-time
       additionalProperties: false
+    MostRecentSensorDataPointDto:
+      type: object
+      properties:
+        sensorType:
+          $ref: '#/components/schemas/SensorType'
+        deviceType:
+          $ref: '#/components/schemas/DeviceType'
+        name:
+          type:
+          - string
+          - 'null'
+        dataPointDto:
+          $ref: '#/components/schemas/UniversalDataPointDto'
+      additionalProperties: false
+    NonTypeSpecificDeviceListDto:
+      type: object
+      properties:
+        deviceViewDtos:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/DeviceViewDto'
+        universalSensorViews:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/SensorDeviceViewUniversalDto'
+        hubViewDtos:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/HubViewDto'
+        controlsViewDtos:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/ControlsViewDto'
+      additionalProperties: false
+    SensorReadingType:
+      type: integer
+      format: int32
     DeviceViewDto:
       type: object
       properties:
@@ -568,32 +596,4 @@ components:
         growTimezoneOffset:
           type: integer
           format: int32
-      additionalProperties: false
-    NonTypeSpecificDeviceListDto:
-      type: object
-      properties:
-        deviceViewDtos:
-          type:
-          - array
-          - 'null'
-          items:
-            $ref: '#/components/schemas/DeviceViewDto'
-        universalSensorViews:
-          type:
-          - array
-          - 'null'
-          items:
-            $ref: '#/components/schemas/SensorDeviceViewUniversalDto'
-        hubViewDtos:
-          type:
-          - array
-          - 'null'
-          items:
-            $ref: '#/components/schemas/HubViewDto'
-        controlsViewDtos:
-          type:
-          - array
-          - 'null'
-          items:
-            $ref: '#/components/schemas/ControlsViewDto'
       additionalProperties: false

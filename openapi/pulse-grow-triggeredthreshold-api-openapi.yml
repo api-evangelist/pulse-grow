@@ -47,9 +47,6 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    HubThresholdType:
-      type: integer
-      format: int32
     SortedTriggeredThresholdsDto:
       type: object
       properties:
@@ -72,7 +69,7 @@ components:
     SensorThresholdType:
       type: integer
       format: int32
-    ThresholdType:
+    HubThresholdType:
       type: integer
       format: int32
     ViewTriggeredThresholdDto:
@@ -128,3 +125,6 @@ components:
         hubThresholdType:
           $ref: '#/components/schemas/HubThresholdType'
       additionalProperties: false
+    ThresholdType:
+      type: integer
+      format: int32

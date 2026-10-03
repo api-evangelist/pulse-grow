@@ -82,47 +82,15 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    DeviceType:
+    ParSensorSubtype:
       type: integer
       format: int32
     SensorType:
       type: integer
       format: int32
-    HubThresholdType:
+    DeviceType:
       type: integer
       format: int32
-    HubDetailsDto:
-      type: object
-      properties:
-        id:
-          type: integer
-          format: int32
-        name:
-          type:
-          - string
-          - 'null'
-        hubThresholds:
-          type:
-          - array
-          - 'null'
-          items:
-            $ref: '#/components/schemas/HubThresholdDto'
-        hidden:
-          type: boolean
-        macAddress:
-          type:
-          - string
-          - 'null'
-        growId:
-          type: integer
-          format: int32
-        sensorDevices:
-          type:
-          - array
-          - 'null'
-          items:
-            $ref: '#/components/schemas/SensorDeviceViewDto'
-      additionalProperties: false
     HubThresholdDto:
       type: object
       properties:
@@ -162,6 +130,41 @@ components:
         thresholdType:
           $ref: '#/components/schemas/HubThresholdType'
       additionalProperties: false
+    HubThresholdType:
+      type: integer
+      format: int32
+    HubDetailsDto:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+        name:
+          type:
+          - string
+          - 'null'
+        hubThresholds:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/HubThresholdDto'
+        hidden:
+          type: boolean
+        macAddress:
+          type:
+          - string
+          - 'null'
+        growId:
+          type: integer
+          format: int32
+        sensorDevices:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/SensorDeviceViewDto'
+      additionalProperties: false
     SensorDeviceViewDto:
       type: object
       properties:
@@ -194,6 +197,3 @@ components:
         sensorType:
           $ref: '#/components/schemas/SensorType'
       additionalProperties: false
-    ParSensorSubtype:
-      type: integer
-      format: int32
