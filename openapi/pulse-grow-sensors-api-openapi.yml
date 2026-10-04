@@ -208,32 +208,48 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    Ec1SensorCalibrationInformationDto:
+    Ph10SensorCalibrationInformationDto:
       type: object
       properties:
-        lastCalibrationDate:
+        lastPh4CalibrationDate:
           type:
           - string
           - 'null'
           format: date-time
-        isCalibrationUiShown:
-          type: boolean
+        lastPh7CalibrationDate:
+          type:
+          - string
+          - 'null'
+          format: date-time
+        lastPh10CalibrationDate:
+          type:
+          - string
+          - 'null'
+          format: date-time
       additionalProperties: false
-    UniversalDataPointDto:
+    HighChartAuxiliaryData:
       type: object
       properties:
-        dataPointValues:
+        color:
           type:
-          - array
+          - string
           - 'null'
-          items:
-            $ref: '#/components/schemas/UniversalDataPointDtoSingleValue'
-        sensorId:
+          readOnly: true
+        yAxis:
           type: integer
           format: int32
-        createdAt:
-          type: string
-          format: date-time
+        valueDecimal:
+          type: integer
+          format: int32
+        redCoefficient:
+          type: integer
+          format: int32
+        greenCoefficient:
+          type: integer
+          format: int32
+        blueCoefficient:
+          type: integer
+          format: int32
       additionalProperties: false
     MostRecentSensorDataPointDto:
       type: object
@@ -249,6 +265,29 @@ components:
         dataPointDto:
           $ref: '#/components/schemas/UniversalDataPointDto'
       additionalProperties: false
+    UniversalDataPointArrayDto:
+      type: object
+      properties:
+        dataPointValues:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/UniversalDataPointDtoMultipleValue'
+        dataPointValuesCreatedAt:
+          type:
+          - array
+          - 'null'
+          items:
+            type: string
+            format: date-time
+      additionalProperties: false
+    SensorType:
+      type: integer
+      format: int32
+    SensorThresholdType:
+      type: integer
+      format: int32
     UniversalDataPointDtoMultipleValue:
       type: object
       properties:
@@ -272,6 +311,9 @@ components:
         sensorReadingType:
           $ref: '#/components/schemas/SensorReadingType'
       additionalProperties: false
+    DeviceType:
+      type: integer
+      format: int32
     SensorDeviceDetailsDto:
       type: object
       properties:
@@ -344,32 +386,7 @@ components:
         parSensorSubtype:
           $ref: '#/components/schemas/ParSensorSubtype'
       additionalProperties: false
-    DeviceType:
-      type: integer
-      format: int32
-    SensorType:
-      type: integer
-      format: int32
-    Ph10SensorCalibrationInformationDto:
-      type: object
-      properties:
-        lastPh4CalibrationDate:
-          type:
-          - string
-          - 'null'
-          format: date-time
-        lastPh7CalibrationDate:
-          type:
-          - string
-          - 'null'
-          format: date-time
-        lastPh10CalibrationDate:
-          type:
-          - string
-          - 'null'
-          format: date-time
-      additionalProperties: false
-    ParSensorSubtype:
+    SensorReadingType:
       type: integer
       format: int32
     SensorThresholdDto:
@@ -411,10 +428,10 @@ components:
           - 'null'
           format: date-span
       additionalProperties: false
-    SensorReadingType:
+    ParSensorSubtype:
       type: integer
       format: int32
-    UniversalDataPointArrayDto:
+    UniversalDataPointDto:
       type: object
       properties:
         dataPointValues:
@@ -422,41 +439,13 @@ components:
           - array
           - 'null'
           items:
-            $ref: '#/components/schemas/UniversalDataPointDtoMultipleValue'
-        dataPointValuesCreatedAt:
-          type:
-          - array
-          - 'null'
-          items:
-            type: string
-            format: date-time
-      additionalProperties: false
-    SensorThresholdType:
-      type: integer
-      format: int32
-    HighChartAuxiliaryData:
-      type: object
-      properties:
-        color:
-          type:
-          - string
-          - 'null'
-          readOnly: true
-        yAxis:
+            $ref: '#/components/schemas/UniversalDataPointDtoSingleValue'
+        sensorId:
           type: integer
           format: int32
-        valueDecimal:
-          type: integer
-          format: int32
-        redCoefficient:
-          type: integer
-          format: int32
-        greenCoefficient:
-          type: integer
-          format: int32
-        blueCoefficient:
-          type: integer
-          format: int32
+        createdAt:
+          type: string
+          format: date-time
       additionalProperties: false
     UniversalDataPointDtoSingleValue:
       type: object
@@ -478,4 +467,15 @@ components:
           $ref: '#/components/schemas/HighChartAuxiliaryData'
         sensorReadingType:
           $ref: '#/components/schemas/SensorReadingType'
+      additionalProperties: false
+    Ec1SensorCalibrationInformationDto:
+      type: object
+      properties:
+        lastCalibrationDate:
+          type:
+          - string
+          - 'null'
+          format: date-time
+        isCalibrationUiShown:
+          type: boolean
       additionalProperties: false

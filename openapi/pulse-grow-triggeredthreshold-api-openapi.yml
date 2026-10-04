@@ -47,29 +47,13 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    SortedTriggeredThresholdsDto:
-      type: object
-      properties:
-        ongoing:
-          type:
-          - array
-          - 'null'
-          items:
-            $ref: '#/components/schemas/ViewTriggeredThresholdDto'
-        resolved:
-          type:
-          - array
-          - 'null'
-          items:
-            $ref: '#/components/schemas/ViewTriggeredThresholdDto'
-        growId:
-          type: integer
-          format: int32
-      additionalProperties: false
-    SensorThresholdType:
+    HubThresholdType:
       type: integer
       format: int32
-    HubThresholdType:
+    ThresholdType:
+      type: integer
+      format: int32
+    SensorThresholdType:
       type: integer
       format: int32
     ViewTriggeredThresholdDto:
@@ -125,6 +109,22 @@ components:
         hubThresholdType:
           $ref: '#/components/schemas/HubThresholdType'
       additionalProperties: false
-    ThresholdType:
-      type: integer
-      format: int32
+    SortedTriggeredThresholdsDto:
+      type: object
+      properties:
+        ongoing:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/ViewTriggeredThresholdDto'
+        resolved:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/ViewTriggeredThresholdDto'
+        growId:
+          type: integer
+          format: int32
+      additionalProperties: false

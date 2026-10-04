@@ -82,13 +82,42 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    ParSensorSubtype:
+    HubThresholdType:
       type: integer
       format: int32
+    SensorDeviceViewDto:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+        displayOrder:
+          type:
+          - integer
+          - 'null'
+          format: int32
+        name:
+          type:
+          - string
+          - 'null'
+        growId:
+          type: integer
+          format: int32
+        hidden:
+          type: boolean
+        hubId:
+          type:
+          - integer
+          - 'null'
+          format: int32
+        parSensorSubtype:
+          $ref: '#/components/schemas/ParSensorSubtype'
+        deviceType:
+          $ref: '#/components/schemas/DeviceType'
+        sensorType:
+          $ref: '#/components/schemas/SensorType'
+      additionalProperties: false
     SensorType:
-      type: integer
-      format: int32
-    DeviceType:
       type: integer
       format: int32
     HubThresholdDto:
@@ -130,9 +159,6 @@ components:
         thresholdType:
           $ref: '#/components/schemas/HubThresholdType'
       additionalProperties: false
-    HubThresholdType:
-      type: integer
-      format: int32
     HubDetailsDto:
       type: object
       properties:
@@ -165,35 +191,9 @@ components:
           items:
             $ref: '#/components/schemas/SensorDeviceViewDto'
       additionalProperties: false
-    SensorDeviceViewDto:
-      type: object
-      properties:
-        id:
-          type: integer
-          format: int32
-        displayOrder:
-          type:
-          - integer
-          - 'null'
-          format: int32
-        name:
-          type:
-          - string
-          - 'null'
-        growId:
-          type: integer
-          format: int32
-        hidden:
-          type: boolean
-        hubId:
-          type:
-          - integer
-          - 'null'
-          format: int32
-        parSensorSubtype:
-          $ref: '#/components/schemas/ParSensorSubtype'
-        deviceType:
-          $ref: '#/components/schemas/DeviceType'
-        sensorType:
-          $ref: '#/components/schemas/SensorType'
-      additionalProperties: false
+    DeviceType:
+      type: integer
+      format: int32
+    ParSensorSubtype:
+      type: integer
+      format: int32

@@ -212,28 +212,24 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    DeviceType:
-      type: integer
-      format: int32
-    DeviceThresholdDto:
+    DeviceOffsetsDto:
       type: object
       properties:
-        lightThreshold:
-          $ref: '#/components/schemas/ViewThresholdDto'
-        temperatureThreshold:
-          $ref: '#/components/schemas/ViewThresholdDto'
-        humidityThreshold:
-          $ref: '#/components/schemas/ViewThresholdDto'
-        vpdThreshold:
-          $ref: '#/components/schemas/ViewThresholdDto'
-        dewPointThreshold:
-          $ref: '#/components/schemas/ViewThresholdDto'
-        co2Threshold:
-          $ref: '#/components/schemas/ViewThresholdDto'
-        vocThreshold:
-          $ref: '#/components/schemas/ViewThresholdDto'
-        dewPointThresholdDual:
-          $ref: '#/components/schemas/ViewThresholdDto'
+        tempOffset:
+          type: number
+          format: double
+        humidityOffset:
+          type: number
+          format: double
+        lightOffset:
+          type: number
+          format: double
+        airPressureOffset:
+          type: number
+          format: double
+        vpdLeafTempOffsetInF:
+          type: number
+          format: double
       additionalProperties: false
     DeviceDetailsDto:
       type: object
@@ -410,6 +406,74 @@ components:
         lightCalculationReading:
           $ref: '#/components/schemas/PublicApiLightCalculationDto'
       additionalProperties: false
+    ThresholdType:
+      type: integer
+      format: int32
+    DeviceThresholdDto:
+      type: object
+      properties:
+        lightThreshold:
+          $ref: '#/components/schemas/ViewThresholdDto'
+        temperatureThreshold:
+          $ref: '#/components/schemas/ViewThresholdDto'
+        humidityThreshold:
+          $ref: '#/components/schemas/ViewThresholdDto'
+        vpdThreshold:
+          $ref: '#/components/schemas/ViewThresholdDto'
+        dewPointThreshold:
+          $ref: '#/components/schemas/ViewThresholdDto'
+        co2Threshold:
+          $ref: '#/components/schemas/ViewThresholdDto'
+        vocThreshold:
+          $ref: '#/components/schemas/ViewThresholdDto'
+        dewPointThresholdDual:
+          $ref: '#/components/schemas/ViewThresholdDto'
+      additionalProperties: false
+    ViewThresholdDto:
+      type: object
+      properties:
+        id:
+          type:
+          - integer
+          - 'null'
+          format: int32
+        notificationActive:
+          type:
+          - boolean
+          - 'null'
+        lowThresholdValue:
+          type:
+          - number
+          - 'null'
+          format: double
+        highThresholdValue:
+          type:
+          - number
+          - 'null'
+          format: double
+        delay:
+          type:
+          - string
+          - 'null'
+          format: date-span
+        day:
+          type:
+          - boolean
+          - 'null'
+        deviceId:
+          type:
+          - integer
+          - 'null'
+          format: int32
+        thresholdType:
+          $ref: '#/components/schemas/ThresholdType'
+      additionalProperties: false
+    DeviceType:
+      type: integer
+      format: int32
+    BatteryType:
+      type: integer
+      format: int32
     PublicApiLightCalculationDto:
       type: object
       properties:
@@ -452,67 +516,3 @@ components:
           - 'null'
           format: double
       additionalProperties: false
-    ViewThresholdDto:
-      type: object
-      properties:
-        id:
-          type:
-          - integer
-          - 'null'
-          format: int32
-        notificationActive:
-          type:
-          - boolean
-          - 'null'
-        lowThresholdValue:
-          type:
-          - number
-          - 'null'
-          format: double
-        highThresholdValue:
-          type:
-          - number
-          - 'null'
-          format: double
-        delay:
-          type:
-          - string
-          - 'null'
-          format: date-span
-        day:
-          type:
-          - boolean
-          - 'null'
-        deviceId:
-          type:
-          - integer
-          - 'null'
-          format: int32
-        thresholdType:
-          $ref: '#/components/schemas/ThresholdType'
-      additionalProperties: false
-    DeviceOffsetsDto:
-      type: object
-      properties:
-        tempOffset:
-          type: number
-          format: double
-        humidityOffset:
-          type: number
-          format: double
-        lightOffset:
-          type: number
-          format: double
-        airPressureOffset:
-          type: number
-          format: double
-        vpdLeafTempOffsetInF:
-          type: number
-          format: double
-      additionalProperties: false
-    BatteryType:
-      type: integer
-      format: int32
-    ThresholdType:
-      type: integer
-      format: int32
