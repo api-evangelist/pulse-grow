@@ -1,0 +1,12 @@
+{
+ "url": "https://api.pulsegrow.com/swagger/v1/swagger.json",
+ "requested_url": "https://api.pulsegrow.com/swagger/v1/swagger.json",
+ "status": 200,
+ "content_type": "application/json;charset=utf-8",
+ "bytes": 75508,
+ "sha256": "da90547450a6e010bc8d12091c6689c516bb8db03746f83772a70ad828c584d7",
+ "fetched_at": "2026-10-04",
+ "fetched_by": "APIEvangelist-Harvest/1.0 (+https://apievangelist.com)",
+ "match": "byte-identical",
+ "note": "Re-fetched from the provider by verify-openapi-sources.py; the archived file is byte-identical to what the provider serves."
+}
