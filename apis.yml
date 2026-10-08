@@ -39,6 +39,12 @@ modified: '2026-09-16'
 url: https://raw.githubusercontent.com/api-evangelist/pulse-grow/refs/heads/main/apis.yml
 specificationVersion: '0.23'
 common:
+- type: Plans
+  url: plans/pulse-grow-plans-pricing.yml
+- type: RateLimits
+  url: rate-limits/pulse-grow-rate-limits.yml
+- type: FinOps
+  url: finops/pulse-grow-finops.yml
 - type: Website
   url: https://pulsegrow.com
 - type: AgenticAccess
